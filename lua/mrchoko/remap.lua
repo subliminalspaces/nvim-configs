@@ -11,8 +11,10 @@ vim.keymap.set("v", "k", "<nop>")
 vim.keymap.set("v", "l", "<nop>")
 
 
---vim.keymap.set({ "n"}, "<C-\\>", ":ToggleTerm<CR>")
+vim.keymap.set({ "n"}, "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set({ "n"}, "<leader>t", ":ToggleTerm<CR>")
 vim.keymap.set({ "n" }, "<leader>e", ":NvimTreeToggle<CR>")
+
 vim.keymap.set({ "n", }, "<C-j>","<C-W>h", {noremap=true})
 vim.keymap.set({ "n", }, "<C-i>","<C-W>k", {noremap=true})
 vim.keymap.set({ "n", }, "<C-k>","<C-W>j", {noremap=true})

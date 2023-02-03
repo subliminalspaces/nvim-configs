@@ -18,12 +18,15 @@ return require('packer').startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = "*", config = function()
     require("toggleterm").setup ({ 
       direction = 'horizontal',
-      open_mapping=[[<c-\>]],
---      insert_mappings = true,
-        terminal_mappings = true,
-        auto_scroll = true,
-        shade_terminals = false,
-   --     winhighlight = "none",
+      open_mapping=[[<C-\>]],
+      insert_mappings = true,
+      terminal_mappings = true,
+      auto_scroll = true,
+      shade_terminals = false,
+      start_in_insert = true,
+      persist_size = true, 
+      persist_mode = true,
+      -- winh    winhighlight = "none", makes -- makes terminal darker
         highlights = {
 	  Normal = {
             guibg="none",
@@ -59,4 +62,97 @@ return require('packer').startup(function(use)
       vim.cmd('colorscheme rose-pine')
     end
   })
+  use({
+    'mbbill/undotree'
+  })
+  use({'tpope/vim-fugitive'})
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup({
+          padding = true,
+          sticky = true,
+          ignore = nil,
+          toggler = {
+            line = 'gcc',
+            block = 'gbc'
+          },
+          extra = {},
+          mappings = {
+            basic = true,
+            extra = true
+          }
+
+        })
+    end
+  }
+  use {
+  'nvim-lualine/lualine.nvim', 
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true},
+  config = function()
+  require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+  }
+  end
+  }
+  use {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v1.x',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},             -- Required
+    {'williamboman/mason.nvim'},           -- Optional
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},         -- Required
+    {'hrsh7th/cmp-nvim-lsp'},     -- Required
+    {'hrsh7th/cmp-buffer'},       -- Optional
+    {'hrsh7th/cmp-path'},         -- Optional
+    {'saadparwaiz1/cmp_luasnip'}, -- Optional
+    {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},             -- Required
+    {'rafamadriz/friendly-snippets'}, -- Optional
+  }
+}
+  
 end)
