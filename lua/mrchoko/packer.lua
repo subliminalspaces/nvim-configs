@@ -29,18 +29,12 @@ return require('packer').startup(function(use)
             guibg="none",
             bg="none"
           },
-	}
-     --   NormalFloat = {
-       --   guibg="none",
-      --    bg="none"
-     --   }
-      --  }
---        shading_factor = 100
-	
+	      }	
     })
     end
   }
-    use {"/xiyaowong/nvim-transparent", config = function()
+  use{'nvim-treesitter/nvim-treesitter', {run =':TSUpdate'}}
+  use {"/xiyaowong/nvim-transparent", config = function()
       require("transparent").setup({
         enable = true, -- boolean: enable transparent
         extra_groups = { -- table/string: additional groups that should be cleared
