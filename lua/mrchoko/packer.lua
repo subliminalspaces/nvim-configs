@@ -5,9 +5,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
   vim.cmd [[packadd packer.nvim]]
 end
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use {'wbthomason/packer.nvim'}
   use { 'sitiom/nvim-numbertoggle' }
   use {
     'nvim-tree/nvim-tree.lua',
@@ -37,7 +38,7 @@ return require('packer').startup(function(use)
     end
   }
   use{'nvim-treesitter/nvim-treesitter', {run =':TSUpdate'}}
-  use {"/xiyaowong/nvim-transparent", config = function()
+  use {"xiyaowong/nvim-transparent", config = function()
       require("transparent").setup({
         enable = true, -- boolean: enable transparent
         extra_groups = { -- table/string: additional groups that should be cleared
