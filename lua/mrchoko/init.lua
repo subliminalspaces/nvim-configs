@@ -2,6 +2,9 @@ require("mrchoko.remap")
 require("mrchoko.packer")
 require("mrchoko.nvim-tree-config")
 
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
@@ -11,6 +14,21 @@ vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+vim.opt.guicursor=
+"n-v-c:block-Cursor/lCursor,"
+.. "ve:ver35-Cursor,"
+.. "o:hor50-Cursor,"
+.. "i-ci:ver25-Cursor/lCursor,"
+.. "r-cr:hor20-Cursor/lCursor,"
+.. "sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,"
+.. "a:blinkwait1000-blinkon200-blinkoff300"
+
+augroup('ResetCursor', {clear = true})
+autocmd({ 'VimLeave', 'VimSuspend'}, 
+        {group = 'ResetCursor',
+        pattern = '*',
+        command = "set guicursor=a:ver25-blinkon750-blinkoff750"
+})
 
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
