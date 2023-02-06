@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     end
   }
   use{'nvim-treesitter/nvim-treesitter', {run =':TSUpdate'}}
-  use {"xiyaowong/nvim-transparent", config = function()
+  use {"xiyaowong/nvim-transparent", name="transparent", config = function()
       require("transparent").setup({
         enable = true, -- boolean: enable transparent
         extra_groups = { -- table/string: additional groups that should be cleared
@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
   	},
 	exclude = {}, -- table: groups you don't want to clear
       })
-      end 
+      end
     }
   use({
     'rose-pine/neovim',
@@ -94,7 +94,7 @@ return require('packer').startup(function(use)
   require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'onelight',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -112,9 +112,26 @@ return require('packer').startup(function(use)
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_b = {'branch'},
+    lualine_c = {
+      {
+      'diff',
+      colored = true, -- Displays a colored diff status if set to true
+    --  diff_color = {
+        -- Same color values as the general color option can be used here.
+       -- added    = 'AddChange',    -- Changes the diff's added color
+       -- modified = 'DiffChange', -- Changes the diff's modified color
+       -- removed  = 'DiffDelete', -- Changes the diff's removed color you
+     -- },
+      symbols = {added = '+', modified = '~', removed = '-'}, -- Changes the symbols used by the diff.
+                    -- A function that works as a data source for diff.
+                    -- It must return a table as such:
+                    -- or nil on failure. count <= 0 won't be displayed.
+      },
+      'diagnostics',
+      'filename',
+    },
+    lualine_x = {'encoding', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
@@ -129,7 +146,7 @@ return require('packer').startup(function(use)
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
+  extensions = {'fugitive'}
   }
   end
   }
