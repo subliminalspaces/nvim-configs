@@ -6,7 +6,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Packer can manage itself
   use {'wbthomason/packer.nvim'}
   use { 'sitiom/nvim-numbertoggle' }
@@ -38,6 +38,51 @@ return require('packer').startup(function(use)
     end
   }
   use{'nvim-treesitter/nvim-treesitter', {run =':TSUpdate'}}
+  use{'tree-sitter/tree-sitter-css'}
+  use{'tree-sitter/tree-sitter-html'}
+  
+  use{'tree-sitter/tree-sitter-javascript'}
+  
+  use{'rest-nvim/tree-sitter-http'}
+  use{'camdencheek/tree-sitter-dockerfile'}
+  use{'the-mikedavis/tree-sitter-diff'}
+  
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup({
+          padding = true,
+          sticky = true,
+          ignore = nil,
+          toggler = {
+            line = 'gcc',
+            block = 'gbc'
+          },
+          extra = {},
+          mappings = {
+            basic = true,
+            extra = true
+          },
+          pre_hook = function(ctx)
+          return require('Comment.jsx').calculate(ctx)
+          end
+
+        })
+    end
+  }
+  use{'the-mikedavis/tree-sitter-git-rebase'}
+  use{'ObserverOfTime/tree-sitter-gitattributes'}
+  use{'gbprod/tree-sitter-gitcommit'}
+  use{'shunsambongi/tree-sitter-gitignore'}
+  use{'bkegley/tree-sitter-graphql'}
+  use{'tree-sitter/tree-sitter-jsdoc'}
+  use{'DerekStride/tree-sitter-sql'}
+  use{'ikatyang/tree-sitter-toml'}
+  use{'tree-sitter/tree-sitter-regex'}
+  use{'tree-sitter/tree-sitter-json'}
+  use{'Joakker/tree-sitter-json5'}
+  use{'tree-sitter/tree-sitter-typescript'}
+  use{'tree-sitter/tree-sitter-python'}
   use {"xiyaowong/nvim-transparent", name="transparent", config = function()
       require("transparent").setup({
         enable = true, -- boolean: enable transparent
@@ -67,26 +112,6 @@ return require('packer').startup(function(use)
     'mbbill/undotree'
   })
   use({'tpope/vim-fugitive'})
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup({
-          padding = true,
-          sticky = true,
-          ignore = nil,
-          toggler = {
-            line = 'gcc',
-            block = 'gbc'
-          },
-          extra = {},
-          mappings = {
-            basic = true,
-            extra = true
-          }
-
-        })
-    end
-  }
   use {
   'nvim-lualine/lualine.nvim', 
   requires = { 'kyazdani42/nvim-web-devicons', opt = true},
@@ -176,8 +201,7 @@ return require('packer').startup(function(use)
   "folke/trouble.nvim",
   requires = "nvim-tree/nvim-web-devicons",
   config = function()
-    require("trouble").setup {
-   
+    require("trouble").setup { 
     position = "bottom", -- position of the list can be: bottom, top, left, right
     height = 10, -- height of the trouble list when position is top or bottom
     width = 50, -- width of the list when position is left or right
@@ -225,5 +249,12 @@ return require('packer').startup(function(use)
     use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
     }
   end
-} 
-end)
+}
+end,
+config ={
+      git = {
+        clone_timeout = 150
+      }
+    } 
+}
+)
