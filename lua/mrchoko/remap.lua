@@ -28,6 +28,11 @@ vim.keymap.set({ "n"}, "<leader>t", ":ToggleTerm<CR>")
 vim.keymap.set({ "n" }, "<leader>e", ":NvimTreeToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>r", ":TroubleToggle<CR>")
 
+vim.keymap.set({ "n", }, "<C-j>","<C-W>h", {noremap=true})
+vim.keymap.set({ "n", }, "<C-i>","<C-W>k", {noremap=true})
+vim.keymap.set({ "n", }, "<C-k>","<C-W>j", {noremap=true})
+vim.keymap.set({ "n", }, "<C-l>","<C-W>l", {noremap=true})
+
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
