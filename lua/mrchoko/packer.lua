@@ -204,6 +204,32 @@ return require('packer').startup({function(use)
   extensions = {'fugitive'}
   }
   end
+}
+  use{'folke/neodev.nvim', config= function()
+    require("neodev").setup({
+  library = {
+    enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
+    -- these settings will be used for your Neovim config directory
+    runtime = true, -- runtime path
+    types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+    plugins = true, -- installed opt or start plugins in packpath
+    -- you can also specify the list of plugins to make available as a workspace library
+    -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+  },
+  setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
+  -- for your Neovim config directory, the config.library settings will be used as is
+  -- for plugin directories (root_dirs having a /lua directory), config.library.plugins will be disabled
+  -- for any other directory, config.library.enabled will be set to false
+  override = function(root_dir, options) end,
+  -- With lspconfig, Neodev will automatically setup your lua-language-server
+  -- If you disable this, then you have to set {before_init=require("neodev.lsp").before_init}
+  -- in your lsp start options
+  lspconfig = true,
+  -- much faster, but needs a recent built of lua-language-server
+  -- needs lua-language-server >= 3.6.0
+  pathStrict = true,
+  })
+  end
   }
   use {
   'VonHeikemen/lsp-zero.nvim',
@@ -226,6 +252,62 @@ return require('packer').startup({function(use)
     {'L3MON4D3/LuaSnip'},             -- Required
     {'rafamadriz/friendly-snippets'}, -- Optional
   }
+  }
+  use{'mrjones2014/smart-splits.nvim', config = function()
+    require('smart-splits').setup({
+  -- Ignored filetypes (only while resizing)
+  ignored_filetypes = {
+    'nofile',
+    'quickfix',
+    'prompt',
+  },
+  -- Ignored buffer types (only while resizing)
+  ignored_buftypes = { 'NvimTree' },
+  -- the default number of lines/columns to resize by at a time
+  default_amount = 10,
+  -- whether to wrap to opposite side when cursor is at an edge
+  -- e.g. by default, moving left at the left edge will jump
+  -- to the rightmost window, and vice versa, same for up/down.
+  wrap_at_edge = true,
+  -- when moving cursor between splits left or right,
+  -- place the cursor on the same row of the *screen*
+  -- regardless of line numbers. False by default.
+  -- Can be overridden via function parameter, see Usage.
+  move_cursor_same_row = false,
+  -- resize mode options
+  resize_mode = {
+    -- key to exit persistent resize mode
+    quit_key = '<ESC>',
+    -- keys to use for moving in resize mode
+    -- in order of left, down, up' right
+    resize_keys = { 'j', 'k', 'i', 'l' },
+    -- set to true to silence the notifications
+    -- when entering/exiting persistent resize mode
+    silent = false,
+    -- must be functions, they will be executed when
+    -- entering or exiting the resize mode
+    hooks = {
+      on_enter = nil,
+      on_leave = nil,
+    },
+  },
+  -- ignore these autocmd events (via :h eventignore) while processing
+  -- smart-splits.nvim computations, which involve visiting different
+  -- buffers and windows. These events will be ignored during processing,
+  -- and un-ignored on completed. This only applies to resize events,
+  -- not cursor movement events.
+  ignored_events = {
+    'BufEnter',
+    'WinEnter',
+  },
+  -- enable or disable the tmux integration
+  tmux_integration = false,
+  -- disable tmux navigation if current tmux pane is zoomed
+  disable_tmux_nav_when_zoomed = true,
+
+  })
+
+  end
   }
   use {
   "folke/trouble.nvim",
@@ -285,6 +367,6 @@ config ={
       git = {
         clone_timeout = 150
       }
-    } 
+    }
 }
 )

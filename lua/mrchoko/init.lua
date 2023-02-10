@@ -67,6 +67,7 @@ vim.opt.hidden = true -- required to keep multiple buffers and open multiple buf
 vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
+vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
@@ -110,4 +111,4 @@ vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 --vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 --vim.opt.smartcase = true -- smart case
---vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
+
