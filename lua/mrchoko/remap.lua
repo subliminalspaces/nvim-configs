@@ -12,7 +12,7 @@ vim.keymap.set("v", "j", "")
 vim.keymap.set("v", "k", "")
 vim.keymap.set("v", "l", "")
 vim.keymap.set("v", "h", "")
-
+vim.keymap.set("n", "w", "")
 
 
 vim.keymap.set({ "n"}, "<leader>u", vim.cmd.UndotreeToggle)

@@ -17,7 +17,8 @@ return require('packer').startup({function(use)
   }
   use { "akinsho/toggleterm.nvim", tag = "*", config = function()
     require("toggleterm").setup ({ 
-      direction = 'horizontal',
+      direction = 'vertical',
+      size = vim.o.columns * 0.3,
       open_mapping=[[<C-\>]],
       insert_mappings = true,
       terminal_mappings = true,
