@@ -26,7 +26,7 @@ vim.keymap.set({ "n", }, "<C-k>","<C-W>j", {noremap=true})
 vim.keymap.set({ "n", }, "<C-l>","<C-W>l", {noremap=true})
 
 vim.keymap.set('n', '<leader>wo', ":horizontal split<CR>")
-vim.keymap.set('n', '<leader>wm', ":vertical split<CR>")
+vim.keymap.set('n', '<leader>wu', ":vertical split<CR>")
 
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
