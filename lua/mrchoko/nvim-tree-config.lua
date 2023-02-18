@@ -1,7 +1,10 @@
-
--- empty setup using d
-require ("nvim-tree").setup()
--- OR setup with some options
+  return {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    config = function ()
+    
 require("nvim-tree").setup({   
   sort_by = "case_sensitive",
   view = {
@@ -27,3 +30,6 @@ require("nvim-tree").setup({
     timeout = 400
   }
 })
+
+    end
+  }

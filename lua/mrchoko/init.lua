@@ -1,6 +1,6 @@
 require("mrchoko.remap")
 require("mrchoko.packer")
-require("mrchoko.nvim-tree-config")
+--require("mrchoko.nvim-tree-config")
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
