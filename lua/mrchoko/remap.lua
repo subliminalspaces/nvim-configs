@@ -39,3 +39,11 @@ vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
+
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

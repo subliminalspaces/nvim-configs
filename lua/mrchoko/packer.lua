@@ -76,6 +76,7 @@ return require('packer').startup({function(use)
   })
   end
   }
+  use(require'mrchoko.telescope-config') 
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v1.x',
