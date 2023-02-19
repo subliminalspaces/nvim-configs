@@ -1,6 +1,5 @@
 require("mrchoko.remap")
 require("mrchoko.packer")
---require("mrchoko.nvim-tree-config")
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
@@ -9,23 +8,23 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Cursor colors 
+-- Cursor colors
 vim.opt.termguicolors = true
-vim.opt.guicursor=
+vim.opt.guicursor =
 "n-v-c:block-Cursor/lCursor,"
-.. "ve:ver35-Cursor,"
-.. "o:hor50-Cursor,"
-.. "i-ci:ver25-Cursor/lCursor,"
-.. "r-cr:hor20-Cursor/lCursor,"
-.. "sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,"
-.. "a:blinkwait1000-blinkon200-blinkoff300"
+    .. "ve:ver35-Cursor,"
+    .. "o:hor50-Cursor,"
+    .. "i-ci:ver25-Cursor/lCursor,"
+    .. "r-cr:hor20-Cursor/lCursor,"
+    .. "sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,"
+    .. "a:blinkwait1000-blinkon200-blinkoff300"
 
-augroup('ResetCursor', {clear = true})
-autocmd({ 'VimLeave', 'VimSuspend'}, 
-        {group = 'ResetCursor',
-        pattern = '*',
-        command = "set guicursor=a:ver25-blinkon750-blinkoff750"
-        })
+augroup('ResetCursor', { clear = true })
+autocmd({ 'VimLeave', 'VimSuspend' },
+  { group = 'ResetCursor',
+    pattern = '*',
+    command = "set guicursor=a:ver25-blinkon750-blinkoff750"
+  })
 
 
 --Clipboard, backups, swaps, and undos
@@ -34,19 +33,19 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true -- creates a backup file
 vim.opt.writebackup = true -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 local backupdir = vim.fn.stdpath("data") .. "/backups//"
-vim.opt.backupdir =  backupdir
+vim.opt.backupdir = backupdir
 if vim.fn.finddir(backupdir) == "" then
- vim.fn.mkdir(backupdir)
+  vim.fn.mkdir(backupdir)
 end
 vim.opt.backupext = ".bak"
-vim.opt.backupcopy="yes"
+vim.opt.backupcopy = "yes"
 vim.opt.swapfile = false -- creates a swapfile
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.undodir = "~/.local/share/nvim/undo//"
 local undodir = vim.fn.stdpath("data") .. "/undo//"
-vim.opt.undodir =  undodir
+vim.opt.undodir = undodir
 if vim.fn.finddir(undodir) == "" then
- vim.fn.mkdir(undodir)
+  vim.fn.mkdir(undodir)
 end
 
 --Cursor
@@ -81,18 +80,18 @@ vim.opt.splitright = true -- force all vertical splits to go to the right of cur
 vim.opt.wrap = true -- display lines as one long line
 vim.opt.cursorline = true
 
-vim.o.number = true  -- set absolute numbered lines
+vim.o.number = true -- set absolute numbered lines
 --vim.opt.relativenumber = true -- set relative numbered lines
 
-autocmd({ 'InsertEnter', }, 
-        {pattern = '*',
-        command = "set norelativenumber number"
-})
+autocmd({ 'InsertEnter', },
+  { pattern = '*',
+    command = "set norelativenumber number"
+  })
 
-autocmd({ 'InsertLeave', }, 
-        {pattern = '*',
-        command = "set relativenumber nonumber"
-})
+autocmd({ 'InsertLeave', },
+  { pattern = '*',
+    command = "set relativenumber nonumber"
+  })
 
 vim.opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
@@ -111,4 +110,3 @@ vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 --vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 --vim.opt.smartcase = true -- smart case
-
