@@ -28,7 +28,6 @@ autocmd({ 'VimLeave', 'VimSuspend' },
 
 
 --Clipboard, backups, swaps, and undos
-
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true -- creates a backup file
 vim.opt.writebackup = true -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
@@ -79,9 +78,11 @@ vim.opt.splitbelow = true -- force all horizontal splits to go below current win
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.wrap = true -- display lines as one long line
 vim.opt.cursorline = true
-
+vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
 --vim.opt.relativenumber = true -- set relative numbered lines
+
+
 
 autocmd({ 'InsertEnter', },
   { pattern = '*',
