@@ -60,6 +60,7 @@ vim.o.fillchars = 'eob: '
 
 --Window settings
 
+--vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
 vim.opt.title = true -- set the title of window to the value of the titlestring
@@ -108,6 +109,5 @@ vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
 --vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
---vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 --vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 --vim.opt.smartcase = true -- smart case
