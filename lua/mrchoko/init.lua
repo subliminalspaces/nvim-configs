@@ -54,10 +54,11 @@ vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.fileencoding = "utf-8"
 vim.opt.spelllang = "en"
 vim.opt.spell = false
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop =4
+vim.opt.expandtab = true
 vim.o.fillchars = 'eob: '
-
 --Window settings
 
 --vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
