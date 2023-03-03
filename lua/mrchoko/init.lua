@@ -1,6 +1,8 @@
 require("mrchoko.remap")
 require("mrchoko.packer")
 
+vim.g.indent_guides_enable_on_vim_startup = 1
+
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 

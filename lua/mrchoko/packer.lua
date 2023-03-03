@@ -35,7 +35,8 @@ return require('packer').startup({ function(use)
   use { 'Joakker/tree-sitter-json5' }
   use { 'tree-sitter/tree-sitter-typescript' }
   use { 'tree-sitter/tree-sitter-python' }
-
+  use { 'christoomey/vim-tmux-navigator'}
+  use('preservim/vim-indent-guides')
   use(require('mrchoko.which-key-config'))
   use(require('mrchoko.nvim-transparent-config'))
   use(require('mrchoko.alpha-nvim-config'))
