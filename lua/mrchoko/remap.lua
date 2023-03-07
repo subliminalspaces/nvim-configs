@@ -26,25 +26,33 @@ vim.keymap.set({ "n" }
   "<leader>i"
   , vim.lsp.buf.format
 )
-
-vim.keymap.set({ "n", }, "<C-j>", "<C-W>h", { noremap = true })
-vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
-vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
-vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
-
+-- vim.keymap.set({ "n", }, "<C-j>", "<C-W>h", { noremap = true })
+-- vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
+-- vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
+-- vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
 vim.keymap.set('n', '<leader>wo', ":horizontal split<CR>")
 vim.keymap.set('n', '<leader>wu', ":vertical split<CR>")
 
--- vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_left)
--- vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_down)
--- vim.keymap.set('n', '<C-i>', require('smart-splits').move_cursor_up)
--- vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+vim.keymap.set({'n','t'}, '<C-j>', require('smart-splits').move_cursor_left)
+vim.keymap.set({'n','t'}, '<C-k>', require('smart-splits').move_cursor_down)
+vim.keymap.set({'n','t'}, '<C-i>', require('smart-splits').move_cursor_up)
+vim.keymap.set({'n','t'}, '<C-l>', require('smart-splits').move_cursor_right)
 
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
+local t = {}
+t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '350', 'sine', [['cursorline']] } }
+t['<C-o>'] = { 'scroll', {  'vim.wo.scroll', 'true', '350', 'sine', [['cursorline']] } }
+require('neoscroll.config').set_mappings(t)
+local opts = {buffer = 0}
+vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+-- vim.keymap.set('t', '<VC-j>', [[<Cmd>wincmd j<CR>]], opts)
+-- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+-- vim.keymap.set('t', '<C-i>', [[<Cmd>wincmd i<CR>]], opts)
+-- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

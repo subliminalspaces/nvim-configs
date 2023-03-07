@@ -17,7 +17,7 @@ return {
             guibg="none",
             bg="none"
           },
-	      }	
+	      }
     })
     end
 

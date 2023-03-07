@@ -13,7 +13,8 @@ return require('packer').startup({ function(use)
   use(require 'mrchoko.nvim-tree-config')
   use(require 'mrchoko.toggleterm-config')
   use(require 'mrchoko.comment-config')
-  
+  use(require 'mrchoko.neoscroll-config')
+
   use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
   use { 'tree-sitter/tree-sitter-css' }
   use { 'tree-sitter/tree-sitter-html' }
@@ -35,7 +36,6 @@ return require('packer').startup({ function(use)
   use { 'Joakker/tree-sitter-json5' }
   use { 'tree-sitter/tree-sitter-typescript' }
   use { 'tree-sitter/tree-sitter-python' }
-  use { 'christoomey/vim-tmux-navigator'}
   use('preservim/vim-indent-guides')
   use(require('mrchoko.which-key-config'))
   use(require('mrchoko.nvim-transparent-config'))
