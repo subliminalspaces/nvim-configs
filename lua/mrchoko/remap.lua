@@ -27,18 +27,18 @@ vim.keymap.set({ "n" }
   , vim.lsp.buf.format
 )
 
--- vim.keymap.set({ "n", }, "<C-j>", "<C-W>h", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
+vim.keymap.set({ "n", }, "<C-j>", "<C-W>h", { noremap = true })
+vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
+vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
+vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
 
 vim.keymap.set('n', '<leader>wo', ":horizontal split<CR>")
 vim.keymap.set('n', '<leader>wu', ":vertical split<CR>")
 
-vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_left)
-vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_down)
-vim.keymap.set('n', '<C-i>', require('smart-splits').move_cursor_up)
-vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+-- vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_left)
+-- vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_down)
+-- vim.keymap.set('n', '<C-i>', require('smart-splits').move_cursor_up)
+-- vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
 
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
