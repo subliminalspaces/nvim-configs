@@ -50,7 +50,7 @@ if vim.fn.finddir(undodir) == "" then
 end
 
 --Cursor
-
+vim.o.autoindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.fileencoding = "utf-8"
