@@ -49,8 +49,8 @@ vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
 
 local t = {}
-t['<C-u>'] = { 'scroll', { '-10', 'true', '200', [['sine']] } }
-t['<C-o>'] = { 'scroll', {  '10', 'true', '200', [['sine']] } }
+t['<C-u>'] = { 'scroll', { '-10', 'true', '200', [['sine', 'cursorline']] } }
+t['<C-o>'] = { 'scroll', {  '10', 'true', '200', [['sine', 'cursorline']] } }
 require('neoscroll.config').set_mappings(t)
 -- local t = {}
 -- t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '450', [['sine']] } }
