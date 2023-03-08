@@ -33,10 +33,14 @@ vim.keymap.set({ "n" }
 vim.keymap.set('n', '<leader>wo', ":horizontal split<CR>")
 vim.keymap.set('n', '<leader>wu', ":vertical split<CR>")
 
+vim.keymap.set('t', '<leader>wo', "")
+vim.keymap.set('t', '<leader>wu', "")
+
 vim.keymap.set({'n','t'}, '<C-j>', require('smart-splits').move_cursor_left)
 vim.keymap.set({'n','t'}, '<C-k>', require('smart-splits').move_cursor_down)
 vim.keymap.set({'n','t'}, '<C-i>', require('smart-splits').move_cursor_up)
 vim.keymap.set({'n','t'}, '<C-l>', require('smart-splits').move_cursor_right)
+
 
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
