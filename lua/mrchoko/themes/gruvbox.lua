@@ -1,5 +1,5 @@
 return {
-  'ellisonleao/gruvbox',
+  'ellisonleao/gruvbox.nvim',
   as = 'gruvbox',
   config = function()
    require("gruvbox").setup({

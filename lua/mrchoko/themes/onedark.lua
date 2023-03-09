@@ -1,5 +1,5 @@
 return {
-  'navarasu/onedark',
+  'navarasu/onedark.nvim',
   as = 'onedark',
   config = function()
 require('kanagawa').setup({
