@@ -47,15 +47,9 @@ vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
+vim.keymap.set({'n','v'}, '<C-u>', ":lua require('neoscroll').scroll(-10,true,300)<CR>")
+vim.keymap.set({'n','v'}, '<C-o>', ":lua require('neoscroll').scroll(10,true,300)<CR>")
 
-local t = {}
-t['<C-u>'] = { 'scroll', { '-10', 'true', '200', [['sine', 'cursorline']] } }
-t['<C-o>'] = { 'scroll', {  '10', 'true', '200', [['sine', 'cursorline']] } }
-require('neoscroll.config').set_mappings(t)
--- local t = {}
--- t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '450', [['sine']] } }
--- t['<C-o>'] = { 'scroll', {  'vim.wo.scroll', 'true', '450', [['sine']] } }
--- require('neoscroll.config').set_mappings(t)
 local opts = {buffer = 0}
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 -- vim.keymap.set('t', '<VC-j>', [[<Cmd>wincmd j<CR>]], opts)
