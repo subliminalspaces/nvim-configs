@@ -18,7 +18,7 @@ vim.keymap.set("n", "w", "")
 --Comment
 
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set({ "n" }, "<leader>t", ":ToggleTerm<CR>")
+--vim.keymap.set({ "n" }, "<leader>t", ":ToggleTerm<CR>")
 vim.keymap.set({ "n" }, "<leader>e", ":NvimTreeToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>r", ":TroubleToggle<CR>")
 vim.keymap.set({ "n" }
@@ -30,8 +30,8 @@ vim.keymap.set({ "n" }
 -- vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
 -- vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
 -- vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
-vim.keymap.set('n', '<leader>wo', ":horizontal split<CR>")
-vim.keymap.set('n', '<leader>wu', ":vertical split<CR>")
+vim.keymap.set('n', '<leader>tl', ":horizontal split<CR>")
+vim.keymap.set('n', '<leader>tk', ":vertical split<CR>")
 
 vim.keymap.set('t', '<leader>wo', "")
 vim.keymap.set('t', '<leader>wu', "")
@@ -47,8 +47,8 @@ vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
-vim.keymap.set({'n','v'}, '<C-u>', ":lua require('neoscroll').scroll(-10,true,300)<CR>")
-vim.keymap.set({'n','v'}, '<C-o>', ":lua require('neoscroll').scroll(10,true,300)<CR>")
+vim.keymap.set({'n','v'}, '<C-u>', ":lua require('neoscroll').scroll(-7,true,300)<CR>")
+vim.keymap.set({'n','v'}, '<C-o>', ":lua require('neoscroll').scroll(7,true,300)<CR>")
 
 local opts = {buffer = 0}
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
