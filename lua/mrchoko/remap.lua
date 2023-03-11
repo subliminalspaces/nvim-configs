@@ -30,8 +30,8 @@ vim.keymap.set({ "n" }
 -- vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
 -- vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
 -- vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
-vim.keymap.set('n', '<leader>tl', ":horizontal split<CR>")
-vim.keymap.set('n', '<leader>tk', ":vertical split<CR>")
+vim.keymap.set('n', '<leader>to', ":horizontal split<CR>")
+vim.keymap.set('n', '<leader>th', ":vertical split<CR>")
 
 vim.keymap.set('t', '<leader>wo', "")
 vim.keymap.set('t', '<leader>wu', "")
