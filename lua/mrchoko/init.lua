@@ -24,13 +24,14 @@ vim.opt.guicursor =
 augroup('StartObsession', {
 clear = true
 })
-autocmd({'VimEnter'},
-{
-group = 'StartObsession',
-pattern = '*',
-command = ":Obsession"
-}
-)
+-- autocmd({'VimEnter'},
+-- {
+-- group = 'StartObsession',
+-- pattern = '*',
+-- command = ":Obsession"
+-- }
+-- )
+-- vim.api.nvim_clear_autocmds({group="StartObsession"})
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
   { group = 'ResetCursor',
@@ -38,6 +39,15 @@ autocmd({ 'VimLeave', 'VimSuspend' },
     command = "set guicursor=a:ver25-blinkon750-blinkoff750"
   })
 
+autocmd({ 'InsertEnter', },
+  { pattern = '*',
+    command = "set norelativenumber number"
+  })
+
+autocmd({ 'InsertLeave', },
+  { pattern = '*',
+    command = "set relativenumber nonumber"
+  })
 
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
@@ -97,16 +107,7 @@ vim.o.number = true -- set absolute numbered lines
 vim.o.relativenumber = true
 
 --vim.opt.relativenumber = true -- set relative numbered lines
--- autocmd({ 'InsertEnter', },
---   { pattern = '*',
---     command = "set norelativenumber number"
---   })
---
--- autocmd({ 'InsertLeave', },
---   { pattern = '*',
---     command = "set relativenumber nonumber"
---   })
---
+
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
