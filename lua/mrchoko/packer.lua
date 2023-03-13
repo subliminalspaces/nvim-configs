@@ -18,7 +18,6 @@ return require('packer').startup({ function(use)
     use { 'tree-sitter/tree-sitter-html' }
     use { 'tree-sitter/tree-sitter-javascript' }
     use { 'ikatyang/tree-sitter-yaml' }
-    use { 'rest-nvim/tree-sitter-http' }
     use { 'camdencheek/tree-sitter-dockerfile' }
     use { 'the-mikedavis/tree-sitter-diff' }
     use { 'the-mikedavis/tree-sitter-git-rebase' }
