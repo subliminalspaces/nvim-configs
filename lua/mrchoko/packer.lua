@@ -9,13 +9,10 @@ end
 return require('packer').startup({ function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
-
-
     use(require 'mrchoko.nvim-tree-config')
     use(require 'mrchoko.toggleterm-config')
     use(require 'mrchoko.comment-config')
     use(require 'mrchoko.neoscroll-config')
-
     use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
     use { 'tree-sitter/tree-sitter-css' }
     use { 'tree-sitter/tree-sitter-html' }
@@ -41,19 +38,20 @@ return require('packer').startup({ function(use)
     use(require('mrchoko.which-key-config'))
     use(require('mrchoko.nvim-transparent-config'))
     use(require('mrchoko.alpha-nvim-config'))
-    use { 'rebelot/kanagawa.nvim' }
-    use { "ellisonleao/gruvbox.nvim" }
-    use { 'navarasu/onedark.nvim' }
-    use { 'shaunsingh/nord.nvim'}
-    use(require('mrchoko.themes.gruvbox'))
+    --use {'folke/tokyonight.nvim'}
+    --use { 'rebelot/kanagawa.nvim' }
+    --use { "ellisonleao/gruvbox.nvim" }
+    --use { 'navarasu/onedark.nvim' }
+    --use { 'shaunsingh/nord.nvim'}
+    --use(require('mrchoko.themes.gruvbox'))
     use(require('mrchoko.themes.rose-pine'))
     use(require('mrchoko.themes.tokyonight'))
-    -- use(require('mrchoko.themes.sonokai'))
-    use(require('mrchoko.themes.gruvbox'))
-      use(require('mrchoko.themes.kanagawa'))
-    use(require('mrchoko.themes.nightfox'))
-    use(require('mrchoko.themes.nord'))
-    use(require('mrchoko.themes.onedark'))
+    --use(require('mrchoko.themes.sonokai'))
+    --use(require('mrchoko.themes.gruvbox'))
+    --use(require('mrchoko.themes.kanagawa'))
+    --use(require('mrchoko.themes.nightfox'))
+    --use(require('mrchoko.themes.nord'))
+    --use(require('mrchoko.themes.onedark'))
     use({ 'mbbill/undotree' })
     use({ 'tpope/vim-fugitive' })
     use(require 'mrchoko.lualine-config')
@@ -62,6 +60,7 @@ return require('packer').startup({ function(use)
     use(require 'mrchoko.lsp-zero-config')
     use(require 'mrchoko.smart-splits-config')
     use(require 'mrchoko.trouble-config')
+    use{'tpope/vim-obsession'}
 end,
     config = {
         git = {
