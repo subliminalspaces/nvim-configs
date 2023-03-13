@@ -28,7 +28,7 @@ autocmd({'VimEnter'},
 {
 group = 'StartObsession',
 pattern = '*',
-command = "Obsession"
+command = ":Obsession"
 }
 )
 augroup('ResetCursor', { clear = true })
@@ -112,7 +112,7 @@ vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true
-
+vim.o.autoread = 'autoread'
 
 --Other Stuff
 
