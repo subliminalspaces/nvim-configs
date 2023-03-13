@@ -47,8 +47,8 @@ vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
-vim.keymap.set({'n','v'}, '<C-u>', ":lua require('neoscroll').scroll(-12,true,300)<CR>")
-vim.keymap.set({'n','v'}, '<C-o>', ":lua require('neoscroll').scroll(12,true,300)<CR>")
+vim.keymap.set({'n','v'}, '<C-u>', ":lua require('neoscroll').scroll(-16,true,150)<CR>")
+vim.keymap.set({'n','v'}, '<C-o>', ":lua require('neoscroll').scroll(16,true,150)<CR>")
 
 local opts = {buffer = 0}
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
