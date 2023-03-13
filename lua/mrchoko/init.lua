@@ -94,17 +94,19 @@ vim.opt.wrap = true -- display lines as one long line
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
-vim.opt.relativenumber = true -- set relative numbered lines
-autocmd({ 'InsertEnter', },
-  { pattern = '*',
-    command = "set norelativenumber number"
-  })
+vim.o.relativenumber = true
 
-autocmd({ 'InsertLeave', },
-  { pattern = '*',
-    command = "set relativenumber nonumber"
-  })
-
+--vim.opt.relativenumber = true -- set relative numbered lines
+-- autocmd({ 'InsertEnter', },
+--   { pattern = '*',
+--     command = "set norelativenumber number"
+--   })
+--
+-- autocmd({ 'InsertLeave', },
+--   { pattern = '*',
+--     command = "set relativenumber nonumber"
+--   })
+--
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
