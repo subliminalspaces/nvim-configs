@@ -21,6 +21,16 @@ vim.opt.guicursor =
     .. "sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,"
     .. "a:blinkwait1000-blinkon200-blinkoff300"
 
+augroup('StartObsession', {
+clear = true
+})
+autocmd({'VimEnter'},
+{
+group = 'StartObsession',
+pattern = '*',
+command = "Obsession"
+}
+)
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
   { group = 'ResetCursor',

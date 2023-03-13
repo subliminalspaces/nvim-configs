@@ -24,7 +24,9 @@ return {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
-    lualine_c = {
+    lualine_c = {'filetype'},
+    lualine_d = {'filename'},
+    lualine_e = {
       {
       'diff',
       colored = true, -- Displays a colored diff status if set to true
@@ -40,9 +42,9 @@ return {
                     -- or nil on failure. count <= 0 won't be displayed.
       },
       'diagnostics',
-      'filename',
     },
-    lualine_x = {'encoding', 'filetype'},
+    lualine_w = {'obsession-status'},
+    lualine_x = {'ObsessionStatus'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
