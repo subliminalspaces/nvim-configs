@@ -22,32 +22,31 @@ vim.opt.guicursor =
     .. "a:blinkwait1000-blinkon200-blinkoff300"
 
 augroup('StartObsession', {
-clear = true
+	clear = true
 })
--- autocmd({'VimEnter'},
--- {
--- group = 'StartObsession',
--- pattern = '*',
--- command = ":Obsession"
--- }
--- )
--- vim.api.nvim_clear_autocmds({group="StartObsession"})
+autocmd({ 'VimEnter' },
+	{
+		group = 'StartObsession',
+		pattern = '*',
+		command = "Obsession ."
+	}
+)
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
-  { group = 'ResetCursor',
-    pattern = '*',
-    command = "set guicursor=a:ver25-blinkon750-blinkoff750"
-  })
+	{ group = 'ResetCursor',
+		pattern = '*',
+		command = "set guicursor=a:ver25-blinkon750-blinkoff750"
+	})
 
 autocmd({ 'InsertEnter', },
-  { pattern = '*',
-    command = "set norelativenumber number"
-  })
+	{ pattern = '*',
+		command = "set norelativenumber number"
+	})
 
 autocmd({ 'InsertLeave', },
-  { pattern = '*',
-    command = "set relativenumber nonumber"
-  })
+	{ pattern = '*',
+		command = "set relativenumber nonumber"
+	})
 
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
@@ -56,7 +55,7 @@ vim.opt.writebackup = true -- if a file is being edited by another program (or w
 local backupdir = vim.fn.stdpath("data") .. "/backups//"
 vim.opt.backupdir = backupdir
 if vim.fn.finddir(backupdir) == "" then
-  vim.fn.mkdir(backupdir)
+	vim.fn.mkdir(backupdir)
 end
 vim.opt.backupext = ".bak"
 vim.opt.backupcopy = "yes"
@@ -66,7 +65,7 @@ vim.opt.undodir = "~/.local/share/nvim/undo//"
 local undodir = vim.fn.stdpath("data") .. "/undo//"
 vim.opt.undodir = undodir
 if vim.fn.finddir(undodir) == "" then
-  vim.fn.mkdir(undodir)
+	vim.fn.mkdir(undodir)
 end
 
 --Cursor
@@ -78,7 +77,7 @@ vim.opt.spelllang = "en"
 vim.opt.spell = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.softtabstop =4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.o.fillchars = 'eob: '
 --Window settings
