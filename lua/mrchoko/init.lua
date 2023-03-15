@@ -1,5 +1,5 @@
-require("mrchoko.remap")
 require("mrchoko.packer")
+require("mrchoko.remap")
 
 vim.g.indent_guides_enable_on_vim_startup = 1
 
@@ -24,12 +24,23 @@ vim.opt.guicursor =
 augroup('StartObsession', {
 	clear = true
 })
+
+augroup('KillObsession', {
+	clear = true
+})
 autocmd({ 'VimEnter' },
 	{
 		group = 'StartObsession',
 		pattern = '*',
 		command = "Obsession ."
 	}
+)
+autocmd({'VimLeave'},
+    {  group =  'KillObsession',
+        pattern = '*',
+        command = "Obsession!"
+    
+    }
 )
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
