@@ -1,8 +1,7 @@
 return {
   'navarasu/onedark.nvim',
-  as = 'onedark',
-  config = function()
-require('kanagawa').setup({
+  name = 'onedark',
+opts = {
    require('onedark').setup  {
     -- Main options --
     style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
@@ -42,6 +41,4 @@ require('kanagawa').setup({
         background = true,    -- use background color for virtual text
     },
     }
-    })
-  end
-}
+    }}

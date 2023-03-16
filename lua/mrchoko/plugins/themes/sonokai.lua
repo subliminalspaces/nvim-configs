@@ -1,8 +1,7 @@
 return {
   'rebelot/kanagawa',
-  as = 'kanagawa',
-  config = function()
-require('kanagawa').setup({
+  name = 'kanagawa',
+  opts ={
     compile = false,             -- enable compiling the colorscheme
     undercurl = true,            -- enable undercurls
     commentStyle = { italic = true },
@@ -25,7 +24,5 @@ require('kanagawa').setup({
         dark = "wave",           -- try "dragon" !
         light = "lotus"
     },
-    })
-   
-  end
+    }
 }

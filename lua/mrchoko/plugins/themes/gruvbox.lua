@@ -1,8 +1,7 @@
 return {
   'ellisonleao/gruvbox.nvim',
   as = 'gruvbox',
-  config = function()
-   require("gruvbox").setup({
+  opts = {
   undercurl = true,
   underline = true,
   bold = true,
@@ -18,6 +17,5 @@ return {
   overrides = {},
   dim_inactive = false,
   transparent_mode = false,
-})
-  end
+}
 }

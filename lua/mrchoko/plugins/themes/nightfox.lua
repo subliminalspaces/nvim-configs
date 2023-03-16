@@ -1,7 +1,5 @@
 return { 'EdenEast/nightfox.nvim',
-    config = function()
-        -- Default options
-        require('nightfox').setup({
+        opts = {
             options = {
                 -- Compiled file's destination location
                 compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -43,9 +41,8 @@ return { 'EdenEast/nightfox.nvim',
             palettes = {},
             specs = {},
             groups = {}
-        })
-    end
-}
+        }}
+
 
 --[[ -- Palettes are the base color defines of a colorscheme.
 -- You can override these palettes for each colorscheme defined by nightfox.

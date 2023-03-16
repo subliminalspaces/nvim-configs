@@ -1,7 +1,3 @@
-vim.keymap.set("n", " ", "<nop>")
-vim.g.mapleader = " "
-
-
 vim.keymap.set("n", "j", "")
 vim.keymap.set("n", "k", "")
 vim.keymap.set("n", "l", "")
@@ -17,6 +13,7 @@ vim.keymap.set("n", "w", "")
 
 --Comment
 
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
 --vim.keymap.set({ "n" }, "<leader>t", ":ToggleTerm<CR>")
 vim.keymap.set({ "n" }, "<leader>e", ":NvimTreeToggle<CR>")
@@ -41,6 +38,7 @@ vim.keymap.set({'n','t'}, '<C-k>', require('smart-splits').move_cursor_down)
 vim.keymap.set({'n','t'}, '<C-i>', require('smart-splits').move_cursor_up)
 vim.keymap.set({'n','t'}, '<C-l>', require('smart-splits').move_cursor_right)
 
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
@@ -56,6 +54,7 @@ vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 -- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
 -- vim.keymap.set('t', '<C-i>', [[<Cmd>wincmd i<CR>]], opts)
 -- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

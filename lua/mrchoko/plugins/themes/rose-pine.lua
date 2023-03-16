@@ -1,9 +1,7 @@
 return {
   'rose-pine/neovim',
-  as = 'rose-pine',
-  config = function()
-    require('rose-pine').setup(
-      {
+  name = 'rose-pine',
+    opts = {
         --- @usage 'main' | 'moon'
         dark_variant = 'main',
         bold_vert_split = false,
@@ -43,6 +41,4 @@ return {
           ColorColumn = { bg = 'rose' }
         }
       }
-    )
-  end
 }

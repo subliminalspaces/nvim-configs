@@ -1,8 +1,7 @@
 return {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function()
-        require('lualine').setup {
+    dependencies = { 'nvim-tree/nvim-web-devicons'},
+    opts ={
             options = {
                 icons_enabled = true,
                 theme = 'molokai',
@@ -81,5 +80,4 @@ return {
             inactive_winbar = {},
             extensions = { 'fugitive' }
         }
-    end
 }

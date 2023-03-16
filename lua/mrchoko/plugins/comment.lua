@@ -1,8 +1,6 @@
 return { 'numToStr/Comment.nvim',
   branch = 'jsx',
-  config = function()
-    require('Comment').setup(
-      {
+  opts = {
         ---Add a space b/w comment and the line
         padding = true,
         ---Whether the cursor should stay at its position
@@ -48,6 +46,6 @@ return { 'numToStr/Comment.nvim',
         post_hook = nil,
 
 
-      })
-  end
+}
+
 }

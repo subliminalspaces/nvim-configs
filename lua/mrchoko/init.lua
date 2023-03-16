@@ -1,5 +1,21 @@
-require("mrchoko.packer")
-require("mrchoko.remap")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+local lazyopts = {}
+
+vim.keymap.set("n", " ", "<nop>")
+vim.g.mapleader = " "
+require("lazy").setup('mrchoko.plugins')
 
 vim.g.indent_guides_enable_on_vim_startup = 1
 
@@ -10,7 +26,7 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Cursor colors
+--Cursor colors
 vim.opt.termguicolors = true
 vim.opt.guicursor =
 "n-v-c:block-Cursor/lCursor,"
@@ -22,42 +38,42 @@ vim.opt.guicursor =
     .. "a:blinkwait1000-blinkon200-blinkoff300"
 
 augroup('StartObsession', {
-	clear = true
+    clear = true
 })
 
 augroup('KillObsession', {
-	clear = true
+    clear = true
 })
 autocmd({ 'VimEnter' },
-	{
-		group = 'StartObsession',
-		pattern = '*',
-		command = "Obsession ."
-	}
+    {
+        group = 'StartObsession',
+        pattern = '*',
+        command = "Obsession ."
+    }
 )
-autocmd({'VimLeave'},
-    {  group =  'KillObsession',
+autocmd({ 'VimLeave' },
+    { group = 'KillObsession',
         pattern = '*',
         command = "Obsession!"
-    
+
     }
 )
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
-	{ group = 'ResetCursor',
-		pattern = '*',
-		command = "set guicursor=a:ver25-blinkon750-blinkoff750"
-	})
+    { group = 'ResetCursor',
+        pattern = '*',
+        command = "set guicursor=a:ver25-blinkon750-blinkoff750"
+    })
 
 autocmd({ 'InsertEnter', },
-	{ pattern = '*',
-		command = "set norelativenumber number"
-	})
+    { pattern = '*',
+        command = "set norelativenumber number"
+    })
 
 autocmd({ 'InsertLeave', },
-	{ pattern = '*',
-		command = "set relativenumber nonumber"
-	})
+    { pattern = '*',
+        command = "set relativenumber nonumber"
+    })
 
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
@@ -66,7 +82,7 @@ vim.opt.writebackup = true -- if a file is being edited by another program (or w
 local backupdir = vim.fn.stdpath("data") .. "/backups//"
 vim.opt.backupdir = backupdir
 if vim.fn.finddir(backupdir) == "" then
-	vim.fn.mkdir(backupdir)
+    vim.fn.mkdir(backupdir)
 end
 vim.opt.backupext = ".bak"
 vim.opt.backupcopy = "yes"
@@ -76,7 +92,7 @@ vim.opt.undodir = "~/.local/share/nvim/undo//"
 local undodir = vim.fn.stdpath("data") .. "/undo//"
 vim.opt.undodir = undodir
 if vim.fn.finddir(undodir) == "" then
-	vim.fn.mkdir(undodir)
+    vim.fn.mkdir(undodir)
 end
 
 --Cursor
@@ -126,6 +142,8 @@ vim.opt.expandtab = true
 vim.o.autoread = 'autoread'
 
 --Other Stuff
+
+require("mrchoko.remap")
 
 vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
