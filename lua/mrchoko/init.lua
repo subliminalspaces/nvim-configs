@@ -29,7 +29,7 @@ vim.g.loaded_netrwPlugin = 1
 --Cursor colors
 vim.opt.termguicolors = true
 vim.opt.guicursor =
-"n-v-c:block-Cursor/lCursor,"
+    "n-v-c:block-Cursor/lCursor,"
     .. "ve:ver35-Cursor,"
     .. "o:hor50-Cursor,"
     .. "i-ci:ver25-Cursor/lCursor,"
@@ -52,32 +52,35 @@ autocmd({ 'VimEnter' },
     }
 )
 autocmd({ 'VimLeave' },
-    { group = 'KillObsession',
+    {
+        group = 'KillObsession',
         pattern = '*',
         command = "Obsession!"
-
     }
 )
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
-    { group = 'ResetCursor',
+    {
+        group = 'ResetCursor',
         pattern = '*',
         command = "set guicursor=a:ver25-blinkon750-blinkoff750"
     })
 
 autocmd({ 'InsertEnter', },
-    { pattern = '*',
+    {
+        pattern = '*',
         command = "set norelativenumber number"
     })
 
 autocmd({ 'InsertLeave', },
-    { pattern = '*',
+    {
+        pattern = '*',
         command = "set relativenumber nonumber"
     })
 
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
-vim.opt.backup = true -- creates a backup file
+vim.opt.backup = true      -- creates a backup file
 vim.opt.writebackup = true -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 local backupdir = vim.fn.stdpath("data") .. "/backups//"
 vim.opt.backupdir = backupdir
@@ -87,7 +90,7 @@ end
 vim.opt.backupext = ".bak"
 vim.opt.backupcopy = "yes"
 vim.opt.swapfile = false -- creates a swapfile
-vim.opt.undofile = true -- enable persistent undo
+vim.opt.undofile = true  -- enable persistent undo
 vim.opt.undodir = "~/.local/share/nvim/undo//"
 local undodir = vim.fn.stdpath("data") .. "/undo//"
 vim.opt.undodir = undodir
@@ -110,23 +113,23 @@ vim.o.fillchars = 'eob: '
 --Window settings
 
 --vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
-vim.opt.title = true -- set the title of window to the value of the titlestring
+vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
+vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
+vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
-vim.opt.timeoutlen = 900 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 900                   -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
-vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2 -- always show tabs
-vim.opt.pumheight = 10 -- pop up menu height
-vim.opt.scrolloff = 8 -- is one of my fav
+vim.opt.showmode = false  -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2   -- always show tabs
+vim.opt.pumheight = 10    -- pop up menu height
+vim.opt.scrolloff = 8     -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.updatetime = 300 -- faster completion
+vim.opt.updatetime = 300  -- faster completion
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.wrap = true -- display lines as one long line
+vim.opt.wrap = true       -- display lines as one long line
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
@@ -135,7 +138,7 @@ vim.o.relativenumber = true
 --vim.opt.relativenumber = true -- set relative numbered lines
 
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
-vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
+vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true
@@ -144,7 +147,7 @@ vim.o.autoread = 'autoread'
 --Other Stuff
 
 require("mrchoko.remap")
-
+require("mrchoko.lsp")
 vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
@@ -153,68 +156,3 @@ vim.opt.ignorecase = true -- ignore case in search patterns
 --vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 --vim.opt.smartcase = true -- smart case
 --
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
--- local opts = { noremap=true, silent=true }
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
--- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
---
--- -- Use an on_attach function to only map the following keys
--- -- after the language server attaches to the current buffer
--- local on_attach = function(client, bufnr)
---   -- Enable completion triggered by <c-x><c-o>
---   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
---
---   -- Mappings.
---   -- See `:help vim.lsp.*` for documentation on any of the below functions
---   local bufopts = { noremap=true, silent=true, buffer=bufnr }
---   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
---   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
---   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
---   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
---   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
---   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
---   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
---   vim.keymap.set('n', '<space>wl', function()
--- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---   end, bufopts)
---   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
---   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
---   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
---   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
---   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
--- end
-
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
--- require("typescript").setup({
---     disable_commands = false, -- prevent the plugin from creating Vim commands
---     debug = false, -- enable debug logging for commands
---     go_to_source_definition = {
---         fallback = true, -- fall back to standard LSP definition on failure
---     },
---     server = { -- pass options to lspconfig's setup method
---         on_attach = ...,
---     },
--- })
--- require('lspconfig')['pyright'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
--- require('lspconfig')['tsserver'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }
--- require('lspconfig')['rust_analyzer'].setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
---     -- Server-specific settings...
---     settings = {
---       ["rust-analyzer"] = {}
---     }
--- }
