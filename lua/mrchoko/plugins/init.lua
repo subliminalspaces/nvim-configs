@@ -24,5 +24,5 @@ return {
    'shaunsingh/nord.nvim',
    'mbbill/undotree',
     'tpope/vim-fugitive',
-    'tpope/vim-obsession'
+    'tpope/vim-obsession',
 }
