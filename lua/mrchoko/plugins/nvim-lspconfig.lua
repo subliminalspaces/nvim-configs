@@ -4,7 +4,6 @@
     dependencies = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' }, -- Required
-        {'jose-elias-alvarez/typescript.nvim'},
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' }, -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
