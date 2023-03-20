@@ -1,0 +1,12 @@
+{
+    "languageserver": {
+        "sql": {
+            "lintOnOpen":true,
+            "lintOnChange":true,
+            "lintOnSave":true,
+            "database":"guess",
+            "filetypes":["sql", "pgsql"],
+            "formatOptions":{}
+    }
+    }
+}
