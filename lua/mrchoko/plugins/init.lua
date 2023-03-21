@@ -20,9 +20,7 @@ return {
     'Joakker/tree-sitter-json5',
     'tree-sitter/tree-sitter-typescript',
     'tree-sitter/tree-sitter-python',
-    'preservim/vim-indent-guides',
-   'shaunsingh/nord.nvim',
-   'mbbill/undotree',
+    'mbbill/undotree',
     'tpope/vim-fugitive',
     'tpope/vim-obsession',
 }

@@ -1,6 +1,7 @@
 return {
-  'rebelot/kanagawa',
-  name = 'kanagawa',
+  'sainnhe/sonokai',
+    lazy=false,
+  name = 'sonokai',
   opts ={
     compile = false,             -- enable compiling the colorscheme
     undercurl = true,            -- enable undercurls

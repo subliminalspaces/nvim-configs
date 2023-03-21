@@ -15,7 +15,13 @@ local lazyopts = {}
 
 vim.keymap.set("n", " ", "<nop>")
 vim.g.mapleader = " "
-require("lazy").setup('mrchoko.plugins')
+require("lazy").setup({
+    spec = {
+        { import = 'mrchoko.plugins' }
+	, { import = 'mrchoko.plugins.themes' }
+
+    }
+})
 
 vim.g.indent_guides_enable_on_vim_startup = 1
 
@@ -29,7 +35,7 @@ vim.g.loaded_netrwPlugin = 1
 --Cursor colors
 vim.opt.termguicolors = true
 vim.opt.guicursor =
-    "n-v-c:block-Cursor/lCursor,"
+"n-v-c:block-Cursor/lCursor,"
     .. "ve:ver35-Cursor,"
     .. "o:hor50-Cursor,"
     .. "i-ci:ver25-Cursor/lCursor,"
@@ -80,7 +86,7 @@ autocmd({ 'InsertLeave', },
 
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
-vim.opt.backup = true      -- creates a backup file
+vim.opt.backup = true -- creates a backup file
 vim.opt.writebackup = true -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 local backupdir = vim.fn.stdpath("data") .. "/backups//"
 vim.opt.backupdir = backupdir
@@ -90,7 +96,7 @@ end
 vim.opt.backupext = ".bak"
 vim.opt.backupcopy = "yes"
 vim.opt.swapfile = false -- creates a swapfile
-vim.opt.undofile = true  -- enable persistent undo
+vim.opt.undofile = true -- enable persistent undo
 vim.opt.undodir = "~/.local/share/nvim/undo//"
 local undodir = vim.fn.stdpath("data") .. "/undo//"
 vim.opt.undodir = undodir
@@ -113,23 +119,23 @@ vim.o.fillchars = 'eob: '
 --Window settings
 
 --vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
-vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
-vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
-vim.opt.title = true                       -- set the title of window to the value of the titlestring
+vim.opt.mouse = "a" -- allow the mouse to be used in neovim
+vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
+vim.opt.title = true -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
-vim.opt.timeoutlen = 900                   -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 900 -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
-vim.opt.showmode = false  -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2   -- always show tabs
-vim.opt.pumheight = 10    -- pop up menu height
-vim.opt.scrolloff = 8     -- is one of my fav
+vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2 -- always show tabs
+vim.opt.pumheight = 10 -- pop up menu height
+vim.opt.scrolloff = 8 -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.updatetime = 300  -- faster completion
+vim.opt.updatetime = 300 -- faster completion
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
-vim.opt.wrap = true       -- display lines as one long line
+vim.opt.wrap = true -- display lines as one long line
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
@@ -138,7 +144,7 @@ vim.o.relativenumber = true
 --vim.opt.relativenumber = true -- set relative numbered lines
 
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
-vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
+vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true

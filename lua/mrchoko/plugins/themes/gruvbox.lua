@@ -1,6 +1,7 @@
 return {
   'ellisonleao/gruvbox.nvim',
-  as = 'gruvbox',
+    lazy=false,
+  name = 'gruvbox',
   opts = {
   undercurl = true,
   underline = true,
