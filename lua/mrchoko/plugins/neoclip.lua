@@ -1,17 +1,19 @@
 return {
     "AckslD/nvim-neoclip.lua",
+    dependencies = {{'nvim-telescope/telescope.nvim'},{'kkharji/sqlite.lua', module = 'sqlite'}},
+    lazy= false,
     opts = {
         history = 1000,
-        enable_persistent_history = false,
+        enable_persistent_history = true,
         length_limit = 1048576,
-        continuous_sync = false,
+        continuous_sync = true,
         db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
         filter = nil,
         preview = true,
         prompt = nil,
         default_register = '"',
         default_register_macros = 'q',
-        enable_macro_history = true,
+        enable_macro_history = false,
         content_spec_column = false,
         on_select = {
             move_to_front = false,
@@ -32,15 +34,15 @@ return {
         },
         keys = {
             telescope = {
-                i = {
-                    select = '<cr>',
-                    paste = '<c-p>',
-                    paste_behind = '<c-k>',
-                    replay = '<c-q>', -- replay a macro
-                    delete = '<c-d>', -- delete an entry
-                    edit = '<c-e>', -- edit an entry
-                    custom = {},
-                },
+                -- i = {
+                --     select = '<cr>',
+                --     paste = '<c-p>',
+                --     paste_behind = '<c-k>',
+                --     replay = '<c-q>', -- replay a macro
+                --     delete = '<c-d>', -- delete an entry
+                --     edit = '<c-e>', -- edit an entry
+                --     custom = {},
+                -- },
                 n = {
                     select = '<cr>',
                     paste = 'p',
@@ -52,12 +54,6 @@ return {
                     edit = 'e',
                     custom = {},
                 },
-            },
-            fzf = {
-                select = 'default',
-                paste = 'ctrl-p',
-                paste_behind = 'ctrl-k',
-                custom = {},
             },
         },
     }
