@@ -1,6 +1,7 @@
 return {
     "AckslD/nvim-neoclip.lua",
     dependencies = {{'nvim-telescope/telescope.nvim'},{'kkharji/sqlite.lua', module = 'sqlite'}},
+    name = 'neoclip',
     lazy= false,
     opts = {
         history = 1000,

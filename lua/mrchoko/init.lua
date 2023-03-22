@@ -25,6 +25,7 @@ require("lazy").setup({
 
 vim.g.indent_guides_enable_on_vim_startup = 1
 
+require('telescope').load_extension('neoclip')
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
