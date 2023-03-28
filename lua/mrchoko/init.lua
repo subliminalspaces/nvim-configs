@@ -156,8 +156,22 @@ vim.o.autoread = 'autoread'
 --Other Stuff
 
 require("mrchoko.remap")
-require("mrchoko.lsp")
 vim.opt.ignorecase = true -- ignore case in search patterns
+
+local lsp = require('lsp-zero').preset({
+  name = 'minimal',
+  set_lsp_keymaps = true,
+  manage_nvim_cmp = true,
+  suggest_lsp_servers = false,
+})
+
+-- (Optional) Configure lua language server for neovim
+lsp.nvim_workspace()
+lsp.ensure_installed({
+'tsserver',
+'eslint'
+})
+lsp.setup()
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
