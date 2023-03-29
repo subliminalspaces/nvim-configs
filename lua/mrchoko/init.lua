@@ -60,6 +60,22 @@ autocmd({ 'VimEnter' },
         command = "Obsession ."
     }
 )
+augroup('TreesitterUpdate', { clear = true })
+autocmd({ 'VimEnter' }, {
+        group='TreesitterUpdate',
+        pattern='*',
+        command='TSUpdate'
+
+})
+
+augroup('StartMinimap', {
+    clear = true
+})
+autocmd({ 'BufEnter' }, {
+    group = 'StartMinimap',
+    pattern = '*',
+    command = "Minimap"
+})
 autocmd({ 'VimLeave' },
     {
         group = 'KillObsession',
@@ -155,34 +171,14 @@ vim.o.autoread = 'autoread'
 
 --Other Stuff
 
+
 require("mrchoko.remap")
+require("mrchoko.lsp")
 vim.opt.ignorecase = true -- ignore case in search patterns
 
-local lsp = require('lsp-zero').preset({
-    name = 'minimal',
-    set_lsp_keymaps = true,
-    manage_nvim_cmp = true,
-    suggest_lsp_servers = false,
-})
-
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'html',
-    'graphql',
-    'jsonls',
-    'lua_ls',
-    'pyright',
-    'sqlls',
-    'tflint',
-    'tailwindcss',
-    'yamlls',
-    'prismals',
-
-})
-lsp.setup()
+vim.g.minimap_auto_start = 1
+vim.g.minimap_auto_start_win_enter = 1
+vim.g.minimap_width = 10
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
