@@ -48,7 +48,7 @@ return { 'mrjones2014/smart-splits.nvim',
         -- enable or disable the tmux integration
         tmux_integration = false,
         -- disable tmux navigation if current tmux pane is zoomed
-        disable_tmux_nav_when_zoomed = true,
+        disable_tmux_multiplexer_when_zoomed = true,
 
     }
 }
