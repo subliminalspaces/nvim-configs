@@ -1,6 +1,6 @@
 return {
     'navarasu/onedark.nvim',
-    lazy = false,
+    lazy = true,
     name = 'onedark',
     opts = {
         -- Main options --

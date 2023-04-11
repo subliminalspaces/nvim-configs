@@ -11,7 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local lazyopts = {}
+local lazyopts = {
+    lazy = true
+}
 
 vim.keymap.set("n", " ", "<nop>")
 vim.g.mapleader = " "
@@ -19,8 +21,8 @@ require("lazy").setup({
     spec = {
         { import = 'mrchoko.plugins' }
         , { import = 'mrchoko.plugins.themes' }
-
-    }
+    },
+    lazyopts
 })
 
 vim.g.indent_guides_enable_on_vim_startup = 1
@@ -71,9 +73,35 @@ augroup('KillObsession', {
     clear = true
 })
 
+
+augroup('StartMinimap', {
+    clear = true
+})
+augroup('StopMinimap', {
+    clear = true
+})
+
 augroup('CloseMinimap', {
     clear = true
 })
+
+-- autocmd({ 'WinNew' }, {
+--     group = 'StartMinimap',
+--     pattern = '*',
+--     command = "Minimap"
+-- })
+autocmd({ 'WinEnter' }, {
+    group = 'StartMinimap',
+    pattern = '*',
+    command = "Minimap"
+})
+-- autocmd({ 'VimLeave' }, {
+--     group = "StopMinimap",
+--     pattern = '*',
+--     command = "MinimapClose"
+-- })
+--
+
 autocmd('QuitPre', {
     pattern = '*',
     desc = 'Close minimap on exit',
@@ -95,28 +123,6 @@ autocmd({ 'VimEnter' }, {
     command = 'TSUpdate'
 })
 
--- vim.g.minimap_block_buftypes = {
--- 'nvim-tree',
--- 'nofile',
--- 'terminal',
--- 'scratch'
--- }
--- augroup('StartMinimap', {
---     clear = true
--- })
--- augroup('StopMinimap', {
---     clear = true
--- })
--- autocmd({ 'BufEnter' }, {
---     group = 'StartMinimap',
---     pattern = '*',
---     command = "Minimap"
--- })
--- autocmd({ 'VimLeave' }, {
---     group = "StopMinimap",
---     pattern = '*',
---     command = "MinimapClose"
--- })
 autocmd({ 'VimLeave' },
     {
         group = 'KillObsession',

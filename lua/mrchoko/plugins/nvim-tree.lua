@@ -2,23 +2,20 @@ return {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
         'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    }, opts = {
+    },
+    opts = {
         auto_reload_on_write = true,
-        disable_netrw = false,
-        hijack_cursor = false,
-        hijack_netrw = true,
-        hijack_unnamed_buffer_when_opening = false,
-        ignore_buffer_on_setup = false,
-        open_on_setup = false,
-        open_on_setup_file = false,
+        disable_netrw = true,
+        hijack_cursor = true,
+        hijack_netrw = false,
+        hijack_unnamed_buffer_when_opening = true,
         sort_by = "name",
         root_dirs = {},
         prefer_startup_root = false,
-        sync_root_with_cwd = false,
+        sync_root_with_cwd = true,
         reload_on_bufenter = false,
         respect_buf_cwd = false,
-        on_attach = "default",
-        remove_keymaps = false,
+        -- on_attach = "default",
         select_prompts = false,
         view = {
             centralize_selection = false,
@@ -28,15 +25,9 @@ return {
             hide_root_folder = false,
             side = "left",
             preserve_window_proportions = false,
-            number = false,
-            relativenumber = false,
+            number = true,
+            relativenumber = true,
             signcolumn = "yes",
-            mappings = {
-                custom_only = false,
-                list = {
-                    -- user mappings go here
-                },
-            },
             float = {
                 enable = false,
                 quit_on_focus_loss = true,
@@ -52,15 +43,15 @@ return {
         },
         renderer = {
             add_trailing = false,
-            group_empty = false,
-            highlight_git = false,
+            group_empty = true,
+            highlight_git = true,
             full_name = false,
-            highlight_opened_files = "none",
-            highlight_modified = "none",
+            highlight_opened_files = "all",
+            highlight_modified = "all",
             root_folder_label = ":~:s?$?/..?",
             indent_width = 2,
             indent_markers = {
-                enable = false,
+                enable = true,
                 inline_arrows = true,
                 icons = {
                     corner = "└",
@@ -117,11 +108,10 @@ return {
             auto_open = true,
         },
         update_focused_file = {
-            enable = false,
+            enable = true,
             update_root = false,
             ignore_list = {},
         },
-        ignore_ft_on_setup = {},
         system_open = {
             cmd = "",
             args = {},
@@ -195,7 +185,7 @@ return {
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                     exclude = {
                         filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-                        buftype = { "nofile", "terminal", "help" },
+                        buftype = { "nofile", "terminal", "help", "scratch" },
                     },
                 },
             },
@@ -213,7 +203,7 @@ return {
         tab = {
             sync = {
                 open = false,
-                close = false,
+                close = true,
                 ignore = {},
             },
         },
@@ -224,6 +214,11 @@ return {
             confirm = {
                 remove = true,
                 trash = true,
+            },
+        },
+        experimental = {
+            git = {
+                async = false,
             },
         },
         log = {

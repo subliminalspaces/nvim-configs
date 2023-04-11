@@ -1,6 +1,6 @@
 return { 'shaunsingh/nord.nvim',
     name = "nord",
-    lazy = false,
+    lazy = true,
     opts = {
         nord_contrast = false,
         nord_borders = false,
