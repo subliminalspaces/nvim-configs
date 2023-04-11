@@ -49,10 +49,38 @@ vim.opt.guicursor =
 augroup('StartObsession', {
     clear = true
 })
+augroup('NeverFocus', { clear = true })
+autocmd("WinEnter", {
+    pattern = "*",
+    group = 'NeverFocus',
+    callback = function()
+        local mmwinnr = vim.fn.bufwinnr("-MINIMAP-")
 
+        if mmwinnr == -1 then
+            return
+        end
+
+        if vim.fn.winnr() == mmwinnr then
+            -- Go to the other window.
+            vim.api.nvim_command("wincmd t")
+        end
+    end
+}
+)
 augroup('KillObsession', {
     clear = true
 })
+
+augroup('CloseMinimap', {
+    clear = true
+})
+autocmd('QuitPre', {
+    pattern = '*',
+    desc = 'Close minimap on exit',
+    group = 'CloseMinimap',
+    command = 'MinimapClose'
+})
+
 autocmd({ 'VimEnter' },
     {
         group = 'StartObsession',
@@ -62,20 +90,33 @@ autocmd({ 'VimEnter' },
 )
 augroup('TreesitterUpdate', { clear = true })
 autocmd({ 'VimEnter' }, {
-        group='TreesitterUpdate',
-        pattern='*',
-        command='TSUpdate'
-
-})
-
-augroup('StartMinimap', {
-    clear = true
-})
-autocmd({ 'BufEnter' }, {
-    group = 'StartMinimap',
+    group = 'TreesitterUpdate',
     pattern = '*',
-    command = "Minimap"
+    command = 'TSUpdate'
 })
+
+-- vim.g.minimap_block_buftypes = {
+-- 'nvim-tree',
+-- 'nofile',
+-- 'terminal',
+-- 'scratch'
+-- }
+-- augroup('StartMinimap', {
+--     clear = true
+-- })
+-- augroup('StopMinimap', {
+--     clear = true
+-- })
+-- autocmd({ 'BufEnter' }, {
+--     group = 'StartMinimap',
+--     pattern = '*',
+--     command = "Minimap"
+-- })
+-- autocmd({ 'VimLeave' }, {
+--     group = "StopMinimap",
+--     pattern = '*',
+--     command = "MinimapClose"
+-- })
 autocmd({ 'VimLeave' },
     {
         group = 'KillObsession',
@@ -176,9 +217,6 @@ require("mrchoko.remap")
 require("mrchoko.lsp")
 vim.opt.ignorecase = true -- ignore case in search patterns
 
-vim.g.minimap_auto_start = 1
-vim.g.minimap_auto_start_win_enter = 1
-vim.g.minimap_width = 10
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding

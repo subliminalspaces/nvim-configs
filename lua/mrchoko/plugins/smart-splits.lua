@@ -1,4 +1,5 @@
-return { 'mrjones2014/smart-splits.nvim',
+return {
+    'mrjones2014/smart-splits.nvim',
     opts = {
         -- Ignored filetypes (only while resizing)
         ignored_filetypes = {
@@ -7,7 +8,7 @@ return { 'mrjones2014/smart-splits.nvim',
             'prompt',
         },
         -- Ignored buffer types (only while resizing)
-        ignored_buftypes = { 'NvimTree' },
+        ignored_buftypes = { 'NvimTree', 'Minimap' },
         -- the default number of lines/columns to resize by at a time
         default_amount = 10,
         -- whether to wrap to opposite side when cursor is at an edge
@@ -49,6 +50,5 @@ return { 'mrjones2014/smart-splits.nvim',
         tmux_integration = false,
         -- disable tmux navigation if current tmux pane is zoomed
         disable_tmux_multiplexer_when_zoomed = true,
-
     }
 }
