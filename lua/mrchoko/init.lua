@@ -90,11 +90,17 @@ augroup('CloseMinimap', {
 --     pattern = '*',
 --     command = "Minimap"
 -- })
-autocmd({ 'WinEnter' }, {
-    group = 'StartMinimap',
-    pattern = '*',
-    command = "Minimap"
-})
+--
+-- autocmd({ 'BufEnter' }, {
+--     group = 'StartMinimap',
+--     pattern = '*',
+--     command = "Minimap"
+-- })
+-- autocmd({ 'BufReadPost' }, {
+--     group = 'StartMinimap',
+--     pattern = '*',
+--     command = "Minimap"
+-- })
 -- autocmd({ 'VimLeave' }, {
 --     group = "StopMinimap",
 --     pattern = '*',
@@ -102,12 +108,12 @@ autocmd({ 'WinEnter' }, {
 -- })
 --
 
-autocmd('QuitPre', {
-    pattern = '*',
-    desc = 'Close minimap on exit',
-    group = 'CloseMinimap',
-    command = 'MinimapClose'
-})
+-- autocmd('QuitPre', {
+--     pattern = '*',
+--     desc = 'Close minimap on exit',
+--     group = 'CloseMinimap',
+--     command = 'MinimapClose'
+-- })
 
 autocmd({ 'VimEnter' },
     {
