@@ -22,10 +22,13 @@ return {
 
         },
         opts = {
-            noautocmd = true
+            margin = 0,
+            -- setup = function() end
+            noautocmd = false
+
         }
-    }
-    -- init = function()
-    --     require 'alpha'.setup(require 'alpha.themes.startify'.config)
-    -- end
+    },
+    init = function()
+        require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
 }
