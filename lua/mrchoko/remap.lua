@@ -12,10 +12,6 @@ vim.keymap.set("v", "h", "")
 vim.keymap.set("n", "w", "")
 
 
--- vim.keymap.set({ "n", }, "<C-j>", "<C-W>h", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-i>", "<C-W>k", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-k>", "<C-W>j", { noremap = true })
--- vim.keymap.set({ "n", }, "<C-l>", "<C-W>l", { noremap = true })
 
 --Comment
 
@@ -76,13 +72,11 @@ vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 -- Telescope
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>ff', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fd', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fa', ":Telescope neoclip<CR>")
 
-
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fp', ":Telescope neoclip<CR>")
 local api = require('nvim-tree.api')
 local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }

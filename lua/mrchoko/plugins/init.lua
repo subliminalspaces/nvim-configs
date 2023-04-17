@@ -1,6 +1,4 @@
 return {
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
     'tree-sitter/tree-sitter-css',
     'tree-sitter/tree-sitter-html',
     'tree-sitter/tree-sitter-javascript',
@@ -20,7 +18,6 @@ return {
     'Joakker/tree-sitter-json5',
     'tree-sitter/tree-sitter-typescript',
     'tree-sitter/tree-sitter-python',
-    'mbbill/undotree',
     'tpope/vim-fugitive',
     'tpope/vim-obsession',
 }
