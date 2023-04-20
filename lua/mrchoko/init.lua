@@ -199,10 +199,10 @@ vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will 
 vim.opt.timeoutlen = 900                   -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
-vim.opt.showmode = false  -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2   -- always show tabs
-vim.opt.pumheight = 10    -- pop up menu height
-vim.opt.scrolloff = 8     -- is one of my fav
+vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2  -- always show tabs
+vim.opt.pumheight = 10   -- pop up menu height
+-- vim.opt.scrolloff = 8     -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.updatetime = 300  -- faster completion
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
@@ -227,6 +227,7 @@ vim.o.autoread = 'autoread'
 
 require("mrchoko.remap")
 require("mrchoko.lsp")
+require("mrchoko.theme")
 vim.opt.ignorecase = true -- ignore case in search patterns
 
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
