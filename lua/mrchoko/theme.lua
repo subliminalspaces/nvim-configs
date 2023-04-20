@@ -1,5 +1,5 @@
 
-local theme = "kanagawa"
+local theme = "tokyonight"
 
 vim.cmd.colorscheme(theme)
 

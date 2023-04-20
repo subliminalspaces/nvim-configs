@@ -74,7 +74,7 @@ augroup('KillObsession', {
 })
 
 
-augroup('StartMinimap', {
+augroup('SpecsOnEnter', {
     clear = true
 })
 augroup('StopMinimap', {
@@ -91,11 +91,11 @@ augroup('CloseMinimap', {
 --     command = "Minimap"
 -- })
 --
--- autocmd({ 'BufEnter' }, {
---     group = 'StartMinimap',
---     pattern = '*',
---     command = "Minimap"
--- })
+autocmd({ 'BufEnter' }, {
+    group = 'SpecsOnEnter',
+    pattern = '*',
+    command = 'lua require("specs").show_specs()'
+})
 -- autocmd({ 'BufReadPost' }, {
 --     group = 'StartMinimap',
 --     pattern = '*',
