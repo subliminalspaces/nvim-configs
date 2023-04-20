@@ -16,7 +16,7 @@ return {
         sync_root_with_cwd = true,
         reload_on_bufenter = false,
         respect_buf_cwd = false,
-        -- on_attach = "default",
+        on_attach = "default",
         select_prompts = false,
         view = {
             centralize_selection = false,

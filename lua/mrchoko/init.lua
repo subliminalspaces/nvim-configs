@@ -51,24 +51,6 @@ vim.opt.guicursor =
 augroup('StartObsession', {
     clear = true
 })
-augroup('NeverFocus', { clear = true })
-autocmd("WinEnter", {
-    pattern = "*",
-    group = 'NeverFocus',
-    callback = function()
-        local mmwinnr = vim.fn.bufwinnr("-MINIMAP-")
-
-        if mmwinnr == -1 then
-            return
-        end
-
-        if vim.fn.winnr() == mmwinnr then
-            -- Go to the other window.
-            vim.api.nvim_command("wincmd t")
-        end
-    end
-}
-)
 augroup('KillObsession', {
     clear = true
 })
