@@ -22,7 +22,10 @@ return {
             centralize_selection = false,
             cursorline = true,
             debounce_delay = 15,
-            width = 30,
+            width = { 
+                min = 15, 
+                max = '20%', 
+                padding = 1 },
             hide_root_folder = false,
             side = "left",
             preserve_window_proportions = false,
@@ -137,12 +140,12 @@ return {
             dotfiles = false,
             git_clean = false,
             no_buffer = false,
-            custom = {"^\\.git"},
+            custom = { "^\\.git" },
             exclude = {},
         },
         filesystem_watchers = {
             enable = true,
-            debounce_delay = 50,
+            debounce_delay = 10,
             ignore_dirs = {},
         },
         git = {

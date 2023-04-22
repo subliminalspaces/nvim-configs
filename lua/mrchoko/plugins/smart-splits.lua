@@ -1,5 +1,6 @@
 return {
     'mrjones2014/smart-splits.nvim',
+    enabled = true,
     opts = {
         -- Ignored filetypes (only while resizing)
         ignored_filetypes = {
@@ -8,9 +9,9 @@ return {
             'prompt',
         },
         -- Ignored buffer types (only while resizing)
-        ignored_buftypes = { 'NvimTree', 'Minimap' },
+        ignored_buftypes = { 'NvimTree' },
         -- the default number of lines/columns to resize by at a time
-        default_amount = 10,
+        default_amount = 12,
         -- whether to wrap to opposite side when cursor is at an edge
         -- e.g. by default, moving left at the left edge will jump
         -- to the rightmost window, and vice versa, same for up/down.
