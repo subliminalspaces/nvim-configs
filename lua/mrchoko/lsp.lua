@@ -19,12 +19,6 @@ local lsp = require('lsp-zero').preset(
             documentation_window = true,
         },
     }
--- {
---     name = 'minimal',
---     set_lsp_keymaps = true,
---     manage_nvim_cmp = true,
---     suggest_lsp_servers = false,
--- }
 )
 
 -- (Optional) Configure lua language server for neovim
@@ -46,9 +40,9 @@ lsp.ensure_installed({
     'clangd'
 })
 lsp.skip_server_setup({
-'julials',
-'java',
-'javac',
-'phpactor'
+    'julials',
+    'java',
+    'javac',
+    'phpactor'
 })
 lsp.setup()

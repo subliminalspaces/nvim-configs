@@ -13,7 +13,7 @@ return {
             ["U"] = "<Plug>ColorPickerSlider5Decrease",
             ["O"] = "<Plug>ColorPickerSlider5Increase",
         },
-        ["background_highlight_group"] = "Normal",  -- default
+        ["background_highlight_group"] = "NormalFloat",  -- default
         ["border_highlight_group"] = "FloatBorder", -- default
         ["text_highlight_group"] = "Normal",        --default
     }

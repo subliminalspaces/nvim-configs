@@ -1,6 +1,7 @@
 return {
     "xiyaowong/transparent.nvim",
     name = "transparent",
+    lazy = false,
     opts = {
         groups = { -- table: default groups
             'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
@@ -19,6 +20,8 @@ return {
             "BufferLineSeparator",
             "BufferLineIndicatorSelected",
         },
-        exclude_groups = {}, -- table: groups you don't want to clear
+        exclude_groups = {
+        "NormalFloat"
+        }, -- table: groups you don't want to clear
     }
 }
