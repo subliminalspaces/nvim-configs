@@ -1,18 +1,47 @@
 -- Committing vim heresy
 
 vim.keymap.set("n", "j", "")
+vim.keymap.set("v", "j", "")
+vim.keymap.set("n", "<C-N>", "")
+vim.keymap.set("v", "<C-N>", "")
+vim.keymap.set("n", "<C-J>", "")
+vim.keymap.set("v", "<C-J>", "")
+
+vim.keymap.set("n", "k", "")
+vim.keymap.set("v", "k", "")
+vim.keymap.set("n", "<C-P>", "")
+vim.keymap.set("v", "<C-P>", "")
+
+vim.keymap.set("n", "l", "")
+vim.keymap.set("v", "l", "")
+
+vim.keymap.set("n", "h", "")
+vim.keymap.set("v", "h", "")
+
+vim.keymap.set("n", "h", "")
+vim.keymap.set("n", "<C-H>", "")
+vim.keymap.set("v", "<C-H>", "")
+
+--Unbinding some things that just aren't useful. Rationale provided.
+
+--Move  to first/middle/last line of screen. Simply not useful.
+vim.keymap.set("n", "H", "")
+vim.keymap.set("v", "H", "")
+vim.keymap.set("n", "L", "")
+vim.keymap.set("v", "L", "")
+vim.keymap.set("n", "M", "")
+vim.keymap.set("v", "M", "")
+
+
+
 vim.keymap.set("n", "k", "")
 vim.keymap.set("n", "l", "")
 vim.keymap.set("n", "h", "")
 
-vim.keymap.set("v", "j", "")
 vim.keymap.set("v", "k", "")
 vim.keymap.set("v", "l", "")
 vim.keymap.set("v", "h", "")
 vim.keymap.set("n", "w", "")
-
-
-
 --Comment
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
@@ -28,6 +57,7 @@ vim.keymap.set({ "n" }
 --Color Picker
 
 local opts = { noremap = true, silent = true }
+
 
 vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 
