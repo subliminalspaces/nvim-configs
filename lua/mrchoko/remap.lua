@@ -22,6 +22,10 @@ vim.keymap.set("n", "h", "")
 vim.keymap.set("n", "<C-H>", "")
 vim.keymap.set("v", "<C-H>", "")
 
+--Same as CR, would rather just use CR
+vim.keymap.set("n", "<C-M>", "")
+vim.keymap.set("v", "<C-M>", "")
+
 --Unbinding some things that just aren't useful. Rationale provided.
 
 --Move  to first/middle/last line of screen. Simply not useful.
@@ -42,6 +46,42 @@ vim.keymap.set("v", "k", "")
 vim.keymap.set("v", "l", "")
 vim.keymap.set("v", "h", "")
 vim.keymap.set("n", "w", "")
+
+-- Colemak directional binding
+
+vim.keymap.set({ 'n', 't' }, '<C-n>', require('smart-splits').move_cursor_left)
+vim.keymap.set({ 'n', 't' }, '<C-e>', require('smart-splits').move_cursor_down)
+vim.keymap.set({ 'n', 't' }, '<C-u>', require('smart-splits').move_cursor_up)
+vim.keymap.set({ 'n', 't' }, '<C-i>', require('smart-splits').move_cursor_right)
+vim.keymap.set('n', '<leader>wn', require('smart-splits').resize_left)
+vim.keymap.set('n', '<leader>we', require('smart-splits').resize_down)
+vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
+vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
+
+-- Neoscroll
+
+vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-16,true,200,sine)<CR>")
+vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(16,true,200,sine)<CR>")
+
+vim.keymap.set({ 'n', 'v' }, '<C-L>', ":lua require('neoscroll').scroll(-32,true,200,sine)<CR>")
+vim.keymap.set({ 'n', 'v' }, '<C-Y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>")
+-- QWERTY directional bindings
+-- vim.keymap.set({ 'n', 't' }, '<C-n>', require('smart-splits').move_cursor_left)
+-- vim.keymap.set({ 'n', 't' }, '<C-e>', require('smart-splits').move_cursor_down)
+-- vim.keymap.set({ 'n', 't' }, '<C-u>', require('smart-splits').move_cursor_up)
+-- vim.keymap.set({ 'n', 't' }, '<C-i>', require('smart-splits').move_cursor_right)
+-- vim.keymap.set('n', '<leader>wn', require('smart-splits').resize_left)
+-- vim.keymap.set('n', '<leader>we', require('smart-splits').resize_down)
+-- vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
+-- vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
+
+-- Neoscroll
+
+-- vim.keymap.set({ 'n', 'v' }, '<C-u>', ":lua require('neoscroll').scroll(-16,true,200,sine)<CR>")
+-- vim.keymap.set({ 'n', 'v' }, '<C-o>', ":lua require('neoscroll').scroll(16,true,200,sine)<CR>")
+
+-- vim.keymap.set({ 'n', 'v' }, '<C-u>', ":lua require('neoscroll').scroll(-16,true,200,sine)<CR>")
+-- vim.keymap.set({ 'n', 'v' }, '<C-o>', ":lua require('neoscroll').scroll(16,true,200,sine)<CR>")
 --Comment
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
@@ -72,25 +112,16 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- Smart Splits
 
-vim.keymap.set({ 'n', 't' }, '<C-j>', require('smart-splits').move_cursor_left)
-vim.keymap.set({ 'n', 't' }, '<C-k>', require('smart-splits').move_cursor_down)
-vim.keymap.set({ 'n', 't' }, '<C-i>', require('smart-splits').move_cursor_up)
-vim.keymap.set({ 'n', 't' }, '<C-l>', require('smart-splits').move_cursor_right)
+
 
 vim.keymap.set('t', '<leader>wo', "")
 vim.keymap.set('t', '<leader>wu', "")
 
 vim.keymap.set('n', '<leader>wh', ':vsplit<CR>')
 vim.keymap.set('n', '<leader>wo', ':split<CR>')
-vim.keymap.set('n', '<leader>wj', require('smart-splits').resize_left)
-vim.keymap.set('n', '<leader>wk', require('smart-splits').resize_down)
-vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_up)
-vim.keymap.set('n', '<leader>wl', require('smart-splits').resize_right)
 
--- Neoscroll
 
-vim.keymap.set({ 'n', 'v' }, '<C-u>', ":lua require('neoscroll').scroll(-16,true,200,sine)<CR>")
-vim.keymap.set({ 'n', 'v' }, '<C-o>', ":lua require('neoscroll').scroll(16,true,200,sine)<CR>")
+
 
 local opts = { buffer = 0 }
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
