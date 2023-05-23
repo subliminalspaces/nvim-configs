@@ -1,6 +1,7 @@
 return {
     'nvim-tree/nvim-tree.lua',
     lazy = true,
+    enable = false,
     dependencies = {
         'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
@@ -16,7 +17,7 @@ return {
         sync_root_with_cwd = true,
         reload_on_bufenter = false,
         respect_buf_cwd = false,
-        on_attach = "default",
+        -- on_attach = "default",
         select_prompts = false,
         view = {
             centralize_selection = false,
