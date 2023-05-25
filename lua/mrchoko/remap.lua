@@ -38,14 +38,18 @@ vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,
 -- Cokeline
 vim.keymap.set('n', '<C-m>', '<Plug>(cokeline-focus-prev)')
 vim.keymap.set('n', '<C-o>', '<Plug>(cokeline-focus-next)')
+vim.keymap.set("n", "<leader>a", function()
+    require('cokeline.mappings').pick("focus")
+end, { desc = "Pick a buffer to focus" })
+
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set({ "n" }, "<leader>e", ":Neotree toggle=true position=left<CR>")
-vim.keymap.set({ "n" }, "<leader>t", ":TroubleToggle<CR>")
+vim.keymap.set({ "n" }, "<leader>n", ":Neotree toggle=true position=left<CR>")
+vim.keymap.set({ "n" }, "<leader>e", ":TroubleToggle<CR>")
 vim.keymap.set({ "n" }
     ,
-    "<leader>i"
+    "<leader>f"
     , vim.lsp.buf.format
 )
 
@@ -58,8 +62,8 @@ vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 
-vim.keymap.set('n', '<leader>wy', ':vsplit<CR>')
-vim.keymap.set('n', '<leader>wm', ':split<CR>')
+vim.keymap.set('n', '<leader>sy', ':vsplit<CR>')
+vim.keymap.set('n', '<leader>sm', ':split<CR>')
 
 
 local opts = { buffer = 0 }
@@ -68,8 +72,7 @@ vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 -- Telescope
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fd', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>fa', ":Telescope neoclip<CR>")
-
+vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>td', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>ta', ":Telescope neoclip<CR>")

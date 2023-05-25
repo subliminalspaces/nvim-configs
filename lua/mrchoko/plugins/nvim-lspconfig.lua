@@ -2,7 +2,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
         -- LSP Support
-        { 'neovim/nvim-lspconfig' },  -- Required
         -- Autocompletion
         { 'hrsh7th/nvim-cmp' },       -- Required
         { 'hrsh7th/cmp-nvim-lsp' },   -- Required

@@ -126,19 +126,19 @@ autocmd({ 'VimLeave', 'VimSuspend' },
         command = "set guicursor=a:ver25-blinkon750-blinkoff750"
     })
 
-autocmd({ 'InsertEnter', },
-    {
-        pattern = '*',
-        command = "set norelativenumber number"
-    })
+-- autocmd({ 'InsertEnter', },
+--     {
+--         pattern = '*',
+--         command = "set norelativenumber number"
+--     })
 
-autocmd({ 'InsertLeave', },
-    {
-        pattern = '*',
-        command = "set relativenumber nonumber"
-    })
+-- autocmd({ 'InsertLeave', },
+--     {
+--         pattern = '*',
+--         command = "set relativenumber nonumber"
+--     })
 
-
+vim.api.nvim_command('ret ')
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true      -- creates a backup file

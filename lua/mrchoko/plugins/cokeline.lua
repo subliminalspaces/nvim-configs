@@ -74,11 +74,11 @@ return {
                 space,
                 {
                     text = function(buffer)
-                        if is_picking_focus() or is_picking_close() then
+                        -- if is_picking_focus() or is_picking_close() then
                             return buffer.pick_letter .. " "
-                        end
+                        -- end
 
-                        return buffer.devicon.icon
+                        -- return buffer.devicon.icon
                     end,
                     fg = function(buffer)
                         if is_picking_focus() then
@@ -106,7 +106,7 @@ return {
                         return buffer.is_focused and "bold" or nil
                     end
                 },
-                space
+                -- space
             },
             sidebar = {
                 filetype = 'neo-tree',
