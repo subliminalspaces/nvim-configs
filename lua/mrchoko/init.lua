@@ -138,6 +138,7 @@ autocmd({ 'InsertLeave', },
         command = "set relativenumber nonumber"
     })
 
+
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true      -- creates a backup file
