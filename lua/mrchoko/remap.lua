@@ -38,7 +38,7 @@ vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,
 -- Cokeline
 vim.keymap.set('n', '<C-m>', '<Plug>(cokeline-focus-prev)')
 vim.keymap.set('n', '<C-o>', '<Plug>(cokeline-focus-next)')
-vim.keymap.set("n", "<leader>a", function()
+vim.keymap.set("n", "<leader>l", function()
     require('cokeline.mappings').pick("focus")
 end, { desc = "Pick a buffer to focus" })
 
