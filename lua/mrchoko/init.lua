@@ -137,8 +137,7 @@ autocmd({ 'VimLeave', 'VimSuspend' },
 --         pattern = '*',
 --         command = "set relativenumber nonumber"
 --     })
-
-vim.api.nvim_command('ret ')
+--
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true      -- creates a backup file
@@ -195,8 +194,6 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
 vim.o.relativenumber = true
-
---vim.opt.relativenumber = true -- set relative numbered lines
 
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
