@@ -59,15 +59,15 @@ return {
             default_hl = {
                 fg = function(buffer)
                     if buffer.is_focused then
-                        return light
-                    end
-                    return dark
-                end,
-                bg = function(buffer)
-                    if buffer.is_focused then
                         return dark
                     end
                     return light
+                end,
+                bg = function(buffer)
+                    if buffer.is_focused then
+                        return light
+                    end
+                    return dark
                 end
             },
             components = {

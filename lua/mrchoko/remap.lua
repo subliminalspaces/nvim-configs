@@ -23,9 +23,6 @@ vim.keymap.set("v", "L", "")
 vim.keymap.set("n", "M", "")
 vim.keymap.set("v", "M", "")
 
-
-
-
 -- Colemak directional binding
 
 vim.keymap.set({ 'n', 't' }, '<C-n>', ':wincmd h<CR>')
@@ -60,10 +57,6 @@ vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-
-vim.keymap.set('t', '<leader>wo', "")
-vim.keymap.set('t', '<leader>wu', "")
 
 vim.keymap.set('n', '<leader>wy', ':vsplit<CR>')
 vim.keymap.set('n', '<leader>wm', ':split<CR>')
@@ -80,4 +73,3 @@ vim.keymap.set('n', '<leader>fd', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fa', ":Telescope neoclip<CR>")
 
-local api = require('nvim-tree.api')
