@@ -72,7 +72,7 @@ vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
 -- Telescope
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tf', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>td', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>ta', ":Telescope neoclip<CR>")
+vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
