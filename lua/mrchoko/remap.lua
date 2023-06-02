@@ -62,8 +62,8 @@ vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 
-vim.keymap.set('n', '<leader>sy', ':vsplit<CR>')
-vim.keymap.set('n', '<leader>sm', ':split<CR>')
+vim.keymap.set('n', '<C-k>', ':vsplit<CR>')
+vim.keymap.set('n', '<C-h>', ':split<CR>')
 
 
 local opts = { buffer = 0 }
