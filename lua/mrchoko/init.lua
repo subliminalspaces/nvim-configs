@@ -205,8 +205,8 @@ vim.o.autoread = 'autoread'
 --Other Stuff
 
 
-require("mrchoko.remap")
 require("mrchoko.lsp")
+require("mrchoko.remap")
 require("mrchoko.theme")
 vim.opt.ignorecase = true -- ignore case in search patterns
 
