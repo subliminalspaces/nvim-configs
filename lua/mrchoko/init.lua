@@ -67,36 +67,11 @@ augroup('CloseMinimap', {
     clear = true
 })
 
--- autocmd({ 'WinNew' }, {
---     group = 'StartMinimap',
---     pattern = '*',
---     command = "Minimap"
--- })
---
 autocmd({ 'BufEnter' }, {
     group = 'SpecsOnEnter',
     pattern = '*',
     command = 'lua require("specs").show_specs()'
 })
--- autocmd({ 'BufReadPost' }, {
---     group = 'StartMinimap',
---     pattern = '*',
---     command = "Minimap"
--- })
--- autocmd({ 'VimLeave' }, {
---     group = "StopMinimap",
---     pattern = '*',
---     command = "MinimapClose"
--- })
---
-
--- autocmd('QuitPre', {
---     pattern = '*',
---     desc = 'Close minimap on exit',
---     group = 'CloseMinimap',
---     command = 'MinimapClose'
--- })
-
 autocmd({ 'VimEnter' },
     {
         group = 'StartObsession',

@@ -112,7 +112,7 @@ return {
                 filetype = 'neo-tree',
                 components = {
                     {
-                        text = '  NvimTree',
+                        text = '  NeoTree',
                         fg = vim.g.terminal_color_3,
                         bg = vim.g.terminal_color_4,
                         style = 'bold',
