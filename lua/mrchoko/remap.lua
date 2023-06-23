@@ -36,8 +36,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-32,true
 vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>")
 
 -- Cokeline
-vim.keymap.set('n', '<C-m>', '<Plug>(cokeline-focus-prev)')
-vim.keymap.set('n', '<C-o>', '<Plug>(cokeline-focus-next)')
+vim.keymap.set('n', '<C-r>', '<Plug>(cokeline-focus-prev)')
+vim.keymap.set('n', '<C-t>', '<Plug>(cokeline-focus-next)')
 vim.keymap.set("n", "<leader>l", function()
     require('cokeline.mappings').pick("focus")
 end, { desc = "Pick a buffer to focus" })
@@ -62,7 +62,7 @@ vim.keymap.set("n", "<leader>cc", "<cmd>PickColor<cr>", opts)
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 
-vim.keymap.set('n', '<C-k>', ':vsplit<CR>')
+vim.keymap.set('n', '<C-m>', ':vsplit<CR>')
 vim.keymap.set('n', '<C-h>', ':split<CR>')
 
 
