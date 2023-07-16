@@ -7,7 +7,7 @@ local lsp = require('lsp-zero').preset(
         configure_diagnostics = true,
         setup_servers_on_start = true,
         set_lsp_keymaps = {
-            preserve_mappings = false,
+            preserve_mappings = true,
             omit = {},
         },
         -- manage_nvim_cmp = {
