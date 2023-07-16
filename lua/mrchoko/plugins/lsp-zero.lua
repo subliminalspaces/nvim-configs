@@ -2,6 +2,7 @@ return {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
     dependencies = {
+        { 'onsails/lspkind.nvim'},
         -- LSP Support
         { 'neovim/nvim-lspconfig' },       -- Required
         { 'williamboman/mason.nvim' },     -- Optional
@@ -14,12 +15,15 @@ return {
         { 'hrsh7th/cmp-path' },   -- Optional
         { 'saadparwaiz1/cmp_luasnip' }, -- Optional
         { 'hrsh7th/cmp-nvim-lua' }, -- Optional
-
+        {'hrsh7th/cmp-nvim-lsp-signature-help'},
+        {'hrsh7th/cmp-cmdline'},
+        {'lukas-reineke/cmp-rg'},
+        {'ray-x/cmp-treesitter'},
+        {'tamago324/cmp-zsh'},
         -- Snippets
         { 'L3MON4D3/LuaSnip' },       -- Required
+        { 'doxnit/cmp-luasnip-choice' },       -- Required
         { 'rafamadriz/friendly-snippets' }, -- Optional
-        {
-            'mfussenegger/nvim-dap'
-        }
+        { 'mfussenegger/nvim-dap' }
     }
 }

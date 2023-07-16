@@ -10,18 +10,9 @@ local lsp = require('lsp-zero').preset(
             preserve_mappings = true,
             omit = {},
         },
-        -- manage_nvim_cmp = {
-        --     set_sources = 'recommended',
-        --     set_basic_mappings = true,
-        --     set_extra_mappings = false,
-        --     use_luasnip = true,
-        --     set_format = true,
-        --     documentation_window = true,
-        -- },
     }
 )
 
--- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 lsp.ensure_installed({
     'tsserver',
@@ -46,38 +37,72 @@ lsp.skip_server_setup({
     'phpactor'
 })
 lsp.setup()
-
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 cmp.setup({
-snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      end,
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',  -- show only symbol annotations
+            maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+            preset = 'default',
+            before = function(entry, vim_item)
+                return vim_item
+            end
+        })
+    },
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        end,
     },
     window = {
-      completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-      ['<Tab>'] = cmp.mapping.complete(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<Esc>'] = cmp.mapping.abort(),
-    ['<Up>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-    ['<Down>'] = cmp.mapping.select_next_item(cmp_select_opts),
+        ['<S-Tab>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<Esc>'] = cmp.mapping.abort(),
+        ['<Up>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+        ['<Down>'] = cmp.mapping.select_next_item(cmp_select_opts),
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-       { name = 'luasnip' }, -- For luasnip users.
-      { name = 'friendly-snippets' },
-    }, {
-      { name = 'buffer' },
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'luasnip' }, -- For luasnip users.
+        { name = 'nvim_lua' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'luasnip',                option = { show_autosnippets = true, use_show_condition = false } },
+        { name = 'luasnip_choice' },
+        { name = 'friendly-snippets' },
+        { name = 'rg' },
+        { name = 'treesitter' },
+        { name = 'zsh' },
     }),
     completion = {
         autocomplete = false
     }
-  }
-)
-
+})
+cmp.setup.cmdline(':', {
+    mapping = {
+        ['<S-Tab>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<Esc>'] = cmp.mapping.abort(),
+        ['<Up>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+        ['<Down>'] = cmp.mapping.select_next_item(cmp_select_opts),
+    },
+    sources = cmp.config.sources({
+        { name = 'path' }
+    }, {
+        {
+            name = 'cmdline',
+            option = {
+                ignore_cmds = { 'Man', '!' }
+            }
+        }
+    })
+})
 require("luasnip.loaders.from_vscode").lazy_load()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()

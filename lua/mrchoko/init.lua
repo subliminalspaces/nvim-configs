@@ -100,19 +100,6 @@ autocmd({ 'VimLeave', 'VimSuspend' },
         pattern = '*',
         command = "set guicursor=a:ver25-blinkon750-blinkoff750"
     })
-
--- autocmd({ 'InsertEnter', },
---     {
---         pattern = '*',
---         command = "set norelativenumber number"
---     })
-
--- autocmd({ 'InsertLeave', },
---     {
---         pattern = '*',
---         command = "set relativenumber nonumber"
---     })
---
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true      -- creates a backup file
@@ -137,6 +124,7 @@ end
 vim.o.autoindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true -- make indenting smarter again
+vim.opt.breakindent = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.spelllang = "en"
 vim.opt.spell = false
@@ -147,7 +135,7 @@ vim.opt.expandtab = true
 vim.o.fillchars = 'eob: '
 --Window settings
 
---vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
