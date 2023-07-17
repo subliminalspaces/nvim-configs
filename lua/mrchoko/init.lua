@@ -34,10 +34,12 @@ local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- disable netrw at the very start of your init.lua (strongly advised)
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 --Cursor colors
+
 vim.opt.termguicolors = true
 vim.opt.guicursor =
     "n-v-c:block-Cursor/lCursor,"
@@ -140,7 +142,6 @@ vim.opt.mouse = "a"                        -- allow the mouse to be used in neov
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
-
 vim.opt.timeoutlen = 900                   -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
@@ -157,7 +158,6 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.o.number = true -- set absolute numbered lines
 vim.o.relativenumber = true
-
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
