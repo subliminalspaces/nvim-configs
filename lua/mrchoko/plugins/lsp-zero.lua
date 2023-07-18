@@ -19,7 +19,6 @@ return {
         {'hrsh7th/cmp-cmdline'},
         {'lukas-reineke/cmp-rg'},
         {'ray-x/cmp-treesitter'},
-        {'tamago324/cmp-zsh'},
         -- Snippets
         { 'L3MON4D3/LuaSnip' },       -- Required
         { 'doxnit/cmp-luasnip-choice' },       -- Required

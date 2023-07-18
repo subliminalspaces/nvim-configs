@@ -79,7 +79,6 @@ cmp.setup({
         { name = 'friendly-snippets' },
         { name = 'rg' },
         { name = 'treesitter' },
-        { name = 'zsh' },
     }),
     completion = {
         autocomplete = false
