@@ -48,7 +48,7 @@ vim.keymap.set({ 'n', 'v' }, '<C-a>', ":e %:h/")
 vim.keymap.set('n', '<C-r>', '<Plug>(cokeline-focus-prev)')
 vim.keymap.set('n', '<C-t>', '<Plug>(cokeline-focus-next)')
 -- Neotree
-vim.keymap.set('n', '<C-S-n>', ':Neotree action=focus')
+vim.keymap.set('n', '<C-j>', ':Neotree action=focus<CR>')
 
 
 --Color Picker
@@ -61,18 +61,33 @@ vim.keymap.set("n", "<leader>l",
         require('cokeline.mappings').pick("focus")
     end, { desc = "Pick a buffer to focus" }
 )
+local kopts = {noremap = true, silent = true}
 
+vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+
+vim.api.nvim_set_keymap('n', '<esc>', '<Cmd>noh<CR>', kopts)
 -- resizing splits
+
+
 vim.keymap.set('n', '<leader>wn', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>we', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
 
 -- swapping buffers between windows
--- vim.keymap.set('n', '<leader>sn', require('smart-splits').swap_buf_left)
--- vim.keymap.set('n', '<leader>se', require('smart-splits').swap_buf_down)
--- vim.keymap.set('n', '<leader>su', require('smart-splits').swap_buf_up)
--- vim.keymap.set('n', '<leader>si', require('smart-splits').swap_buf_right)
+vim.keymap.set('n', '<C-S-n>', require('smart-splits').swap_buf_left)
+vim.keymap.set('n', '<C-S-e>', require('smart-splits').swap_buf_down)
+vim.keymap.set('n', '<C-S-u', require('smart-splits').swap_buf_up)
+vim.keymap.set('n', '<C-S-i>', require('smart-splits').swap_buf_right)
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)

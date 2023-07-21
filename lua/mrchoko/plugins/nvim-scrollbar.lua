@@ -2,21 +2,23 @@ return {
     'petertriho/nvim-scrollbar',
     lazy = false,
     dependencies = {
-        'lewis6991/gitsigns.nvim'
+        'lewis6991/gitsigns.nvim',
+        'kevinhwang91/nvim-hlslens',
     },
+
     opts = {
         show = true,
         show_in_active_only = false,
         set_highlights = true,
-        folds = 1000,            -- handle folds, set to number to disable folds if no. of lines in buffer exceeds this
-        max_lines = false,       -- disables if no. of lines in buffer exceeds this
+        folds = 1000,                -- handle folds, set to number to disable folds if no. of lines in buffer exceeds this
+        max_lines = false,           -- disables if no. of lines in buffer exceeds this
         hide_if_all_visible = false, -- Hides everything if all lines are visible
         throttle_ms = 100,
         handle = {
             text = " ",
-            blend = 50,             -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
+            blend = 50,                  -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
             color = nil,
-            color_nr = nil,         -- cterm
+            color_nr = nil,              -- cterm
             highlight = "CursorColumn",
             hide_if_all_visible = false, -- Hides handle if all lines are visible
         },
@@ -141,10 +143,10 @@ return {
         handlers = {
             cursor = true,
             diagnostic = true,
-            gitsigns = false, -- Requires gitsigns
+            gitsigns = true, -- Requires gitsigns
             handle = true,
-            search = false, -- Requires hlslens
-            ale = false,  -- Requires ALE
+            search = true,   -- Requires hlslens
+            ale = false,     -- Requires ALE
         },
     }
 }
