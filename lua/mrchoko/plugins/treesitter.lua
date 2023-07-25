@@ -26,6 +26,7 @@ local M = {
         'Joakker/tree-sitter-json5',
         'tree-sitter/tree-sitter-typescript',
         'tree-sitter/tree-sitter-python',
+        'tree-sitter/tree-sitter-rust',
     },
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })

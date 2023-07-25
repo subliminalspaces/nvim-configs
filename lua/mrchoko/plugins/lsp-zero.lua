@@ -23,6 +23,8 @@ return {
         { 'L3MON4D3/LuaSnip' },       -- Required
         { 'doxnit/cmp-luasnip-choice' },       -- Required
         { 'rafamadriz/friendly-snippets' }, -- Optional
-        { 'mfussenegger/nvim-dap' }
+        { 'mfussenegger/nvim-dap' },
+        -- Language support
+        {"simrat39/rust-tools.nvim"}
     }
 }

@@ -84,10 +84,10 @@ vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
 
 -- swapping buffers between windows
-vim.keymap.set('n', '<C-S-n>', require('smart-splits').swap_buf_left)
-vim.keymap.set('n', '<C-S-e>', require('smart-splits').swap_buf_down)
-vim.keymap.set('n', '<C-S-u', require('smart-splits').swap_buf_up)
-vim.keymap.set('n', '<C-S-i>', require('smart-splits').swap_buf_right)
+-- vim.keymap.set('n', '<leader>wr', require('smart-splits').swap_buf_left)
+-- vim.keymap.set('n', '<leader>ws', require('smart-splits').swap_buf_down)
+-- vim.keymap.set('n', '<leader>wf', require('smart-splits').swap_buf_up)
+-- vim.keymap.set('n', '<leader>wwi', require('smart-splits').swap_buf_right)
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
