@@ -83,11 +83,14 @@ vim.keymap.set('n', '<leader>we', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
 
--- swapping buffers between windows
--- vim.keymap.set('n', '<leader>wr', require('smart-splits').swap_buf_left)
--- vim.keymap.set('n', '<leader>ws', require('smart-splits').swap_buf_down)
--- vim.keymap.set('n', '<leader>wf', require('smart-splits').swap_buf_up)
--- vim.keymap.set('n', '<leader>wwi', require('smart-splits').swap_buf_right)
+
+vim.keymap.set({'n'}, 's', '<Plug>(leap-forward-to)')
+vim.keymap.set({'n'}, 'S', '<Plug>(leap-backward-to)')
+
+vim.keymap.set({'x', 'o'}, 'j', '<Plug>(leap-forward-till)')
+vim.keymap.set({'x', 'o'}, 'J', '<Plug>(leap-backward-till)')
+
+vim.keymap.set({'n'}, 'gs','<Plug>(leap-from-window)')
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
