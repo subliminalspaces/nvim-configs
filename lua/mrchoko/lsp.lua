@@ -28,7 +28,8 @@ lsp.ensure_installed({
     'yamlls',
     'prismals',
     'cssls',
-    'clangd'
+    'clangd',
+    'rust_analyzer'
 })
 lsp.skip_server_setup({
     'julials',
