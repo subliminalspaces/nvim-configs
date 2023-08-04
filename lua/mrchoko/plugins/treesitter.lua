@@ -27,6 +27,7 @@ local M = {
         'tree-sitter/tree-sitter-typescript',
         'tree-sitter/tree-sitter-python',
         'tree-sitter/tree-sitter-rust',
+        'theHamsta/tree-sitter-glsl',
     },
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })

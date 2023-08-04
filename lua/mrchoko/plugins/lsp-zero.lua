@@ -25,6 +25,8 @@ return {
         { 'rafamadriz/friendly-snippets' }, -- Optional
         { 'mfussenegger/nvim-dap' },
         -- Language support
-        {"simrat39/rust-tools.nvim"}
+        {"simrat39/rust-tools.nvim"},
+        {"tikhomirov/vim-glsl"}
+
     }
 }
