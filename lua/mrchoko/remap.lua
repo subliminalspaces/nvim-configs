@@ -19,8 +19,8 @@ vim.keymap.set("v", "L", "")
 vim.keymap.set("n", "M", "")
 vim.keymap.set("v", "M", "")
 
-vim.keymap.set("v", "<C-m>", "",opts)
-
+vim.keymap.set("v", "<C-m>", "", opts)
+vim.keymap.set("n", "r", ":redo<CR>", opts)
 --Splits
 vim.keymap.set('n', '<C-k>', ':vsplit<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':split<CR>', opts)
@@ -31,7 +31,7 @@ vim.keymap.set({ 'n', 't' }, '<C-e>', ':wincmd j<CR>', opts)
 vim.keymap.set({ 'n', 't' }, '<C-u>', ':wincmd k<CR>', opts)
 vim.keymap.set({ 'n', 't' }, '<C-i>', ':wincmd l<CR>', opts)
 
- -- moving between splits
+-- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
 vim.keymap.set('n', '<C-e>', require('smart-splits').move_cursor_down)
 vim.keymap.set('n', '<C-u>', require('smart-splits').move_cursor_up)
@@ -61,7 +61,7 @@ vim.keymap.set("n", "<leader>l",
         require('cokeline.mappings').pick("focus")
     end, { desc = "Pick a buffer to focus" }
 )
-local kopts = {noremap = true, silent = true}
+local kopts = { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap('n', 'n',
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
@@ -77,20 +77,19 @@ vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]]
 vim.api.nvim_set_keymap('n', '<esc>', '<Cmd>noh<CR>', kopts)
 -- resizing splits
 
-
 vim.keymap.set('n', '<leader>wn', require('smart-splits').resize_left)
 vim.keymap.set('n', '<leader>we', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>wu', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>wi', require('smart-splits').resize_right)
 
 
-vim.keymap.set({'n'}, 's', '<Plug>(leap-forward-to)')
-vim.keymap.set({'n'}, 'S', '<Plug>(leap-backward-to)')
+vim.keymap.set({ 'n' }, 's', '<Plug>(leap-forward-to)')
+vim.keymap.set({ 'n' }, 'S', '<Plug>(leap-backward-to)')
 
-vim.keymap.set({'x', 'o'}, 'j', '<Plug>(leap-forward-till)')
-vim.keymap.set({'x', 'o'}, 'J', '<Plug>(leap-backward-till)')
+vim.keymap.set({ 'x', 'o' }, 'j', '<Plug>(leap-forward-till)')
+vim.keymap.set({ 'x', 'o' }, 'J', '<Plug>(leap-backward-till)')
 
-vim.keymap.set({'n'}, 'gs','<Plug>(leap-from-window)')
+vim.keymap.set({ 'n' }, 'gs', '<Plug>(leap-from-window)')
 
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
@@ -105,3 +104,33 @@ vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
+
+local cmp = require('cmp')
+cmp.setup({
+    mapping =
+    {
+        ['<S-Tab>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<Esc>'] = cmp.mapping.abort(),
+        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+    }
+})
+local surround = require("nvim-surround")
+surround.setup(
+    {
+        keymaps = {
+            insert = "<C-g>s",
+            insert_line = "<C-g>S",
+            normal = "ys",
+            normal_cur = "yss",
+            normal_line = "yS",
+            normal_cur_line = "ySS",
+            visual = "S",
+            visual_line = "gS",
+            delete = "ds",
+            change = "cs",
+            change_line = "cS",
+        },
+    }
+)

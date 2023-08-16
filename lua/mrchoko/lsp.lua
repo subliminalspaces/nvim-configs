@@ -1,5 +1,4 @@
 vim.opt.ignorecase = true -- ignore case in search patterns
-
 local lsp = require('lsp-zero').preset(
     {
         float_border = 'rounded',
@@ -99,13 +98,6 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-    mapping = cmp.mapping.preset.insert({
-        ['<S-Tab>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Esc>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-        ['<Down>'] = cmp.mapping.select_next_item(cmp_select_opts),
-    }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'buffer' },
@@ -124,14 +116,8 @@ cmp.setup({
         autocomplete = false
     }
 })
+
 cmp.setup.cmdline(':', {
-    mapping = {
-        ['<S-Tab>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Esc>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-        ['<Down>'] = cmp.mapping.select_next_item(cmp_select_opts),
-    },
     sources = cmp.config.sources({
         { name = 'path' }
     }, {
