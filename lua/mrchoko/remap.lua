@@ -105,32 +105,3 @@ vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
 
-local cmp = require('cmp')
-cmp.setup({
-    mapping =
-    {
-        ['<S-Tab>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Esc>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-        ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-    }
-})
-local surround = require("nvim-surround")
-surround.setup(
-    {
-        keymaps = {
-            insert = "<C-g>s",
-            insert_line = "<C-g>S",
-            normal = "ys",
-            normal_cur = "yss",
-            normal_line = "yS",
-            normal_cur_line = "ySS",
-            visual = "S",
-            visual_line = "gS",
-            delete = "ds",
-            change = "cs",
-            change_line = "cS",
-        },
-    }
-)
