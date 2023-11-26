@@ -26,7 +26,7 @@ require("lazy").setup({
 })
 
 vim.g.indent_guides_enable_on_vim_startup = 1
-
+require("lazy").setup(plugins, opts)
 require('telescope').load_extension('neoclip')
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
@@ -163,7 +163,7 @@ vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
 vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true
-vim.o.autoread = 'autoread'
+vim.o.autoread = true
 
 --Other Stuff
 

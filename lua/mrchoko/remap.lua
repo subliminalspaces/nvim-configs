@@ -25,11 +25,19 @@ vim.keymap.set("n", "r", ":redo<CR>", opts)
 vim.keymap.set('n', '<C-k>', ':vsplit<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':split<CR>', opts)
 
+-- Global bindings, opening sidebars, enabling/disabling plugins
+
+vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
+vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
+vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>")
+
+-- Movement bindings
+
 -- Colemak directional binding
-vim.keymap.set({ 'n', 't' }, '<C-n>', ':wincmd h<CR>', opts)
-vim.keymap.set({ 'n', 't' }, '<C-e>', ':wincmd j<CR>', opts)
-vim.keymap.set({ 'n', 't' }, '<C-u>', ':wincmd k<CR>', opts)
-vim.keymap.set({ 'n', 't' }, '<C-i>', ':wincmd l<CR>', opts)
+-- vim.keymap.set({ 'n', 't' }, '<C-n>', ':wincmd h<CR>', opts)
+-- vim.keymap.set({ 'n', 't' }, '<C-e>', ':wincmd j<CR>', opts)
+-- vim.keymap.set({ 'n', 't' }, '<C-u>', ':wincmd k<CR>', opts)
+-- vim.keymap.set({ 'n', 't' }, '<C-i>', ':wincmd l<CR>', opts)
 
 -- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
@@ -41,8 +49,6 @@ vim.keymap.set('n', '<C-i>', require('smart-splits').move_cursor_right)
 vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-32,true,200,sine)<CR>", opts)
 vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>", opts)
 
--- Create File
-vim.keymap.set({ 'n', 'v' }, '<C-a>', ":e %:h/")
 
 -- Cokeline
 vim.keymap.set('n', '<C-r>', '<Plug>(cokeline-focus-prev)')
@@ -50,7 +56,8 @@ vim.keymap.set('n', '<C-t>', '<Plug>(cokeline-focus-next)')
 -- Neotree
 vim.keymap.set('n', '<C-j>', ':Neotree action=focus<CR>')
 
-
+-- Create File
+vim.keymap.set({ 'n', 'v' }, '<C-a>', ":e %:h/")
 --Color Picker
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { buffer = 0 })
@@ -61,20 +68,19 @@ vim.keymap.set("n", "<leader>l",
         require('cokeline.mappings').pick("focus")
     end, { desc = "Pick a buffer to focus" }
 )
-local kopts = { noremap = true, silent = true }
 
 vim.api.nvim_set_keymap('n', 'n',
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
+    opts)
 vim.api.nvim_set_keymap('n', 'N',
     [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    opts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
+-- vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
+-- vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 
-vim.api.nvim_set_keymap('n', '<esc>', '<Cmd>noh<CR>', kopts)
+vim.api.nvim_set_keymap('n', '<esc>', '<Cmd>noh<CR>', opts)
 -- resizing splits
 
 vim.keymap.set('n', '<leader>wn', require('smart-splits').resize_left)
@@ -91,10 +97,7 @@ vim.keymap.set({ 'x', 'o' }, 'J', '<Plug>(leap-backward-till)')
 
 vim.keymap.set({ 'n' }, 'gs', '<Plug>(leap-from-window)')
 
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set({ "n" }, "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set({ "n" }, "<leader>n", ":Neotree toggle=true position=left<CR>", opts)
-vim.keymap.set({ "n" }, "<leader>e", ":TroubleToggle<CR>")
+-- vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 vim.keymap.set({ "n" }, "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>c", "<cmd>PickColor<cr>", opts)
 

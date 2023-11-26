@@ -1,5 +1,6 @@
 return {
     "Saecki/crates.nvim",
+    enabled = false,
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     opts = {
         smart_insert = true,
@@ -139,10 +140,6 @@ return {
                 enabled = false,
                 name = "Crates",
             },
-        },
-        null_ls = {
-            enabled = true,
-            name = "Crates",
         },
         on_attach = function(bufnr) end,
 
