@@ -50,37 +50,14 @@ vim.opt.guicursor =
     .. "sm:block-Cursor-blinkwait175-blinkoff150-blinkon175,"
     .. "a:blinkwait1000-blinkon200-blinkoff300"
 
-augroup('StartObsession', {
-    clear = true
-})
-augroup('KillObsession', {
-    clear = true
-})
-
-
 augroup('SpecsOnEnter', {
     clear = true
 })
-augroup('StopMinimap', {
-    clear = true
-})
-
-augroup('CloseMinimap', {
-    clear = true
-})
-
 autocmd({ 'BufEnter' }, {
     group = 'SpecsOnEnter',
     pattern = '*',
     command = 'lua require("specs").show_specs()'
 })
-autocmd({ 'VimEnter' },
-    {
-        group = 'StartObsession',
-        pattern = '*',
-        command = "Obsession ."
-    }
-)
 augroup('TreesitterUpdate', { clear = true })
 autocmd({ 'VimEnter' }, {
     group = 'TreesitterUpdate',
@@ -88,13 +65,6 @@ autocmd({ 'VimEnter' }, {
     command = 'TSUpdate'
 })
 
-autocmd({ 'VimLeave' },
-    {
-        group = 'KillObsession',
-        pattern = '*',
-        command = "Obsession!"
-    }
-)
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
     {

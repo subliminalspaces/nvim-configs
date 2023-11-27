@@ -4,12 +4,12 @@ return {
     opts = {
         options = {
             icons_enabled = true,
-            theme = 'molokai',
-            component_separators = { left = '', right = '' },
-            section_separators = { left = '', right = '' },
+            theme = 'auto',
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' },
             disabled_filetypes = {
-                statusline = {},
-                winbar = {},
+                statusline = { 'neo-tree' },
+                winbar = { 'neo-tree' },
             },
             ignore_focus = {},
             always_divide_middle = true,
@@ -23,21 +23,23 @@ return {
         sections = {
             lualine_a = { 'mode' },
             lualine_b = { 'branch' },
-            lualine_c = { 'filename',
+            lualine_c = {
                 {
                     'diff',
-                    colored = true,     -- Displays a colored diff status if set to true
+                    colored = true, -- Displays a colored diff status if set to true
                     --  diff_color = {
                     -- Same color values as the general color option can be used here.
                     -- added    = 'AddChange',    -- Changes the diff's added color
                     -- modified = 'DiffChange', -- Changes the diff's modified color
                     -- removed  = 'DiffDelete', -- Changes the diff's removed color you
                     -- },
-                    symbols = { added = '+', modified = '~', removed = '-' },     -- Changes the symbols used by the diff.
+                    symbols = { added = '+', modified = '~', removed = '-' }, -- Changes the symbols used by the diff.
                     -- A function that works as a data source for diff.
                     -- It must return a table as such:
                     -- or nil on failure. count <= 0 won't be displayed.
                 },
+            },
+            lualine_x = {
                 {
                     'diagnostics',
                     -- Table of diagnostic sources, available sources are:
@@ -49,18 +51,17 @@ return {
                     sections = { 'error', 'warn', 'info', 'hint' },
                     diagnostics_color = {
                         -- Same values as the general color option can be used here.
-                        error = 'red', -- Changes diagnostics' error color.
+                        error = 'red',    -- Changes diagnostics' error color.
                         warn  = 'yellow', -- Changes diagnostics' warn color.
-                        info  = 'blue', -- Changes diagnostics' info color.
-                        hint  = 'green', -- Changes diagnostics' hint color.
+                        info  = 'blue',   -- Changes diagnostics' info color.
+                        hint  = 'green',  -- Changes diagnostics' hint color.
                     },
-                    symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
-                    colored = true, -- Displays diagnostics status in color if set to true.
+                    symbols = { error = 'Err ', warn = 'Warn ', info = 'Info ', hint = 'Hint ' },
+                    colored = true,          -- Displays diagnostics status in color if set to true.
                     update_in_insert = false, -- Update diagnostics in insert mode.
-                    always_visible = true, -- Show diagnostics even if there are none.
+                    always_visible = true,    -- Show diagnostics even if there are none.
                 },
             },
-            lualine_x = { 'ObsessionStatus' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
         },
@@ -73,8 +74,23 @@ return {
             lualine_z = {}
         },
         tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = { 'fugitive' }
+        winbar = {
+
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = { 'filename' },
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {}
+        },
+        inactive_winbar = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = { 'filename' },
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {}
+        },
+        extensions = { }
     }
 }
