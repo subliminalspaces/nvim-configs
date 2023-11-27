@@ -50,8 +50,6 @@ vim.keymap.set('n', '<C-t>', '<Plug>(cokeline-focus-next)')
 -- Neotree
 vim.keymap.set('n', '<C-j>', ':Neotree action=focus<CR>')
 
--- Create File
-vim.keymap.set({ 'n', 'v' }, '<C-a>', ":e %:h/")
 --Color Picker
 vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { buffer = 0 })

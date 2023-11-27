@@ -4,6 +4,27 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
         "MunifTanjim/nui.nvim",
+        {
+            's1n7ax/nvim-window-picker',
+            version = '2.*',
+            config = function()
+                require 'window-picker'.setup({
+                    hint = 'floating-big-letter',
+                    selection_chars = 'FJDKSLA;CMRUEIWOQP',
+                    filter_rules = {
+                        include_current_win = false,
+                        autoselect_one = true,
+                        -- filter using buffer options
+                        bo = {
+                            -- if the file type is one of following, the window will be ignored
+                            filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+                            -- if the buffer type is one of following, the window will be ignored
+                            buftype = { 'terminal', "quickfix" },
+                        },
+                    },
+                })
+            end,
+        },
     },
     config = function()
         -- Unless you are still migrating, remove the deprecated commands from v1.x
@@ -25,8 +46,8 @@ return {
         enable_git_status = true,
         enable_diagnostics = true,
         open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-        sort_case_insensitive = false, -- used when sorting files and directories in the tree
-        sort_function = nil,-- use a custom function for sorting files and directories in the tree   
+        sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
+        sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
         -- sort_function = unction (a,b)
         --       if a.type == b.type then
         --           return a.path > b.path
@@ -118,14 +139,14 @@ return {
                 -- -- ['C'] = 'close_all_subnodes',
                 -- ["z"] = "close_all_nodes",
                 -- --["Z"] = "expand_all_nodes",
-                 ["a"] = {
-                   "add",
-                --   -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
-                --   -- some commands may take optional config options, see `:h neo-tree-mappings` for details
-                  config = {
-                     show_path = "none" -- "none", "relative", "absolute"
-                   }
-                 },
+                ["a"] = {
+                    "add",
+                    --   -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
+                    --   -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+                    config = {
+                        show_path = "none" -- "none", "relative", "absolute"
+                    }
+                },
                 -- ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
                 -- ["d"] = "delete",
                 -- ["r"] = "rename",
@@ -162,7 +183,7 @@ return {
                     --"*/src/*/tsconfig.json",
                 },
                 always_show = { -- remains visible even if other settings would normally hide it
-                   ".gitignored",
+                    ".gitignored",
                 },
                 never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
                     --".DS_Store",
@@ -172,9 +193,9 @@ return {
                     --".null-ls_*",
                 },
             },
-            follow_current_file = true,           -- This will find and focus the file in the active buffer every
+            follow_current_file = true,             -- This will find and focus the file in the active buffer every
             -- time the current file is changed while the tree is open.
-            group_empty_dirs = false,             -- when true, empty folders will be grouped together
+            group_empty_dirs = false,               -- when true, empty folders will be grouped together
             hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
             -- in whatever position is specified in window.position
             -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -197,7 +218,7 @@ return {
                     ["]g"] = "next_git_modified",
                 },
                 fuzzy_finder_mappings = {
-                                      -- define keymaps for filter popup window in fuzzy_finder_mode
+                    -- define keymaps for filter popup window in fuzzy_finder_mode
                     ["<down>"] = "move_cursor_down",
                     ["<C-n>"] = "move_cursor_down",
                     ["<up>"] = "move_cursor_up",
@@ -210,7 +231,7 @@ return {
         buffers = {
             follow_current_file = true, -- This will find and focus the file in the active buffer every
             -- time the current file is changed while the tree is open.
-            group_empty_dirs = true,  -- when true, empty folders will be grouped together
+            group_empty_dirs = true,    -- when true, empty folders will be grouped together
             show_unloaded = true,
             window = {
                 mappings = {
