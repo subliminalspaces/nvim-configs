@@ -1,5 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 local lazyopts = {
     lazy = true
 }
-
 vim.keymap.set("n", " ", "<nop>")
 vim.g.mapleader = " "
 require("lazy").setup({
@@ -26,7 +25,6 @@ require("lazy").setup({
 })
 
 vim.g.indent_guides_enable_on_vim_startup = 1
-require("lazy").setup(plugins, opts)
 require('telescope').load_extension('neoclip')
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0

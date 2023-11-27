@@ -1,5 +1,6 @@
 return {
     'ggandor/leap.nvim',
+    enabled = false,
     opts = {
         max_phase_one_targets = nil,
         highlight_unlabeled_phase_one_targets = false,

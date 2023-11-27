@@ -21,7 +21,7 @@ return {
             "BufferLineIndicatorSelected",
         },
         exclude_groups = {
-        "NormalFloat"
+        -- "NormalFloat"
         }, -- table: groups you don't want to clear
     }
 }
