@@ -1,7 +1,6 @@
 return {
-'williamboman/mason.nvim',
-opts = 
-    {
+    'williamboman/mason.nvim',
+    opts = {
         -- The directory in which to install packages.
         -- install_root_dir = path.concat { vim.fn.stdpath "data", "mason" },
 
@@ -105,5 +104,3 @@ opts =
         },
     }
 }
-
-

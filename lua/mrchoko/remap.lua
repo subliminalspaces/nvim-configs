@@ -29,9 +29,11 @@ vim.keymap.set('n', '<C-h>', ':split<CR>', opts)
 
 vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
-vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>")
+vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
-
+vim.keymap.set({"n"}, "<leader>gc", ":ColorizerToggle<CR>")
+vim.keymap.set({"n"}, "<leader>gg", ":LazyGit<CR>")
+vim.keymap.set({"n"}, "<leader>gf", ":NnnPicker<CR>")
 -- Movement bindings
 -- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
@@ -50,15 +52,12 @@ vim.keymap.set('n', '<C-t>', '<Plug>(cokeline-focus-next)')
 -- Neotree
 vim.keymap.set('n', '<C-j>', ':Neotree action=focus<CR>')
 
---Color Picker
-vim.keymap.set("", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
-vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { buffer = 0 })
 
-vim.keymap.set("n", "<leader>l",
-    function()
-        require('cokeline.mappings').pick("focus")
-    end, { desc = "Pick a buffer to focus" }
-)
+-- vim.keymap.set("n", "<leader>l",
+--     function()
+--         require('cokeline.mappings').pick("focus")
+--     end, { desc = "Pick a buffer to focus" }
+-- )
 
 vim.api.nvim_set_keymap('n', 'n',
     [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
@@ -86,9 +85,11 @@ vim.keymap.set('n', '<leader>si', require('smart-splits').resize_right)
 
 -- vim.keymap.set({ 'n' }, 'gs', '<Plug>(leap-from-window)')
 
--- vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set({ "n" }, "<leader>f", vim.lsp.buf.format)
--- vim.keymap.set("n", "<leader>c", "<cmd>PickColor<cr>", opts)
+vim.keymap.set({ "n" }, "<leader>f",
+function ()
+    vim.lsp.buf.format{async = true}
+end
+)
 
 -- Telescope
 local builtin = require('telescope.builtin')

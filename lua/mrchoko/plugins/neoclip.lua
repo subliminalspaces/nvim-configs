@@ -13,7 +13,7 @@ return {
         preview = true,
         prompt = nil,
         default_register = '"',
-        default_register_macros = 'q',
+        default_register_macros = '',
         enable_macro_history = false,
         content_spec_column = false,
         on_select = {
@@ -35,15 +35,15 @@ return {
         },
         keys = {
             telescope = {
-                -- i = {
-                --     select = '<cr>',
-                --     paste = '<c-p>',
-                --     paste_behind = '<c-k>',
-                --     replay = '<c-q>', -- replay a macro
-                --     delete = '<c-d>', -- delete an entry
-                --     edit = '<c-e>', -- edit an entry
-                --     custom = {},
-                -- },
+                i = {
+                    select = '<cr>',
+                    paste = '<c-p>',
+                    paste_behind = '<c-k>',
+                    replay = '<c-q>', -- replay a macro
+                    delete = '<c-d>', -- delete an entry
+                    edit = '<c-e>', -- edit an entry
+                    custom = {},
+                },
                 n = {
                     select = '<cr>',
                     paste = 'p',

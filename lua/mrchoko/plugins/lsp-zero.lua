@@ -1,13 +1,12 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
+    branch = 'v3.x',
     dependencies = {
         { 'onsails/lspkind.nvim'},
         -- LSP Support
         { 'neovim/nvim-lspconfig' },       -- Required
         { 'williamboman/mason.nvim' },     -- Optional
         { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
         -- Autocompletion
         { 'hrsh7th/nvim-cmp' },   -- Required
         { 'hrsh7th/cmp-nvim-lsp' }, -- Required
@@ -27,6 +26,5 @@ return {
         -- Language support
         {"simrat39/rust-tools.nvim"},
         {"tikhomirov/vim-glsl"}
-
     }
 }

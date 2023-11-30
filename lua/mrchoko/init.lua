@@ -132,7 +132,6 @@ vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true
 vim.o.autoread = true
-
 --Other Stuff
 
 

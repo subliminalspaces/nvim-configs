@@ -1,81 +1,98 @@
 vim.opt.ignorecase = true -- ignore case in search patterns
-local lsp = require('lsp-zero').preset(
-    {
-        float_border = 'rounded',
-        call_servers = 'local',
-        configure_diagnostics = true,
-        setup_servers_on_start = true,
-        set_lsp_keymaps = {
-            preserve_mappings = true,
-            omit = {},
-        },
-    }
-)
+local lsp_zero = require('lsp-zero')
 
-lsp.nvim_workspace()
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'html',
-    'graphql',
-    'jsonls',
-    'lua_ls',
-    'pyright',
-    'sqlls',
-    'tflint',
-    'tailwindcss',
-    'yamlls',
-    'prismals',
-    'cssls',
-    'clangd',
-    'rust_analyzer'
-})
-lsp.skip_server_setup({
-    'julials',
-    'java',
-    'javac',
-    'phpactor'
-})
-lsp.setup()
 
--- local function on_attach(client, buffer)
---   -- This callback is called when the LSP is atttached/enabled for this buffer
---   -- we could set keymaps related to LSP, etc here.
--- end
-local opts = {
-    tools = {
-        runnables = {
-            use_telescope = true,
-        },
-        inlay_hints = {
-            auto = true,
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
+lsp_zero.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+})
+
+vim.diagnostic.config({
+    virtual_text = false,
+    severity_sort = true,
+    float = {
+        style = 'minimal',
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
     },
+})
+vim.g.lsp_zero_ui_float_border = 'rounded'
+vim.g.lsp_zero_signcolumn = 1
+vim.g.lsp_zero_extend_lspconfig = 0
+vim.g.lsp_zero_extend_cmp = 1
+vim.g.lsp_zero_api_warnings = 1
 
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-    server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "clippy",
-                },
-            },
-        },
+local lua_opts = lsp_zero.nvim_lua_ls()
+
+
+lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({ buffer = bufnr })
+end)
+
+require('lspconfig').lua_ls.setup(lua_opts)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        'tsserver',
+        'eslint',
+        'html',
+        'graphql',
+        'jsonls',
+        'lua_ls',
+        'pyright',
+        'sqlls',
+        'tflint',
+        'tailwindcss',
+        'yamlls',
+        'prismals',
+        'cssls',
+        'clangd',
+        'rust_analyzer'
+    },
+    handlers = {
+        lsp_zero.default_setup,
     }
-}
+})
+
+-- local opts = {
+--     tools = {
+--         runnables = {
+--             use_telescope = true,
+--         },
+--         inlay_hints = {
+--             auto = true,
+--             show_parameter_hints = false,
+--             parameter_hints_prefix = "",
+--             other_hints_prefix = "",
+--         },
+--     },
+--     -- all the opts to send to nvim-lspconfig
+--     -- these override the defaults set by rust-tools.nvim
+--     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+--     server = {
+--         -- on_attach is a callback called when the language server attachs to the buffer
+--         -- on_attach = on_attach,
+--         settings = {
+--             -- to enable rust-analyzer settings visit:
+--             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+--             ["rust-analyzer"] = {
+--                 -- enable clippy on save
+--                 checkOnSave = {
+--                     command = "clippy",
+--                 },
+--             },
+--         },
+--     }
+-- }
 local cmp = require('cmp')
+require("luasnip.loaders.from_vscode").lazy_load()
 local lspkind = require('lspkind')
-require("rust-tools").setup(opts)
+-- require("rust-tools").setup(opts)
 cmp.setup({
     mapping =
     {
@@ -105,7 +122,7 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     },
-    sources = cmp.config.sources({
+    sources = {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'path' },
@@ -118,7 +135,7 @@ cmp.setup({
         { name = 'rg' },
         { name = 'treesitter' },
         { name = "crates" },
-    }),
+    },
     completion = {
         autocomplete = false
     }
@@ -136,5 +153,4 @@ cmp.setup.cmdline(':', {
         }
     })
 })
-require("luasnip.loaders.from_vscode").lazy_load()
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
