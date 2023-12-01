@@ -1,7 +1,6 @@
 vim.opt.ignorecase = true -- ignore case in search patterns
 local lsp_zero = require('lsp-zero')
 
-
 lsp_zero.set_sign_icons({
     error = '✘',
     warn = '▲',
@@ -28,9 +27,27 @@ vim.g.lsp_zero_api_warnings = 1
 
 local lua_opts = lsp_zero.nvim_lua_ls()
 
-
 lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr })
+    local opts = { buffer = bufnr }
+    local bind = vim.keymap.set
+    bind({ "n" }, "<leader>lf",
+        function()
+            vim.lsp.buf.format { async = true }
+        end
+    )
+    bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts) 
+    bind('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    bind('n', '<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    bind('n', '<leader>lo', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    bind('n', '<leader>ln', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    bind('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    bind('n', '<leader>le', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    -- bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts) 
+    -- bind('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    bind('n', '<leader>lr', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    bind('n', '<leader>lt', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 end)
 
 require('lspconfig').lua_ls.setup(lua_opts)

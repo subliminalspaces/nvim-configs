@@ -31,9 +31,9 @@ vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
-vim.keymap.set({"n"}, "<leader>gc", ":ColorizerToggle<CR>")
-vim.keymap.set({"n"}, "<leader>gg", ":LazyGit<CR>")
-vim.keymap.set({"n"}, "<leader>gf", ":NnnPicker<CR>")
+vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
+vim.keymap.set({ "n" }, "<leader>gg", ":LazyGit<CR>")
+vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
 -- Movement bindings
 -- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
@@ -85,11 +85,6 @@ vim.keymap.set('n', '<leader>si', require('smart-splits').resize_right)
 
 -- vim.keymap.set({ 'n' }, 'gs', '<Plug>(leap-from-window)')
 
-vim.keymap.set({ "n" }, "<leader>f",
-function ()
-    vim.lsp.buf.format{async = true}
-end
-)
 
 -- Telescope
 local builtin = require('telescope.builtin')
@@ -97,4 +92,3 @@ vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
-
