@@ -34,6 +34,7 @@ vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gg", ":LazyGit<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
+vim.keymap.set('n', '<leader>gi', require 'dapui'.toggle)
 -- Movement bindings
 -- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)

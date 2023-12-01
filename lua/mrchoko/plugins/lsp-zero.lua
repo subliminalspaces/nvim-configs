@@ -28,7 +28,7 @@ return {
         { "tikhomirov/vim-glsl" },
         -- DAP support
         "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim",
         "rcarriga/nvim-dap-ui",
+        "mxsdev/nvim-dap-vscode-js",
     }
 }
