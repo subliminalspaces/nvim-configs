@@ -49,7 +49,7 @@ return {
                     'before_load',
                     vim.o.sessionoptions:match('buffer') and 'before_save',
                 },
-                force = flse, -- or fun(buf): boolean
+                force = false, -- or fun(buf): boolean
             },
             nvim_tree = false,
             neo_tree = true,
