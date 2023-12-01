@@ -7,7 +7,7 @@ return {
             'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
             'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
             'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-            'SignColumn', 'CursorLineNr', 'EndOfBuffer', 'NvimTree'
+            'SignColumn', 'CursorLineNr', 'EndOfBuffer', 'neo-tree'
         },
         extra_groups = { -- table/string: additional groups that should be cleared
             -- In particular, when you set it to 'all', that means all available groups
