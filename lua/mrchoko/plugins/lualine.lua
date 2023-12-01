@@ -38,6 +38,9 @@ return {
                     -- It must return a table as such:
                     -- or nil on failure. count <= 0 won't be displayed.
                 },
+                {
+                    "require'possession.session'.session_name" or ''
+                }
             },
             lualine_x = {
                 {

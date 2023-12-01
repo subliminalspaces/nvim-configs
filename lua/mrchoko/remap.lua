@@ -93,3 +93,12 @@ vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
+vim.keymap.set('n', '<leader>tp', ":Telescope possession list<CR>")
+
+vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. vim.fn.strftime("%Y-%b-%d-%X") .. "<CR>")
+-- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
+vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
+vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")
+vim.keymap.set('n', '<leader>md', ":PossessionDelete<CR>")
+vim.keymap.set('n', '<leader>mc', ":PossessionClose<CR>")
+
