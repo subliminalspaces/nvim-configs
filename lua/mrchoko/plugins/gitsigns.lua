@@ -1,8 +1,5 @@
 return {
 'lewis6991/gitsigns.nvim',
-  -- config = function()
-  --   require("scrollbar.handlers.gitsigns").setup()
-  -- end,
 opts =  {
       signs = {
         add          = { text = '│' },
