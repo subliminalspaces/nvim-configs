@@ -27,6 +27,20 @@ vim.keymap.set('n', '<C-h>', ':split<CR>', opts)
 
 -- Global bindings, opening sidebars, enabling/disabling plugins
 
+local wk = require("which-key")
+local wkopts = {
+    mode = "n", -- NORMAL mode
+    -- prefix: use "<leader>f" for example for mapping everything related to finding files
+    -- the prefix is prepended to every mapping part of `mappings`
+    -- prefix = "",
+    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true,  -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+    expr = false,   -- use `expr` when creating keymaps
+}
+wkopts.prefix = "<leader>"
+
 vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
@@ -35,6 +49,19 @@ vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gg", ":LazyGit<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
 vim.keymap.set('n', '<leader>gi', require 'dapui'.toggle)
+wk.register({
+    g = {
+        name = "Global",
+        u = { "Undo Tree Toggle" },
+        n = { "NeoTree Toggle", },
+        t = { "Toggle Trouble" },
+        l = { "HlLens Toggle" },
+        c = { "Colorizer Toggle" },
+        g = { "LazyGit" },
+        f = { "NNN" },
+        i = { "DAPUI toggle" }
+    },
+}, wkopts)
 -- Movement bindings
 -- moving between splits
 vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
@@ -97,12 +124,24 @@ vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
 vim.keymap.set('n', '<leader>tp', ":Telescope possession list<CR>")
+vim.keymap.set('n', '<leader>ta', ":Telescope colorscheme<CR>")
 
-vim.keymap.set('n', '<leader>ms', ":PossessionSave!" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'),'/',"_") .. "<CR>")
+wkopts.prefix = "<leader>"
+wk.register({
+    t = {
+        name = "Telescope",
+        g = { "Live Grep" },
+        f = { "Current Buffer Fuzzy Find", },
+        s = { "Grep String" },
+        c = { "Neoclip" },
+        p = { "Possession List" },
+        a = { "Colorscheme" },
+    },
+}, wkopts)
+vim.keymap.set('n', '<leader>ms', ":PossessionSave!" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'), '/', "_") .. "<CR>")
 
 -- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
 vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
 vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")
 vim.keymap.set('n', '<leader>md', ":PossessionDelete<CR>")
 vim.keymap.set('n', '<leader>mc', ":PossessionClose<CR>")
-
