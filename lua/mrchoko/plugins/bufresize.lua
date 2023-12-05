@@ -7,10 +7,10 @@ return {
             trigger_events = {
                 'BufWinEnter', "WinEnter"
             }
+        },
+        resize = {
+            trigger_events = { "VimResized" },
+            increment = 5
         }
     },
-    resize = {
-        trigger_events = { "VimResized" },
-        increment = 5
-    }
 }

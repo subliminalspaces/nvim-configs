@@ -98,7 +98,7 @@ vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
 vim.keymap.set('n', '<leader>tp', ":Telescope possession list<CR>")
 
-vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'),'/',"_") .. "<CR>")
+vim.keymap.set('n', '<leader>ms', ":PossessionSave!" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'),'/',"_") .. "<CR>")
 
 -- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
 vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
