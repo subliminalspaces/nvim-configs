@@ -41,7 +41,10 @@ vim.keymap.set('n', '<C-n>', require('smart-splits').move_cursor_left)
 vim.keymap.set('n', '<C-e>', require('smart-splits').move_cursor_down)
 vim.keymap.set('n', '<C-u>', require('smart-splits').move_cursor_up)
 vim.keymap.set('n', '<C-i>', require('smart-splits').move_cursor_right)
-
+vim.keymap.set('n', '<C-S-n>', require('smart-splits').swap_buf_left)
+vim.keymap.set('n', '<C-S-e>', require('smart-splits').swap_buf_down)
+vim.keymap.set('n', '<C-S-u>', require('smart-splits').swap_buf_up)
+vim.keymap.set('n', '<C-S-i>', require('smart-splits').swap_buf_right)
 -- Neoscroll
 vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-32,true,200,sine)<CR>", opts)
 vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>", opts)
@@ -95,7 +98,8 @@ vim.keymap.set('n', '<leader>ts', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
 vim.keymap.set('n', '<leader>tp', ":Telescope possession list<CR>")
 
-vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. vim.fn.strftime("%Y-%b-%d-%X") .. "<CR>")
+vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'),'/',"_") .. "<CR>")
+
 -- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
 vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
 vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")

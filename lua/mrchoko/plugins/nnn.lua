@@ -10,7 +10,7 @@ return {
             fullscreen = true, -- whether to fullscreen explorer window when current tab is empty
         },
         picker = {
-            cmd = "nnn", -- command override (-p flag is implied)
+            cmd = "tmux new-session nnn -a -P P", -- command override (-p flag is implied)
             style = {
                 width = 0.9, -- percentage relative to terminal size when < 1, absolute otherwise
                 height = 0.8, -- ^
