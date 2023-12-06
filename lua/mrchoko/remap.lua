@@ -41,19 +41,20 @@ local wkopts = {
 }
 
 
+wkopts.prefix = "<leader>"
 wk.register({
-    ["<leader>"] = {
+    [""] = {
         name = "Leader",
         g = { "Global" },
         s = { "Smart Splits", },
         t = { "Telescope" },
         m = { "Possession" },
         a = { "Gen" },
-        l = { "LSP"},
-        b = { "DAP"}
+        l = { "LSP" },
+        b = { "DAP" },
+        f = { "Conform" }
     },
 }, wkopts)
-wkopts.prefix = "<leader>"
 vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
@@ -73,7 +74,7 @@ wk.register({
         g = { "LazyGit" },
         f = { "NNN" },
         i = { "DAPUI toggle" },
-        a = {"LLM"}
+        a = { "LLM" }
     },
 }, wkopts)
 -- Movement bindings
@@ -133,7 +134,30 @@ wk.register({
     },
 }, wkopts)
 
+
+-- keys = {
+--         {
+--             -- Customize or remove this keymap to your liking
+--             "<leader>f",
+--             function()
+--                 require("conform").format({ async = true, lsp_fallback = true })
+--             end,
+--             mode = "",
+--             desc = "Format buffer",
+--         },
+--     },
+--
+vim.keymap.set('n', '<leader>ff',
+    function()
+        require("conform").format({ async = true, lsp_fallback = true })
+    end, { })
+
+vim.keymap.set('n', '<leader>fg',
+    function()
+        require("conform").format({ async = true, lsp_fallback = true, formatters = "format_repo" })
+    end, { })
 -- vim.keymap.set({ 'n' }, 's', '<Plug>(leap-forward-to)')
+--
 -- vim.keymap.set({ 'n' }, 'S', '<Plug>(leap-backward-to)')
 
 -- vim.keymap.set({ 'x', 'o' }, 'j', '<Plug>(leap-forward-till)')
@@ -163,7 +187,6 @@ wk.register({
     },
 }, wkopts)
 vim.keymap.set('n', '<leader>ms', ":PossessionSave!" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'), '/', "_") .. "<CR>")
--- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
 vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
 vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")
 vim.keymap.set('n', '<leader>md', ":PossessionDelete<CR>")
@@ -172,7 +195,7 @@ vim.keymap.set('n', '<leader>mc', ":PossessionClose<CR>")
 wk.register({
     m = {
         name = "Possession",
-        s = {"Save"},
+        s = { "Save" },
         l = { "Load" },
         r = { "Rename", },
         d = { "Delete" },
