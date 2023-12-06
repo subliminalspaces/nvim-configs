@@ -23,7 +23,7 @@ return {
         -- },
         -- If this is set, Conform will run the formatter asynchronously after save.
         -- It will pass the table to conform.format().
-        -- This can also be a function that returns the table.
+        -- This can also be a function that returns the table. gn
         format_after_save = false,
         -- {
         --     lsp_fallback = true,
@@ -40,7 +40,7 @@ return {
                 command = "format_repo",
                 -- A list of strings, or a function that returns a list of strings
                 -- Return a single string instead of a list to run the command in a shell
-                args = { },
+                -- args = { },
                 -- If the formatter supports range formatting, create the range arguments here
                 -- range_args = function(ctx)
                 --     return { "--line-start", ctx.range.start[1], "--line-end", ctx.range["end"][1] }
@@ -60,8 +60,7 @@ return {
                 -- Exit codes that indicate success (default { 0 })
                 exit_codes = { 0, 1 },
                 -- Environment variables. This can also be a function that returns a table.
-                env = {
-                },
+                -- env = {},
                 -- Set to false to disable merging the config with the base definition
                 inherit = true,
                 -- When inherit = true, add these additional arguments to the command.

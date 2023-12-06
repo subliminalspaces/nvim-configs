@@ -150,12 +150,19 @@ wk.register({
 vim.keymap.set('n', '<leader>ff',
     function()
         require("conform").format({ async = true, lsp_fallback = true })
-    end, { })
+    end, {})
+-- vim.keymap.set('n', '<leader>fg',
+--     function()
+--         require("conform").format({ async = true, lsp_fallback = true, formatters = "format_repo" })
+--     end, { })
 
-vim.keymap.set('n', '<leader>fg',
-    function()
-        require("conform").format({ async = true, lsp_fallback = true, formatters = "format_repo" })
-    end, { })
+wk.register({
+    f = {
+        name = "Conform",
+        f = { "Format" },
+    },
+}, wkopts)
+
 -- vim.keymap.set({ 'n' }, 's', '<Plug>(leap-forward-to)')
 --
 -- vim.keymap.set({ 'n' }, 'S', '<Plug>(leap-backward-to)')
