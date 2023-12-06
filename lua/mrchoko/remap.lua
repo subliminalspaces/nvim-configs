@@ -41,6 +41,18 @@ local wkopts = {
 }
 
 
+wk.register({
+    ["<leader>"] = {
+        name = "Leader",
+        g = { "Global" },
+        s = { "Smart Splits", },
+        t = { "Telescope" },
+        m = { "Possession" },
+        a = { "Gen" },
+        l = { "LSP"},
+        b = { "DAP"}
+    },
+}, wkopts)
 wkopts.prefix = "<leader>"
 vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
@@ -74,6 +86,8 @@ vim.keymap.set('n', '<C-S-n>', require('smart-splits').swap_buf_left)
 vim.keymap.set('n', '<C-S-e>', require('smart-splits').swap_buf_down)
 vim.keymap.set('n', '<C-S-u>', require('smart-splits').swap_buf_up)
 vim.keymap.set('n', '<C-S-i>', require('smart-splits').swap_buf_right)
+
+
 -- Neoscroll
 vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-32,true,200,sine)<CR>", opts)
 vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>", opts)
@@ -109,6 +123,15 @@ vim.keymap.set('n', '<leader>se', require('smart-splits').resize_down)
 vim.keymap.set('n', '<leader>su', require('smart-splits').resize_up)
 vim.keymap.set('n', '<leader>si', require('smart-splits').resize_right)
 
+wk.register({
+    s = {
+        name = "Smart-Splits",
+        n = { "Resize left" },
+        e = { "Resize Down", },
+        u = { "Resize Up" },
+        i = { "Resize Right" },
+    },
+}, wkopts)
 
 -- vim.keymap.set({ 'n' }, 's', '<Plug>(leap-forward-to)')
 -- vim.keymap.set({ 'n' }, 'S', '<Plug>(leap-backward-to)')
@@ -128,7 +151,6 @@ vim.keymap.set('n', '<leader>tc', ":Telescope neoclip<CR>")
 vim.keymap.set('n', '<leader>tp', ":Telescope possession list<CR>")
 vim.keymap.set('n', '<leader>ta', ":Telescope colorscheme<CR>")
 
-wkopts.prefix = "<leader>"
 wk.register({
     t = {
         name = "Telescope",
@@ -141,11 +163,27 @@ wk.register({
     },
 }, wkopts)
 vim.keymap.set('n', '<leader>ms', ":PossessionSave!" .. vim.fn.tr(vim.fn.finddir('.git/..', ';'), '/', "_") .. "<CR>")
-
 -- vim.keymap.set('n', '<leader>ms', ":PossessionSave" .. " possession.session" .. "<CR>")
 vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
 vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")
 vim.keymap.set('n', '<leader>md', ":PossessionDelete<CR>")
 vim.keymap.set('n', '<leader>mc', ":PossessionClose<CR>")
 
+wk.register({
+    m = {
+        name = "Possession",
+        s = {"Save"},
+        l = { "Load" },
+        r = { "Rename", },
+        d = { "Delete" },
+        c = { "Close" },
+    },
+}, wkopts)
 vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')
+
+wk.register({
+    a = {
+        name = "Gen",
+        a = { "Review Code" },
+    },
+}, wkopts)
