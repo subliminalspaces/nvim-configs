@@ -1,7 +1,7 @@
 return {
     'timtro/glslView-nvim',
     ft = 'glsl',
-    enabled = false,
+    enabled = true,
     opts = {
         viewer_path = 'glslViewer',
         args = { '-l' },

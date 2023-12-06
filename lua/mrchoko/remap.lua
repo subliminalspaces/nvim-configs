@@ -39,8 +39,9 @@ local wkopts = {
     nowait = false, -- use `nowait` when creating keymaps
     expr = false,   -- use `expr` when creating keymaps
 }
-wkopts.prefix = "<leader>"
 
+
+wkopts.prefix = "<leader>"
 vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
 vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
@@ -59,7 +60,8 @@ wk.register({
         c = { "Colorizer Toggle" },
         g = { "LazyGit" },
         f = { "NNN" },
-        i = { "DAPUI toggle" }
+        i = { "DAPUI toggle" },
+        a = {"LLM"}
     },
 }, wkopts)
 -- Movement bindings
@@ -145,3 +147,5 @@ vim.keymap.set('n', '<leader>ml', ":PossessionLoad<CR>")
 vim.keymap.set('n', '<leader>mr', ":PossessionRename<CR>")
 vim.keymap.set('n', '<leader>md', ":PossessionDelete<CR>")
 vim.keymap.set('n', '<leader>mc', ":PossessionClose<CR>")
+
+vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')

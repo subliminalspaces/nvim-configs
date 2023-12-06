@@ -104,7 +104,6 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.o.fillchars = 'eob: '
 --Window settings
-
 vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
@@ -133,18 +132,16 @@ vim.opt.numberwidth = 4
 vim.opt.expandtab = true
 vim.o.autoread = true
 --Other Stuff
-
-
+vim.g.border = "rounded"
+vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true -- ignore case in search patterns
 require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
 require("mrchoko.theme")
-vim.opt.ignorecase = true -- ignore case in search patterns
 
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
 --vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
---vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 --vim.opt.smartcase = true -- smart case
---

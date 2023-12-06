@@ -8,22 +8,43 @@ lsp_zero.set_sign_icons({
     info = ''
 })
 
+
+vim.g.lsp_zero_signcolumn = 1
+vim.g.lsp_zero_extend_lspconfig = 1
+vim.g.lsp_zero_extend_cmp = 1
+vim.g.lsp_zero_api_warnings = 1
+
 vim.diagnostic.config({
     virtual_text = false,
     severity_sort = true,
     float = {
         style = 'minimal',
-        border = 'rounded',
+        border = 'double',
         source = 'always',
         header = '',
         prefix = '',
     },
 })
-vim.g.lsp_zero_ui_float_border = 'rounded'
-vim.g.lsp_zero_signcolumn = 1
-vim.g.lsp_zero_extend_lspconfig = 0
-vim.g.lsp_zero_extend_cmp = 1
-vim.g.lsp_zero_api_warnings = 1
+local _border = "double"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border
+  }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = _border
+  }
+)
+
+vim.diagnostic.config{
+  float={border=_border}
+}
+require('lspconfig.ui.windows').default_options = {
+  border = _border
+}
+
 
 local lua_opts = lsp_zero.nvim_lua_ls()
 
@@ -170,4 +191,6 @@ cmp.setup.cmdline(':', {
         }
     })
 })
+
+vim.g.lsp_zero_ui_float_border = 'double'
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
