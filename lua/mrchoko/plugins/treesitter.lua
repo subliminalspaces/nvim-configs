@@ -5,44 +5,51 @@ local M = {
         "BufReadPost",
         "BufNewFile"
     },
-    dependencies = {
-
-        'tree-sitter/tree-sitter-css',
-        'tree-sitter/tree-sitter-html',
-        'tree-sitter/tree-sitter-javascript',
-        'ikatyang/tree-sitter-yaml',
-        'camdencheek/tree-sitter-dockerfile',
-        'the-mikedavis/tree-sitter-diff',
-        'the-mikedavis/tree-sitter-git-rebase',
-        'ObserverOfTime/tree-sitter-gitattributes',
-        'gbprod/tree-sitter-gitcommit',
-        'shunsambongi/tree-sitter-gitignore',
-        'bkegley/tree-sitter-graphql',
-        'tree-sitter/tree-sitter-jsdoc',
-        'DerekStride/tree-sitter-sql',
-        'ikatyang/tree-sitter-toml',
-        'tree-sitter/tree-sitter-regex',
-        'tree-sitter/tree-sitter-json',
-        'Joakker/tree-sitter-json5',
-        'tree-sitter/tree-sitter-typescript',
-        'tree-sitter/tree-sitter-python',
-        'tree-sitter/tree-sitter-rust',
-        'theHamsta/tree-sitter-glsl',
-    },
-    build = function()
-        require("nvim-treesitter.install").update({ with_sync = true })
-    end,
+    dependencies = {},
+    build = ':TSUpdate',
     opts = {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = {
             "bash",
             "c",
-            "lua",
-            "vim",
+            "cpp",
+            "cmake",
+            "comment",
+            "css",
+            "diff",
+            "dockerfile",
+            "git_config",
+            "git_rebase",
+            "gitattributes",
+            "gitcommit",
+            "gitignore",
+            "glsl",
+            "graphql",
             "help",
-            "query",
+            "html",
+            "http",
+            "javascript",
+            "json",
+            "json5",
+            "lua",
+            "lua_patterns",
+            "make",
             "markdown",
-            "markdown_inline"
+            "markdown_inline",
+            "python",
+            "query",
+            "regex",
+            "scss",
+            "sql",
+            "ssh_config",
+            "terraform",
+            "toml",
+            "typescript",
+            "vim",
+            "vimdoc",
+            "wgsl",
+            "xml",
+            "yaml",
         },
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
@@ -60,7 +67,7 @@ local M = {
             -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
             -- the name of the parser)
             -- list of language that will be disabled
-            disable = { "rust" },
+            disable = { },
             -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
             -- disable = function(lang, buf)
             --     local max_filesize = 100 * 1024 -- 100 KB

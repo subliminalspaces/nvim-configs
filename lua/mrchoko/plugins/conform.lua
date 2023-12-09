@@ -11,6 +11,7 @@ return {
         formatters_by_ft = {
             javascript = { { "prettierd", "prettier" } },
             ["_"] = { "trim_whitespace" },
+
         },
         -- If this is set, Conform will run the formatter on save.
         -- It will pass the table to conform.format().

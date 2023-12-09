@@ -163,14 +163,11 @@ wk.register({
     },
 }, wkopts)
 
--- vim.keymap.set({ 'n' }, 's', '<Plug>(leap-forward-to)')
---
--- vim.keymap.set({ 'n' }, 'S', '<Plug>(leap-backward-to)')
-
--- vim.keymap.set({ 'x', 'o' }, 'j', '<Plug>(leap-forward-till)')
--- vim.keymap.set({ 'x', 'o' }, 'J', '<Plug>(leap-backward-till)')
-
--- vim.keymap.set({ 'n' }, 'gs', '<Plug>(leap-from-window)')
+-- Leap
+vim.keymap.set({ 'n' }, 'l', '<Plug>(leap-forward-to)')
+vim.keymap.set({ 'n' }, 'j', '<Plug>(leap-backward-to)')
+vim.keymap.set({ 'x', 'o' }, 'J', '<Plug>(leap-backward-till)')
+vim.keymap.set({ 'n' }, 'L', '<Plug>(leap-from-window)')
 
 
 -- Telescope
