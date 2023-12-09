@@ -28,21 +28,21 @@ vim.diagnostic.config({
 local _border = "double"
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
+    vim.lsp.handlers.hover, {
+        border = _border
+    }
 )
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
+    vim.lsp.handlers.signature_help, {
+        border = _border
+    }
 )
 
-vim.diagnostic.config{
-  float={border=_border}
+vim.diagnostic.config {
+    float = { border = _border }
 }
 require('lspconfig.ui.windows').default_options = {
-  border = _border
+    border = _border
 }
 
 
@@ -57,7 +57,7 @@ lsp_zero.on_attach(function(client, bufnr)
         end
     )
     bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts) 
+    bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     bind('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     bind('n', '<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
     bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
@@ -65,7 +65,7 @@ lsp_zero.on_attach(function(client, bufnr)
     bind('n', '<leader>ln', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     bind('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     bind('n', '<leader>le', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    -- bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts) 
+    -- bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     -- bind('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
     bind('n', '<leader>lr', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
     bind('n', '<leader>lt', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)

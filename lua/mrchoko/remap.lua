@@ -1,23 +1,15 @@
 local opts = { noremap = true, silent = true }
 -- Committing vim heresy
-vim.keymap.set("n", "h", "")
-vim.keymap.set("v", "h", "")
-vim.keymap.set("n", "j", "")
-vim.keymap.set("v", "j", "")
-vim.keymap.set("n", "k", "")
-vim.keymap.set("v", "k", "")
-vim.keymap.set("n", "l", "")
-vim.keymap.set("v", "l", "")
-vim.keymap.set("n", "<C-h>", "", opts)
-vim.keymap.set("v", "<C-h>", "", opts)
+vim.keymap.set({ "n", "v" }, "h", "")
+vim.keymap.set({ "n", "v" }, "j", "")
+vim.keymap.set({ "n", "v" }, "k", "")
+vim.keymap.set({ "n", "v" }, "l", "")
+vim.keymap.set({ "n", "v" }, "<C-h>", "", opts)
 
 --Move  to first/middle/last line of screen. Simply not useful.
-vim.keymap.set("n", "H", "")
-vim.keymap.set("v", "H", "")
-vim.keymap.set("n", "L", "")
-vim.keymap.set("v", "L", "")
-vim.keymap.set("n", "M", "")
-vim.keymap.set("v", "M", "")
+vim.keymap.set({ "n", "v" }, "H", "")
+vim.keymap.set({ "n", "v" }, "L", "")
+vim.keymap.set({ "n", "v" }, "M", "")
 
 vim.keymap.set("v", "<C-m>", "", opts)
 vim.keymap.set("n", "r", ":redo<CR>", opts)
@@ -26,22 +18,17 @@ vim.keymap.set('n', '<C-k>', ':vsplit<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':split<CR>', opts)
 
 -- Global bindings, opening sidebars, enabling/disabling plugins
-
 local wk = require("which-key")
 local wkopts = {
-    mode = "n", -- NORMAL mode
-    -- prefix: use "<leader>f" for example for mapping everything related to finding files
-    -- the prefix is prepended to every mapping part of `mappings`
-    -- prefix = "",
+    mode = "n",     -- NORMAL mode
     buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
     silent = true,  -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
     nowait = false, -- use `nowait` when creating keymaps
     expr = false,   -- use `expr` when creating keymaps
 }
-
-
 wkopts.prefix = "<leader>"
+
 wk.register({
     [""] = {
         name = "Leader",
@@ -62,7 +49,7 @@ vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gg", ":LazyGit<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
-vim.keymap.set('n', '<leader>gi', require 'dapui'.toggle)
+vim.keymap.set({ 'n' }, '<leader>gi', require 'dapui'.toggle)
 wk.register({
     g = {
         name = "Global",
@@ -147,10 +134,13 @@ wk.register({
 --         },
 --     },
 --
-vim.keymap.set('n', '<leader>ff',
-    function()
-        require("conform").format({ async = true, lsp_fallback = true })
-    end, {})
+
+vim.keymap.set('n', '<leader>ff', ":Format<CR>")
+vim.keymap.set('n', '<leader>fF', ":FormatWrite<CR>")
+-- vim.keymap.set('n', '<leader>ff',
+--     function()
+--         require("conform").format({ async = true})
+--     end, {})
 -- vim.keymap.set('n', '<leader>fg',
 --     function()
 --         require("conform").format({ async = true, lsp_fallback = true, formatters = "format_repo" })
@@ -158,8 +148,9 @@ vim.keymap.set('n', '<leader>ff',
 
 wk.register({
     f = {
-        name = "Conform",
-        f = { "Format" },
+        name = "Formatter",
+        f = { ":Format" },
+        F = { ":FormatWrite" },
     },
 }, wkopts)
 
