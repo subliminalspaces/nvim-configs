@@ -199,6 +199,7 @@ wk.register({
 }, wkopts)
 vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')
 
+vim.keymap.set({ 'n', 'v' }, '<leader>ac', ':Gen Commit_Message<CR>')
 wk.register({
     a = {
         name = "Gen",
