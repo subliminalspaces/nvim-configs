@@ -118,7 +118,7 @@ require('mason-lspconfig').setup({
         'prismals',
         'cssls',
         'clangd',
-        'rust_analyzer'
+        'rust_analyzer',
     },
     handlers = {
         lsp_zero.default_setup,
