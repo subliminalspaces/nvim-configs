@@ -2,16 +2,17 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     lazy = true,
-    dependencies = { { 'nvim-lua/plenary.nvim' }, { 'AckslD/nvim-neoclip.lua' } },
+    dependencies = {
+        { 'nvim-lua/plenary.nvim' },
+        { 'AckslD/nvim-neoclip.lua' } },
     opts = {
         defaults = {
-            -- Default configuration for telescope goes here:
-            -- config_key = value,
+            border = true,
             mappings = {
+                n = {
+                    ["h"] = "which_key"
+                },
                 i = {
-                    -- map actions.which_key to <C-h> (default: <C-/>)
-                    -- actions.which_key shows the mappings for your picker,
-                    -- e.g. git_{create, delete, ...}_branch for the git_branches picker
                     ["<C-h>"] = "which_key"
                 }
             }

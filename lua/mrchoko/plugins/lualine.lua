@@ -39,34 +39,45 @@ return {
                     -- or nil on failure. count <= 0 won't be displayed.
                 },
                 {
-                    "require'possession.session'.session_name" or ''
-                }
-            },
-            lualine_x = {
-                {
                     'diagnostics',
                     -- Table of diagnostic sources, available sources are:
                     --   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
                     -- or a function that returns a table as such:
                     --   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
-                    sources = { 'nvim_diagnostic', 'coc', 'nvim_lsp' },
+                    sources = { 'nvim_diagnostic', 'nvim_lsp' },
                     -- Displays diagnostics for the defined severity types
                     sections = { 'error', 'warn', 'info', 'hint' },
                     diagnostics_color = {
                         -- Same values as the general color option can be used here.
-                        error = 'red',    -- Changes diagnostics' error color.
-                        warn  = 'yellow', -- Changes diagnostics' warn color.
-                        info  = 'blue',   -- Changes diagnostics' info color.
-                        hint  = 'green',  -- Changes diagnostics' hint color.
+                        -- error = 'red',    -- Changes diagnostics' error color.
+                        -- warn  = 'yellow', -- Changes diagnostics' warn color.
+                        -- info  = 'blue',   -- Changes diagnostics' info color.
+                        -- hint  = 'green',  -- Changes diagnostics' hint color.
+                        error = 'DiagnosticError', -- Changes diagnostics' error color.
+                        warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+                        info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+                        hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
                     },
                     symbols = { error = 'Err ', warn = 'Warn ', info = 'Info ', hint = 'Hint ' },
-                    colored = false,          -- Displays diagnostics status in color if set to true.
+                    colored = true,           -- Displays diagnostics status in color if set to true.
                     update_in_insert = false, -- Update diagnostics in insert mode.
                     always_visible = true,    -- Show diagnostics even if there are none.
                 },
             },
+            lualine_x = {
+                {
+                    'selectioncount',
+                    icons_enabled = true,
+                    icon = "Selected: ",
+                    always_visible = true
+                },
+            },
             lualine_y = { 'progress' },
-            lualine_z = { 'location' }
+            lualine_z = { 'location',
+                {
+                    "require'possession.session'.session_name" or ''
+                }
+            }
         },
         inactive_sections = {
             lualine_a = {},
@@ -83,9 +94,9 @@ return {
             lualine_c = {
                 {
                     'filename',
-                    file_status = true,     -- Displays file status (readonly status, modified status)
+                    file_status = true,    -- Displays file status (readonly status, modified status)
                     newfile_status = true, -- Display new file status (new file means no write after created)
-                    path = 0,               -- 0: Just the filename
+                    path = 0,              -- 0: Just the filename
                     -- 1: Relative path
                     -- 2: Absolute path
                     -- 3: Absolute path, with tilde as the home directory
@@ -111,9 +122,9 @@ return {
             lualine_c = {
                 {
                     'filename',
-                    file_status = true, -- Displays file status (readonly status, modified status)
+                    file_status = true,    -- Displays file status (readonly status, modified status)
                     newfile_status = true, -- Display new file status (new file means no write after created)
-                    path = 0,           -- 0: Just the filename
+                    path = 0,              -- 0: Just the filename
                     -- 1: Relative path
                     -- 2: Absolute path
                     -- 3: Absolute path, with tilde as the home directory
@@ -122,10 +133,10 @@ return {
                     shorting_target = 40, -- Shortens path to leave 40 spaces in the window
                     -- for other components. (terrible name, any suggestions?)
                     symbols = {
-                        modified = '[+]',  -- Text to show when the file is modified.
-                        readonly = '[-]',  -- Text to show when the file is non-modifiable or readonly.
+                        modified = '[+]',      -- Text to show when the file is modified.
+                        readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
                         unnamed = '[No Name]', -- Text to show for unnamed buffers.
-                        newfile = '[New]', -- Text to show for newly created file before first write
+                        newfile = '[New]',     -- Text to show for newly created file before first write
                     }
                 }
             },
@@ -133,6 +144,6 @@ return {
             lualine_y = {},
             lualine_z = {}
         },
-        extensions = {}
+        extensions = { "nvim-dap-ui" }
     }
 }

@@ -1,24 +1,23 @@
 return {
     'willothy/nvim-cokeline',
     name = 'cokeline',
+    lazy = false,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = function()
         local is_picking_focus = require("cokeline/mappings").is_picking_focus
         local is_picking_close = require("cokeline/mappings").is_picking_close
         local get_hl_attr = require("cokeline.hlgroups").get_hl_attr
-
         local red = vim.g.terminal_color_1
-        local yellow = vim.g.terminal_color_4
+        local yellow = vim.g.terminal_color_3
         local space = { text = " " }
         local dark = get_hl_attr("Normal", "bg")
         local text = get_hl_attr("Comment", "fg")
-        local grey = get_hl_attr("ColorColumn", "bg")
+        local grey = get_hl_attr("Normal", "bg")
         local light = get_hl_attr("Comment", "fg")
-        local high = "#a6d120"
+        local high = vim.g.terminal_color_6
         return
         {
-            show_if_buffers_are_at_least = 1,
-
+            show_if_buffers_are_at_least = 0,
             buffers = {
                 filter_valid = function(buffer)
                     return true
@@ -58,6 +57,14 @@ return {
             -- function returning one.
             default_hl = {
                 fg = function(buffer)
+
+                    if buffer.diagnostics.errors > 0 then
+                        return get_hl_attr("LspDiagnosticsDefaultError", "fg")
+                    end
+
+                    if buffer.diagnostics.warnings > 0 then
+                        return get_hl_attr("LSPDiagnosticsDefaultWarning", "fg")
+                    end
                     if buffer.is_focused then
                         return dark
                     end
@@ -71,33 +78,45 @@ return {
                 end
             },
             components = {
-                space,
+                -- {
+                --     text = function(buffer)
+                --         -- if is_picking_focus() or is_picking_close() then
+                --         return buffer.pick_letter .. " "
+                --         -- end
+                --
+                --         -- return buffer.devicon.icon
+                --     end,
+                --     fg = function(buffer)
+                --         if is_picking_focus() then
+                --             return grey
+                --         end
+                --         if is_picking_close() then
+                --             return grey
+                --         end
+                --
+                --         if buffer.is_focused then
+                --             return grey
+                --         else
+                --             return grey
+                --         end
+                --     end,
+                --     style = function(_)
+                --         return (is_picking_focus() or is_picking_close()) and "italic,bold" or nil
+                --     end
+                -- },
                 {
                     text = function(buffer)
-                        -- if is_picking_focus() or is_picking_close() then
-                            return buffer.pick_letter .. " "
-                        -- end
-
-                        -- return buffer.devicon.icon
-                    end,
-                    fg = function(buffer)
-                        if is_picking_focus() then
-                            return grey
-                        end
-                        if is_picking_close() then
-                            return grey
-                        end
-
-                        if buffer.is_focused then
-                            return grey
+                        if buffer.is_modified then
+                            return "[+]"
                         else
-                            return grey
+                            return ""
                         end
                     end,
-                    style = function(_)
-                        return (is_picking_focus() or is_picking_close()) and "italic,bold" or nil
+                    style = function(buffer)
+                        return buffer.is_focused and "grey" or "grey"
                     end
                 },
+                space,
                 {
                     text = function(buffer)
                         return buffer.unique_prefix .. buffer.filename .. "⠀"
@@ -112,9 +131,11 @@ return {
                 filetype = 'neo-tree',
                 components = {
                     {
-                        text = '  NeoTree',
-                        fg = vim.g.terminal_color_3,
-                        bg = vim.g.terminal_color_4,
+                        text = function(buf)
+                            return buf.filetype
+                        end,
+                        fg = grey,
+                        bg = dark,
                         style = 'bold',
                     },
                 }

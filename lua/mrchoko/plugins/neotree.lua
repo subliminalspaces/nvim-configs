@@ -39,7 +39,7 @@ return {
                     },
 
                     -- whether to show 'Pick window:' prompt
-                    show_prompt = false,
+                    show_prompt = true,
                     -- prompt message to show to get the user input
                     prompt_message = 'Pick window: ',
 

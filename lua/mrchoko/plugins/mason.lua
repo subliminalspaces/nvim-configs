@@ -3,22 +3,17 @@ return {
     opts = {
         -- The directory in which to install packages.
         -- install_root_dir = path.concat { vim.fn.stdpath "data", "mason" },
-
         -- Where Mason should put its bin location in your PATH. Can be one of:
         -- - "prepend" (default, Mason's bin location is put first in PATH)
         -- - "append" (Mason's bin location is put at the end of PATH)
         -- - "skip" (doesn't modify PATH)
-        ---@type '"prepend"' | '"append"' | '"skip"'
         PATH = "prepend",
-
         -- Controls to which degree logs are written to the log file. It's useful to set this to vim.log.levels.DEBUG when
         -- debugging issues with package installations.
         log_level = vim.log.levels.INFO,
-
         -- Limit for the maximum amount of packages to be installed at the same time. Once this limit is reached, any further
         -- packages that are requested to be installed will be put in a queue.
         max_concurrent_installers = 4,
-
         -- [Advanced setting]
         -- The registries to source packages from. Accepts multiple entries. Should a package with the same name exist in
         -- multiple registries, the registry listed first will be used.
@@ -26,7 +21,6 @@ return {
             "lua:mason-registry.index",
             "github:mason-org/mason-registry",
         },
-
         -- The provider implementations to use for resolving supplementary package metadata (e.g., all available versions).
         -- Accepts multiple entries, where later entries will be used as fallback should prior providers fail.
         -- Builtin providers are:
@@ -36,7 +30,6 @@ return {
             "mason.providers.registry-api",
             "mason.providers.client",
         },
-
         github = {
             -- The template URL to use when downloading assets from GitHub.
             -- The placeholders are the following (in order):
@@ -45,7 +38,6 @@ return {
             -- 3. The asset name (e.g. "rust-analyzer-v0.3.0-x86_64-unknown-linux-gnu.tar.gz")
             download_url_template = "https://github.com/%s/releases/download/%s/%s",
         },
-
         pip = {
             -- Whether to upgrade pip to the latest version in the virtual environment before installing packages.
             upgrade_pip = false,
@@ -62,17 +54,15 @@ return {
             check_outdated_packages_on_open = true,
 
             -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-            border = "none",
-
+            border = "double",
             -- Width of the window. Accepts:
             -- - Integer greater than 1 for fixed width.
             -- - Float in the range of 0-1 for a percentage of screen width.
-            width = 0.8,
-
+            width = 0.65,
             -- Height of the window. Accepts:
             -- - Integer greater than 1 for fixed height.
             -- - Float in the range of 0-1 for a percentage of screen height.
-            height = 0.9,
+            height = 0.7,
 
             icons = {
                 -- The list icon to use for installed packages.

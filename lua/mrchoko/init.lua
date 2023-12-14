@@ -110,7 +110,7 @@ vim.opt.mouse = "a"                        -- allow the mouse to be used in neov
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
-vim.opt.timeoutlen = 900                   -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 700                   -- time to wait for a mapped sequence to complete (in milliseconds)
 
 --UI Configs
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
@@ -140,7 +140,6 @@ require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
 require("mrchoko.theme")
-require("mrchoko.prompts")
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding

@@ -4,7 +4,7 @@ return {
     enabled = true,
     init = function()
         vim.o.timeout = true
-        vim.o.timeoutlen = 140
+        vim.o.timeoutlen = 0
     end,
     opts = {
         plugins = {
@@ -68,20 +68,21 @@ return {
         hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "^:", "^ ", "^call ", "^lua " }, -- hide mapping boilerplate
         show_help = true,                                                                 -- show a help message in the command line for using WhichKey
         show_keys = true,                                                                 -- show the currently pressed key and its label as a message in the command line
-        -- triggers = "auto",                                                                -- automatically setup triggers
-        triggers = {"<leader>"}, -- or specifiy a list manually
+        triggers = "auto",                                                                -- automatically setup triggers
+        -- triggers = {"<leader>"}, -- or specifiy a list manually
         -- list of triggers, where WhichKey should not wait for timeoutlen and show immediately
         triggers_nowait = {
+            -- "<leader>"
             -- marks
-            -- "`",
-            -- "'",
-            -- "g`",
-            -- "g'",
+            "`",
+            "'",
+            "g`",
+            "g'",
             -- -- registers
-            -- '"',
-            -- "<c-r>",
+            '"',
+            "<c-r>",
             -- -- spelling
-            -- "z=",
+            "z=",
         },
         triggers_blacklist = {
             -- list of mode / prefixes that should never be hooked by WhichKey
