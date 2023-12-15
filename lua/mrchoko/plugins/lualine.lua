@@ -47,17 +47,17 @@ return {
                     sources = { 'nvim_diagnostic', 'nvim_lsp' },
                     -- Displays diagnostics for the defined severity types
                     sections = { 'error', 'warn', 'info', 'hint' },
-                    diagnostics_color = {
-                        -- Same values as the general color option can be used here.
-                        -- error = 'red',    -- Changes diagnostics' error color.
-                        -- warn  = 'yellow', -- Changes diagnostics' warn color.
-                        -- info  = 'blue',   -- Changes diagnostics' info color.
-                        -- hint  = 'green',  -- Changes diagnostics' hint color.
-                        error = 'DiagnosticError', -- Changes diagnostics' error color.
-                        warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-                        info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-                        hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-                    },
+                    -- diagnostics_color = {
+                    --     -- Same values as the general color option can be used here.
+                    --     -- error = 'red',    -- Changes diagnostics' error color.
+                    --     -- warn  = 'yellow', -- Changes diagnostics' warn color.
+                    --     -- info  = 'blue',   -- Changes diagnostics' info color.
+                    --     -- hint  = 'green',  -- Changes diagnostics' hint color.
+                    --     error = 'DiagnosticError', -- Changes diagnostics' error color.
+                    --     warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+                    --     info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+                    --     hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+                    -- },
                     symbols = { error = 'Err ', warn = 'Warn ', info = 'Info ', hint = 'Hint ' },
                     colored = true,           -- Displays diagnostics status in color if set to true.
                     update_in_insert = false, -- Update diagnostics in insert mode.

@@ -16,7 +16,7 @@ return {
         throttle_ms = 100,
         handle = {
             text = " ",
-            blend = 50,                  -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
+            blend = 20,                  -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
             color = nil,
             color_nr = nil,              -- cterm
             highlight = "CursorColumn",
@@ -33,7 +33,7 @@ return {
                 highlight = "Normal",
             },
             Search = {
-                text = { "-", "=" },
+                text = { "--", "=" },
                 priority = 1,
                 gui = nil,
                 color = nil,
@@ -42,7 +42,7 @@ return {
                 highlight = "Search",
             },
             Error = {
-                text = { "-", "=" },
+                text = { "--", "=" },
                 priority = 2,
                 gui = nil,
                 color = nil,
@@ -51,7 +51,7 @@ return {
                 highlight = "DiagnosticVirtualTextError",
             },
             Warn = {
-                text = { "-", "=" },
+                text = { "--", "=" },
                 priority = 3,
                 gui = nil,
                 color = nil,
@@ -60,7 +60,7 @@ return {
                 highlight = "DiagnosticVirtualTextWarn",
             },
             Info = {
-                text = { "-", "=" },
+                text = { "--", "==" },
                 priority = 4,
                 gui = nil,
                 color = nil,
@@ -69,7 +69,7 @@ return {
                 highlight = "DiagnosticVirtualTextInfo",
             },
             Hint = {
-                text = { "-", "=" },
+                text = { "--", "==" },
                 priority = 5,
                 gui = nil,
                 color = nil,
@@ -78,7 +78,7 @@ return {
                 highlight = "DiagnosticVirtualTextHint",
             },
             Misc = {
-                text = { "-", "=" },
+                text = { "--", "==" },
                 priority = 6,
                 gui = nil,
                 color = nil,
@@ -87,7 +87,7 @@ return {
                 highlight = "Normal",
             },
             GitAdd = {
-                text = "┆",
+                text = "┆┆",
                 priority = 7,
                 gui = nil,
                 color = nil,
@@ -96,7 +96,7 @@ return {
                 highlight = "GitSignsAdd",
             },
             GitChange = {
-                text = "┆",
+                text = "┆┆",
                 priority = 7,
                 gui = nil,
                 color = nil,
@@ -105,7 +105,7 @@ return {
                 highlight = "GitSignsChange",
             },
             GitDelete = {
-                text = "▁",
+                text = "▁_",
                 priority = 7,
                 gui = nil,
                 color = nil,
