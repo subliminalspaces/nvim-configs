@@ -47,7 +47,7 @@ vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", 
 vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
 vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
-vim.keymap.set({ "n" }, "<leader>gg", ":LazyGit<CR>")
+vim.keymap.set({ "n" }, "<leader>gg", ":DiffviewOpen<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
 vim.keymap.set({ 'n' }, '<leader>gi', require 'dapui'.toggle)
 wk.register({
@@ -58,7 +58,7 @@ wk.register({
         t = { "Toggle Trouble" },
         l = { "HlLens Toggle" },
         c = { "Colorizer Toggle" },
-        g = { "LazyGit" },
+        g = { "DiffviewOpen" },
         f = { "NNN" },
         i = { "DAPUI toggle" },
         a = { "LLM" }
