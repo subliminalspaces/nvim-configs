@@ -237,12 +237,12 @@ null_ls.setup({
         null_ls.builtins.formatting.yamlfix,
         null_ls.builtins.diagnostics.zsh,
         -- null_ls.builtins.formatting.prettier_eslint
-        null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.prettier,
         -- null_ls.builtins.formatting.prettier_d,
-        null_ls.builtins.formatting.sql_formatter,
-        null_ls.builtins.diagnostics.stylelint,
-        null_ls.builtins.formatting.stylelint,
-        null_ls.builtins.diagnostics.write_good,
+        -- null_ls.builtins.formatting.sql_formatter,
+        -- null_ls.builtins.diagnostics.stylelint,
+        -- null_ls.builtins.formatting.stylelint,
+        -- null_ls.builtins.diagnostics.write_good,
         -- null_ls.builtins.hover.dictionary
         -- null_ls.builtins.code_actions.gitsigns
         -- null_ls.builtins.diagnostics.eslint_d,
