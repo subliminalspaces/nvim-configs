@@ -71,12 +71,12 @@ lsp_zero.on_attach(function(client, bufnr)
 
     local wk = require("which-key")
     local wkopts = {
-        mode = "n", -- NORMAL mode
-        buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-        silent = true, -- use `silent` when creating keymaps
+        mode = "n",     -- NORMAL mode
+        buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+        silent = true,  -- use `silent` when creating keymaps
         noremap = true, -- use `noremap` when creating keymaps
         nowait = false, -- use `nowait` when creating keymaps
-        expr = false, -- use `expr` when creating keymaps
+        expr = false,   -- use `expr` when creating keymaps
     }
     wkopts.prefix = "<leader>"
     wk.register({
@@ -221,4 +221,34 @@ cmp.setup.cmdline(':', {
 })
 
 vim.g.lsp_zero_ui_float_border = 'double'
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities =
+require('cmp_nvim_lsp').default_capabilities()
+
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        -- null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.eslint,
+        -- null_ls.builtins.formatting.eslint_d,
+        null_ls.builtins.diagnostics.yamllint,
+        null_ls.builtins.formatting.yamlfix,
+        null_ls.builtins.diagnostics.zsh,
+        -- null_ls.builtins.formatting.prettier_eslint
+        null_ls.builtins.formatting.prettier,
+        -- null_ls.builtins.formatting.prettier_d,
+        null_ls.builtins.formatting.sql_formatter,
+        null_ls.builtins.diagnostics.stylelint,
+        null_ls.builtins.formatting.stylelint,
+        null_ls.builtins.diagnostics.write_good,
+        -- null_ls.builtins.hover.dictionary
+        -- null_ls.builtins.code_actions.gitsigns
+        -- null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.diagnostics.commitlint
+        --null_ls.builtins.diagnostics.shellcheck
+        -- null_ls.builtins.code_actions.eslint_d
+        -- null_ls.builtins.completion.spell,
+    },
+})

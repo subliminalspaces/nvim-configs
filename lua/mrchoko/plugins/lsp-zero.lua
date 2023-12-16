@@ -26,6 +26,8 @@ return {
         -- Language support
         { "simrat39/rust-tools.nvim" },
         { "tikhomirov/vim-glsl" },
+        -- Formatters
+        "nvimtools/none-ls.nvim",
         -- DAP support
         "mfussenegger/nvim-dap",
         "rcarriga/nvim-dap-ui",
