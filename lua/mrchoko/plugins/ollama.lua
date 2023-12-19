@@ -24,7 +24,6 @@ return {
         },
     },
 
-    ---@type Ollama.Config
     opts = {
         model = "codellama",
         url = "http://10.10.10.3:11434",
@@ -45,14 +44,17 @@ return {
             },
             Generate_Commit_Message = {
                 prompt = 'Write a short commit message according to the Conventional Commits specification for the following git diff: \n$buf',
-                action = function()
+                action = {
+                   fn = function()
                     vim.cmd(":vnew")
-                    vim.cmd(":%!git diff")
+                    vim.cmd(":%!git diff --staged")
                     return function(body, job)
                         vim.cmd(":1,$d") -- wipe buffer
-                        vim.builtin.append(vim.builtin.line("."), tostring(body))
+                        -- vim.builtin.append(vim.builtin.line("."), tostring(body))
+                        vim.cmd(":")
                     end
                 end
+            }
 
             }
             -- Simplify_Code = {} --remove default prompt

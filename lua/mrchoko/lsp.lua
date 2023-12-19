@@ -55,20 +55,33 @@ lsp_zero.on_attach(function(client, bufnr)
         function()
             vim.lsp.buf.format { async = true }
         end
-    )
+    ) 
     bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    bind('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    bind('n', '<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    bind('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-    bind('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    bind('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     bind('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     bind('n', '<leader>le', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    bind('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    bind('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-    bind('n', '<leader>lw', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-    bind('n', '<leader>lp', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+    -- bind('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    -- bind('n', '<leader>ll', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    -- bind('n', '<leader>lw', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    -- bind('n', '<leader>lp', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 
+    -- bind('n', '<leader>ld', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
+    --
+    bind('n', '<leader>ld', "<cmd>Glance definitions<CR>", opts)
+    bind('n', '<leader>lD', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+
+    -- bind('n', '<leader>lc', "<cmd>lua require('goto-preview').goto_preview_declaration()<CR>", opts)
+    -- bind('n', '<leader>lc', "<cmd>Glance declaration<CR>", opts)
+    -- bind('n', '<leader>lC', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    -- bind('n', '<leader>li', "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", opts)
+    --
+    bind('n', '<leader>li', "<cmd>Glance implementations<CR>", opts)
+    bind('n', '<leader>lI', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    -- bind('n', '<leader>lt', "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", opts)
+    bind('n', '<leader>lt', "<cmd>Glance type_definitions<CR>", opts)
+    bind('n', '<leader>lT', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    -- bind('n', '<leader>lr', "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opts)
+    bind('n', '<leader>lr', "<cmd>Glance references<CR>", opts)
+    bind('n', '<leader>lR', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     local wk = require("which-key")
     local wkopts = {
         mode = "n",     -- NORMAL mode
@@ -84,8 +97,8 @@ lsp_zero.on_attach(function(client, bufnr)
             name = "LSP",
             f = { "Format." },
             h = { "Show hover information." },
-            d = { "Jump to definition. " },
-            D = { "Jump to declaration. " },
+            d = { "Preview definition. " },
+            D = { "Jump to definition. " },
             i = { "Jump to implementation." },
             t = { "Jump to type definition." },
             r = { "Show all references." },
@@ -113,7 +126,7 @@ require('mason-lspconfig').setup({
         'pyright',
         'sqlls',
         'tflint',
-        'tailwindcss',
+        -- 'tailwindcss',
         'yamlls',
         'prismals',
         'cssls',
