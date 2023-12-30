@@ -25,7 +25,7 @@ return {
     },
 
     opts = {
-        model = "codellama",
+        model = "codellama:7b",
         url = "http://10.10.10.3:11434",
         serve = {
             on_start = false,
@@ -51,7 +51,7 @@ return {
                     return function(body, job)
                         vim.cmd(":1,$d") -- wipe buffer
                         -- vim.builtin.append(vim.builtin.line("."), tostring(body))
-                        vim.cmd(":")
+                        vim.cmd("")
                     end
                 end
             }

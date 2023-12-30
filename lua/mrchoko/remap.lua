@@ -206,3 +206,9 @@ wk.register({
         a = { "Review Code" },
     },
 }, wkopts)
+
+local ollama = require("mrchoko.llm")
+
+vim.keymap.set("n", "<leader>;", function ()
+   ollama.run("wizard-math:latest","","Tell me a random fun fact about the Roman Empire\n")
+end)

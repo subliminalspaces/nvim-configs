@@ -55,7 +55,7 @@ lsp_zero.on_attach(function(client, bufnr)
         function()
             vim.lsp.buf.format { async = true }
         end
-    ) 
+    )
     bind('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     bind('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     bind('n', '<leader>le', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
@@ -208,7 +208,10 @@ cmp.setup({
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'nvim_lua' },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'luasnip',                option = { show_autosnippets = true, use_show_condition = false } },
+        {
+            name = 'luasnip',
+            option = { show_autosnippets = true, use_show_condition = false }
+        },
         { name = 'luasnip_choice' },
         { name = 'friendly-snippets' },
         { name = 'rg' },

@@ -140,6 +140,7 @@ require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
 require("mrchoko.theme")
+-- require("mrchoko.llm")
 --vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
