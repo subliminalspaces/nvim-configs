@@ -30,7 +30,8 @@ M.run = function(
     local resjson = vim.json.decode(response.body)
     -- local responsebody = vim.split(response.body, " ")
     -- vim.uv.fs_write(filename)
-    vim.fn.append(vim.fn.line('$'),  resjson["response"] )
+    local responseblocks = vim.split(resjson["response"], "\n") 
+    vim.fn.append(vim.fn.line('$'),  responseblocks )
 
     -- local line = vim.tbl_count(header) + 1
     -- local words = {}
