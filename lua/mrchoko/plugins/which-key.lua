@@ -3,8 +3,8 @@ return {
     event = "VeryLazy",
     enabled = true,
     init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 0
+        -- vim.o.timeout = true
+        -- vim.o.timeoutlen = 0
     end,
     opts = {
         plugins = {
@@ -72,14 +72,16 @@ return {
         -- triggers = {"<leader>"}, -- or specifiy a list manually
         -- list of triggers, where WhichKey should not wait for timeoutlen and show immediately
         triggers_nowait = {
-            -- "<leader>"
+            "<leader>",
             -- marks
             "`",
             "'",
             "g`",
             "g'",
             -- -- registers
-            '"',
+            '"', 
+            '+',
+            '*',
             "<c-r>",
             -- -- spelling
             "z=",

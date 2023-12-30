@@ -36,9 +36,9 @@ wk.register({
         s = { "Smart Splits", },
         t = { "Telescope" },
         m = { "Possession" },
-        a = { "Gen" },
+        a = { "DAP" },
         l = { "LSP" },
-        b = { "DAP" },
+        -- b = { "DAP" },
         f = { "Conform" }
     },
 }, wkopts)
@@ -49,7 +49,7 @@ vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gg", ":DiffviewOpen<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
-vim.keymap.set({ 'n' }, '<leader>gi', require 'dapui'.toggle)
+vim.keymap.set({ 'n' }, '<leader>ga', require 'dapui'.toggle)
 wk.register({
     g = {
         name = "Global",
@@ -60,8 +60,8 @@ wk.register({
         c = { "Colorizer Toggle" },
         g = { "DiffviewOpen" },
         f = { "NNN" },
-        i = { "DAPUI toggle" },
-        a = { "LLM" }
+        a = { "DAPUI toggle" },
+        -- x = { "LLM" }
     },
 }, wkopts)
 -- Movement bindings
@@ -197,18 +197,29 @@ wk.register({
         c = { "Close" },
     },
 }, wkopts)
-vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')
 
-vim.keymap.set({ 'n', 'v' }, '<leader>ac', ':Gen Commit_Message<CR>')
 wk.register({
     a = {
-        name = "Gen",
-        a = { "Review Code" },
+        name = "DAP",
+        p = { "DAP Continue" },
+        b = { "DAP Step Over", },
+        g = { "DAP Step Into" },
+        w = { "DAP Step Out" },
+        r = { "DAP Toggle Breakpoint" },
     },
 }, wkopts)
+-- vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')
+--
+-- vim.keymap.set({ 'n', 'v' }, '<leader>ac', ':Gen Commit_Message<CR>')
+-- wk.register({
+--     a = {
+--         name = "Gen",
+--         a = { "Review Code" },
+--     },
+-- }, wkopts)
 
 local ollama = require("mrchoko.llm")
 
-vim.keymap.set("n", "<leader>;", function ()
-   ollama.run("wizard-math:latest","","Tell me a random fun fact about the Roman Empire\n")
+vim.keymap.set("n", "<leader>x", function ()
+  ollama.run("wizard-math:latest","","Tell me a random fun fact about the Roman Empire\n")
 end)

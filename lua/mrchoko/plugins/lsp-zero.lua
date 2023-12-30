@@ -32,5 +32,6 @@ return {
         "mfussenegger/nvim-dap",
         "rcarriga/nvim-dap-ui",
         "mxsdev/nvim-dap-vscode-js",
+        "mfussenegger/nvim-dap-python",
     }
 }
