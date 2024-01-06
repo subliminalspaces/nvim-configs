@@ -218,8 +218,8 @@ wk.register({
 --     },
 -- }, wkopts)
 
-local ollama = require("mrchoko.llm")
-
-vim.keymap.set("n", "<leader>x", function ()
-  ollama.run("wizard-math:latest","","Tell me a random fun fact about the Roman Empire\n")
-end)
+-- local ollama = require("mrchoko.llm")
+--
+-- vim.keymap.set("n", "<leader>x", function ()
+--   ollama.run("wizard-math:latest","","Tell me a random fun fact about the Roman Empire\n")
+-- end)
