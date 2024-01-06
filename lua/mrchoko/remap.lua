@@ -208,6 +208,17 @@ wk.register({
         r = { "DAP Toggle Breakpoint" },
     },
 }, wkopts)
+
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+wk.register({
+    z = {
+        name = "UFO",
+        R = { "Open all folds" },
+        M = { "Close all folds", },
+    },
+}, wkopts)
 -- vim.keymap.set({ 'n', 'v' }, '<leader>aa', ':Gen Review_Code<CR>')
 --
 -- vim.keymap.set({ 'n', 'v' }, '<leader>ac', ':Gen Commit_Message<CR>')

@@ -138,6 +138,12 @@ vim.opt.listchars:append "eol:↴"
 vim.g.border = "rounded"
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
+
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
