@@ -92,7 +92,7 @@ if vim.fn.finddir(undodir) == "" then
 end
 
 --Cursor
-vim.o.autoindent = true
+-- vim.o.autoindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.breakindent = true
@@ -111,7 +111,6 @@ vim.opt.hidden = true                      -- required to keep multiple buffers 
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 vim.opt.timeoutlen = 700                   -- time to wait for a mapped sequence to complete (in milliseconds)
-
 --UI Configs
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 2  -- always show tabs
@@ -132,6 +131,9 @@ vim.opt.cmdheight = 2
 vim.opt.numberwidth = 4
 vim.opt.expandtab = true
 vim.o.autoread = true
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+--vim.opt.listchars:append "space"
 --Other Stuff
 vim.g.border = "rounded"
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
@@ -140,8 +142,8 @@ require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
 require("mrchoko.theme")
+
 -- require("mrchoko.llm")
---vim.opt.colorcolumn = "99999" -- fixes indentline for now
 --vim.opt.completeopt = { "menuone", "noselect" }
 --vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
 --vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding

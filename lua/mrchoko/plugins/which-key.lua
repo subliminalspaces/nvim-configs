@@ -3,8 +3,8 @@ return {
     event = "VeryLazy",
     enabled = true,
     init = function()
-        -- vim.o.timeout = true
-        -- vim.o.timeoutlen = 0
+        vim.o.timeout = true
+        vim.o.timeoutlen = 0
     end,
     opts = {
         plugins = {
