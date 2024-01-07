@@ -1,6 +1,6 @@
 return {
     "Saecki/crates.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { { 'nvim-lua/plenary.nvim' } },
     opts = {
         smart_insert = true,

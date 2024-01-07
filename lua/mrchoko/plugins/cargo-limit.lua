@@ -1,6 +1,6 @@
 return
 {
     'alopatindev/cargo-limit',
-    enabled = true,
+    enabled = false,
     build = 'cargo install cargo-limit nvim-send'
 }

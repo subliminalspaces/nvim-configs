@@ -54,17 +54,18 @@ return {
                     ['l'] = actions.open_fold,
                     ['h'] = actions.close_fold,
                     ['<leader>l'] = actions.enter_win('preview'), -- Focus preview window
-                    ['q'] = actions.close,
-                    ['Q'] = actions.close,
+                    -- ['q'] = actions.close,
+                    -- ['Q'] = actions.close,
                     ['<Esc>'] = actions.close,
                     ['<C-q>'] = actions.quickfix,
                     -- ['<Esc>'] = false -- disable a mapping
                 },
                 preview = {
-                    ['Q'] = actions.close,
+                    -- ['Q'] = actions.close,
                     ['<Tab>'] = actions.next_location,
                     ['<S-Tab>'] = actions.previous_location,
                     ['<leader>l'] = actions.enter_win('list'), -- Focus list window
+                    ['<Esc>'] = actions.close,
                 },
             },
             hooks = {},

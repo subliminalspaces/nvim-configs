@@ -32,8 +32,6 @@ vim.g.loaded_perl_provider = 0
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
--- disable netrw at the very start of your init.lua (strongly advised)
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -64,6 +62,12 @@ autocmd({ 'VimEnter' }, {
     command = 'TSUpdate'
 })
 
+augroup('FormatOptionsOnEnter', { clear = true })
+autocmd({ 'FileType' }, {
+    group = 'FormatOptionsOnEnter',
+    pattern = '*',
+    command = "lua vim.opt.formatoptions:remove({'c','r','o'})"
+})
 augroup('ResetCursor', { clear = true })
 autocmd({ 'VimLeave', 'VimSuspend' },
     {
@@ -105,16 +109,16 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.o.fillchars = 'eob: '
 --Window settings
-vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.o.guifont = "monospace:h17"            -- the font used in graphical neovim applications
 vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
 vim.opt.title = true                       -- set the title of window to the value of the titlestring
 vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 vim.opt.timeoutlen = 700                   -- time to wait for a mapped sequence to complete (in milliseconds)
 --UI Configs
-vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2  -- always show tabs
-vim.opt.pumheight = 10   -- pop up menu height
+vim.opt.showmode = false                   -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2                    -- always show tabs
+vim.opt.pumheight = 10                     -- pop up menu height
 -- vim.opt.scrolloff = 8     -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.updatetime = 300  -- faster completion
@@ -123,7 +127,7 @@ vim.opt.splitright = true -- force all vertical splits to go to the right of cur
 vim.opt.wrap = true       -- display lines as one long line
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.o.number = true -- set absolute numbered lines
+vim.o.number = true           -- set absolute numbered lines
 vim.o.relativenumber = true
 vim.opt.signcolumn = "number" -- always show the sign column otherwise it would shift the text each time
 vim.opt.conceallevel = 0      -- so that `` is visible in markdown files
@@ -133,24 +137,18 @@ vim.opt.expandtab = true
 vim.o.autoread = true
 vim.opt.list = true
 vim.opt.listchars:append "eol:↴"
---vim.opt.listchars:append "space"
 --Other Stuff
 vim.g.border = "rounded"
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.hlsearch = true   -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
 
-vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = '1'    -- '0' is not bad
+vim.o.foldlevel = 99      -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-
+-- vim.opt.formatoptions:remove('r')
 require("mrchoko.lsp")
 require("mrchoko.dap")
 require("mrchoko.remap")
 require("mrchoko.theme")
-
 -- require("mrchoko.llm")
---vim.opt.completeopt = { "menuone", "noselect" }
---vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
---vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
---vim.opt.smartcase = true -- smart case
