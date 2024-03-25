@@ -26,10 +26,11 @@ return {
         -- Language support
         { "tikhomirov/vim-glsl" },
         -- Formatters
-        "nvimtools/none-ls.nvim",
+        -- "nvimtools/none-ls.nvim",
         -- DAP support
         "mfussenegger/nvim-dap",
         "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
         "mxsdev/nvim-dap-vscode-js",
         "mfussenegger/nvim-dap-python",
     }

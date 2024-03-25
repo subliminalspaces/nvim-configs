@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- `addArray` sums all values of the array
-if not vim.uv.fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -75,6 +75,9 @@ autocmd({ 'VimLeave', 'VimSuspend' },
         pattern = '*',
         command = "set guicursor=a:ver25-blinkon750-blinkoff750"
     })
+vim.filetype.add({
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
 --Clipboard, backups, swaps, and undos
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backup = true      -- creates a backup file
