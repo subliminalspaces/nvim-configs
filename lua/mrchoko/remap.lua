@@ -42,10 +42,10 @@ wk.register({
         f = { "Conform" }
     },
 }, wkopts)
-vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
-vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
-vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
-vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
+-- vim.keymap.set({ "n" }, "<leader>gu", vim.cmd.UndotreeToggle)
+-- vim.keymap.set({ "n" }, "<leader>gn", ":Neotree toggle=true position=left<CR>", opts)
+-- vim.keymap.set({ "n" }, "<leader>gt", ":TroubleToggle<CR>", opts)
+-- vim.keymap.set({ "n" }, "<leader>gl", ":HlSearchLensToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gc", ":ColorizerToggle<CR>")
 vim.keymap.set({ "n" }, "<leader>gg", ":DiffviewOpen<CR>")
 vim.keymap.set({ "n" }, "<leader>gf", ":NnnPicker<CR>")
@@ -53,10 +53,10 @@ vim.keymap.set({ 'n' }, '<leader>ga', require 'dapui'.toggle)
 wk.register({
     g = {
         name = "Global",
-        u = { "Undo Tree Toggle" },
-        n = { "NeoTree Toggle", },
-        t = { "Toggle Trouble" },
-        l = { "HlLens Toggle" },
+        u = { vim.cmd.UndotreeToggle,"Undo Tree Toggle" },
+        n = { ":Neotree toggle=true position=left<CR>","NeoTree Toggle", },
+        t = { ":TroubleToggle<CR>","Toggle Trouble" },
+        l = { ":HlSearchLensToggle<CR>","HlLens Toggle" },
         c = { "Colorizer Toggle" },
         g = { "DiffviewOpen" },
         f = { "NNN" },
@@ -75,11 +75,9 @@ vim.keymap.set('n', '<C-S-e>', require('smart-splits').swap_buf_down)
 vim.keymap.set('n', '<C-S-u>', require('smart-splits').swap_buf_up)
 vim.keymap.set('n', '<C-S-i>', require('smart-splits').swap_buf_right)
 
-
 -- Neoscroll
 vim.keymap.set({ 'n', 'v' }, '<C-l>', ":lua require('neoscroll').scroll(-32,true,200,sine)<CR>", opts)
 vim.keymap.set({ 'n', 'v' }, '<C-y>', ":lua require('neoscroll').scroll(32,true,200,sine)<CR>", opts)
-
 
 -- Cokeline
 vim.keymap.set('n', '<C-r>', '<Plug>(cokeline-focus-prev)')
@@ -209,8 +207,8 @@ wk.register({
     },
 }, wkopts)
 
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+-- vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+-- vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 wk.register({
     z = {

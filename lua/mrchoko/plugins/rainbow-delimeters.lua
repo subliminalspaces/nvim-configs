@@ -9,7 +9,7 @@ return {
             },
             query = {
                 [''] = 'rainbow-delimiters',
-                lua = 'rainbow-blocks',
+                -- lua = 'rainbow-blocks',
                 -- javascript = 'rainbow-delimiters-react',
                 -- tsx = 'rainbow-parens'
             },

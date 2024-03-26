@@ -1,5 +1,9 @@
 vim.opt.ignorecase = true -- ignore case in search patterns
 
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+
 local lsp_zero = require("lsp-zero")
 
 lsp_zero.set_sign_icons({
@@ -104,7 +108,7 @@ require("mason-lspconfig").setup({
         -- "eslint",
         "html",
         "graphql",
-        -- "jsonls",
+        "jsonls",
         'lua_ls',
         -- "pyright",
         -- "sqlls",
@@ -117,6 +121,7 @@ require("mason-lspconfig").setup({
         -- "rust_analyzer",
         "marksman",
     },
+    automatic_installation = true,
     handlers = {
         lsp_zero.default_setup,
     },
